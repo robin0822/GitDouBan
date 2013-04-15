@@ -1,0 +1,298 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0F94E6D2171C08C0007985B5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F94E6D1171C08C0007985B5 /* UIKit.framework */; };
+		0F94E6D4171C08C0007985B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F94E6D3171C08C0007985B5 /* Foundation.framework */; };
+		0F94E6D6171C08C0007985B5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F94E6D5171C08C0007985B5 /* CoreGraphics.framework */; };
+		0F94E6DC171C08C0007985B5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0F94E6DA171C08C0007985B5 /* InfoPlist.strings */; };
+		0F94E6DE171C08C0007985B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F94E6DD171C08C0007985B5 /* main.m */; };
+		0F94E6E2171C08C0007985B5 /* QyhAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F94E6E1171C08C0007985B5 /* QyhAppDelegate.m */; };
+		0F94E6E4171C08C0007985B5 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F94E6E3171C08C0007985B5 /* Default.png */; };
+		0F94E6E6171C08C0007985B5 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F94E6E5171C08C0007985B5 /* Default@2x.png */; };
+		0F94E6E8171C08C0007985B5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F94E6E7171C08C0007985B5 /* Default-568h@2x.png */; };
+		0F94E6EB171C08C0007985B5 /* QyhViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F94E6EA171C08C0007985B5 /* QyhViewController.m */; };
+		0F94E6EE171C08C0007985B5 /* QyhViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F94E6EC171C08C0007985B5 /* QyhViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0F94E6CD171C08C0007985B5 /* GitDouBan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitDouBan.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0F94E6D1171C08C0007985B5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		0F94E6D3171C08C0007985B5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		0F94E6D5171C08C0007985B5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		0F94E6D9171C08C0007985B5 /* GitDouBan-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GitDouBan-Info.plist"; sourceTree = "<group>"; };
+		0F94E6DB171C08C0007985B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0F94E6DD171C08C0007985B5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0F94E6DF171C08C0007985B5 /* GitDouBan-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GitDouBan-Prefix.pch"; sourceTree = "<group>"; };
+		0F94E6E0171C08C0007985B5 /* QyhAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QyhAppDelegate.h; sourceTree = "<group>"; };
+		0F94E6E1171C08C0007985B5 /* QyhAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QyhAppDelegate.m; sourceTree = "<group>"; };
+		0F94E6E3171C08C0007985B5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		0F94E6E5171C08C0007985B5 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		0F94E6E7171C08C0007985B5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		0F94E6E9171C08C0007985B5 /* QyhViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QyhViewController.h; sourceTree = "<group>"; };
+		0F94E6EA171C08C0007985B5 /* QyhViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QyhViewController.m; sourceTree = "<group>"; };
+		0F94E6ED171C08C0007985B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/QyhViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0F94E6CA171C08C0007985B5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0F94E6D2171C08C0007985B5 /* UIKit.framework in Frameworks */,
+				0F94E6D4171C08C0007985B5 /* Foundation.framework in Frameworks */,
+				0F94E6D6171C08C0007985B5 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0F94E6C2171C08C0007985B5 = {
+			isa = PBXGroup;
+			children = (
+				0F94E6D7171C08C0007985B5 /* GitDouBan */,
+				0F94E6D0171C08C0007985B5 /* Frameworks */,
+				0F94E6CE171C08C0007985B5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0F94E6CE171C08C0007985B5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0F94E6CD171C08C0007985B5 /* GitDouBan.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0F94E6D0171C08C0007985B5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0F94E6D1171C08C0007985B5 /* UIKit.framework */,
+				0F94E6D3171C08C0007985B5 /* Foundation.framework */,
+				0F94E6D5171C08C0007985B5 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0F94E6D7171C08C0007985B5 /* GitDouBan */ = {
+			isa = PBXGroup;
+			children = (
+				0F94E6E0171C08C0007985B5 /* QyhAppDelegate.h */,
+				0F94E6E1171C08C0007985B5 /* QyhAppDelegate.m */,
+				0F94E6E9171C08C0007985B5 /* QyhViewController.h */,
+				0F94E6EA171C08C0007985B5 /* QyhViewController.m */,
+				0F94E6EC171C08C0007985B5 /* QyhViewController.xib */,
+				0F94E6D8171C08C0007985B5 /* Supporting Files */,
+			);
+			path = GitDouBan;
+			sourceTree = "<group>";
+		};
+		0F94E6D8171C08C0007985B5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0F94E6D9171C08C0007985B5 /* GitDouBan-Info.plist */,
+				0F94E6DA171C08C0007985B5 /* InfoPlist.strings */,
+				0F94E6DD171C08C0007985B5 /* main.m */,
+				0F94E6DF171C08C0007985B5 /* GitDouBan-Prefix.pch */,
+				0F94E6E3171C08C0007985B5 /* Default.png */,
+				0F94E6E5171C08C0007985B5 /* Default@2x.png */,
+				0F94E6E7171C08C0007985B5 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0F94E6CC171C08C0007985B5 /* GitDouBan */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0F94E6F1171C08C0007985B5 /* Build configuration list for PBXNativeTarget "GitDouBan" */;
+			buildPhases = (
+				0F94E6C9171C08C0007985B5 /* Sources */,
+				0F94E6CA171C08C0007985B5 /* Frameworks */,
+				0F94E6CB171C08C0007985B5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GitDouBan;
+			productName = GitDouBan;
+			productReference = 0F94E6CD171C08C0007985B5 /* GitDouBan.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0F94E6C4171C08C0007985B5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = Qyh;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = quyanhui;
+			};
+			buildConfigurationList = 0F94E6C7171C08C0007985B5 /* Build configuration list for PBXProject "GitDouBan" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 0F94E6C2171C08C0007985B5;
+			productRefGroup = 0F94E6CE171C08C0007985B5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0F94E6CC171C08C0007985B5 /* GitDouBan */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0F94E6CB171C08C0007985B5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0F94E6DC171C08C0007985B5 /* InfoPlist.strings in Resources */,
+				0F94E6E4171C08C0007985B5 /* Default.png in Resources */,
+				0F94E6E6171C08C0007985B5 /* Default@2x.png in Resources */,
+				0F94E6E8171C08C0007985B5 /* Default-568h@2x.png in Resources */,
+				0F94E6EE171C08C0007985B5 /* QyhViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0F94E6C9171C08C0007985B5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0F94E6DE171C08C0007985B5 /* main.m in Sources */,
+				0F94E6E2171C08C0007985B5 /* QyhAppDelegate.m in Sources */,
+				0F94E6EB171C08C0007985B5 /* QyhViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		0F94E6DA171C08C0007985B5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0F94E6DB171C08C0007985B5 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		0F94E6EC171C08C0007985B5 /* QyhViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0F94E6ED171C08C0007985B5 /* en */,
+			);
+			name = QyhViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0F94E6EF171C08C0007985B5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		0F94E6F0171C08C0007985B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0F94E6F2171C08C0007985B5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GitDouBan/GitDouBan-Prefix.pch";
+				INFOPLIST_FILE = "GitDouBan/GitDouBan-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		0F94E6F3171C08C0007985B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GitDouBan/GitDouBan-Prefix.pch";
+				INFOPLIST_FILE = "GitDouBan/GitDouBan-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0F94E6C7171C08C0007985B5 /* Build configuration list for PBXProject "GitDouBan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0F94E6EF171C08C0007985B5 /* Debug */,
+				0F94E6F0171C08C0007985B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0F94E6F1171C08C0007985B5 /* Build configuration list for PBXNativeTarget "GitDouBan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0F94E6F2171C08C0007985B5 /* Debug */,
+				0F94E6F3171C08C0007985B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0F94E6C4171C08C0007985B5 /* Project object */;
+}
