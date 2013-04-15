@@ -17,7 +17,6 @@
 		0F94E6E6171C08C0007985B5 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F94E6E5171C08C0007985B5 /* Default@2x.png */; };
 		0F94E6E8171C08C0007985B5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F94E6E7171C08C0007985B5 /* Default-568h@2x.png */; };
 		0F94E6EB171C08C0007985B5 /* QyhViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F94E6EA171C08C0007985B5 /* QyhViewController.m */; };
-		0F94E6EE171C08C0007985B5 /* QyhViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F94E6EC171C08C0007985B5 /* QyhViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,7 +35,6 @@
 		0F94E6E7171C08C0007985B5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		0F94E6E9171C08C0007985B5 /* QyhViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QyhViewController.h; sourceTree = "<group>"; };
 		0F94E6EA171C08C0007985B5 /* QyhViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QyhViewController.m; sourceTree = "<group>"; };
-		0F94E6ED171C08C0007985B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/QyhViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +85,6 @@
 				0F94E6E1171C08C0007985B5 /* QyhAppDelegate.m */,
 				0F94E6E9171C08C0007985B5 /* QyhViewController.h */,
 				0F94E6EA171C08C0007985B5 /* QyhViewController.m */,
-				0F94E6EC171C08C0007985B5 /* QyhViewController.xib */,
 				0F94E6D8171C08C0007985B5 /* Supporting Files */,
 			);
 			path = GitDouBan;
@@ -163,7 +160,6 @@
 				0F94E6E4171C08C0007985B5 /* Default.png in Resources */,
 				0F94E6E6171C08C0007985B5 /* Default@2x.png in Resources */,
 				0F94E6E8171C08C0007985B5 /* Default-568h@2x.png in Resources */,
-				0F94E6EE171C08C0007985B5 /* QyhViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,14 +185,6 @@
 				0F94E6DB171C08C0007985B5 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		0F94E6EC171C08C0007985B5 /* QyhViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0F94E6ED171C08C0007985B5 /* en */,
-			);
-			name = QyhViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
