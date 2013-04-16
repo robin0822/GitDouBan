@@ -8,7 +8,9 @@
 
 #import "QyhAppDelegate.h"
 
-#import "QyhViewController.h"
+#import "SouSuoViewController.h" 
+#import "GuanYuViewController.h"
+#import "TuiJianViewController.h"
 
 @implementation QyhAppDelegate
 
@@ -23,8 +25,36 @@
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
-    self.viewController = [[[QyhViewController alloc] init] autorelease];
-    self.window.rootViewController = self.viewController;
+    TuiJianViewController *sousu = [[TuiJianViewController alloc]init];
+    UINavigationController *navigation1 = [[UINavigationController alloc]initWithRootViewController:sousu];
+    navigation1.tabBarItem.title = @"推荐";
+    navigation1.tabBarItem.image = [UIImage imageNamed:@"推荐.png"];
+    [sousu release];
+    
+    
+    SouSuoViewController *tuijian = [[SouSuoViewController alloc]init];
+    UINavigationController *navigation2 = [[UINavigationController alloc]initWithRootViewController:tuijian];
+    navigation2.tabBarItem.title = @"搜索";
+    navigation2.tabBarItem.image = [UIImage imageNamed:@"搜索.png"];
+    [tuijian release];
+    
+    
+    GuanYuViewController *guanyu = [[GuanYuViewController alloc]init];
+    UINavigationController *navigation3 = [[UINavigationController alloc]initWithRootViewController:guanyu];
+    navigation3.tabBarItem.title = @"关于";
+    navigation3.tabBarItem.image = [UIImage imageNamed:@"关于.png"];
+    [guanyu release];
+    
+    UITabBarController *tab = [[UITabBarController alloc] init];
+    tab.viewControllers = [NSArray arrayWithObjects:navigation1, navigation2, navigation3, nil];
+    
+    self.window.rootViewController = tab;
+    [tab release];
+    
+    [navigation1 release];
+    [navigation2 release];
+    [navigation3 release];
+
     [self.window makeKeyAndVisible];
     return YES;
 }

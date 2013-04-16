@@ -9,5 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface Movie : NSObject
-
+@property(nonatomic,retain)NSString *movieID;
+@property(nonatomic,retain)NSString *movieName;
+@property (nonatomic, retain) NSString *thumbnailURLString;
+@property (nonatomic, retain) UIImage *thumbnail;
 @end

@@ -9,5 +9,15 @@
 #import "Movie.h"
 
 @implementation Movie
-
+-(void)dealloc
+{
+    [_movieID release];
+    [_movieName release];
+    
+    [_thumbnail release];
+    [_thumbnailURLString release];
+    [super dealloc];
+    
+    
+}
 @end

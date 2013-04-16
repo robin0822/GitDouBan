@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F13D139171CDF9400DC8122 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F13D12E171CDF9400DC8122 /* NSObject+SBJSON.m */; };
+		0F13D13A171CDF9400DC8122 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F13D130171CDF9400DC8122 /* NSString+SBJSON.m */; };
+		0F13D13B171CDF9400DC8122 /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F13D132171CDF9400DC8122 /* SBJSON.m */; };
+		0F13D13C171CDF9400DC8122 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F13D134171CDF9400DC8122 /* SBJsonBase.m */; };
+		0F13D13D171CDF9400DC8122 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F13D136171CDF9400DC8122 /* SBJsonParser.m */; };
+		0F13D13E171CDF9400DC8122 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F13D138171CDF9400DC8122 /* SBJsonWriter.m */; };
+		0F13D14B171CFE8300DC8122 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F13D14A171CFE8300DC8122 /* Movie.m */; };
+		0F13D156171D26C900DC8122 /* SouSuoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F13D155171D26C900DC8122 /* SouSuoViewController.m */; };
+		0F13D15C171D270C00DC8122 /* TuiJianViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F13D15B171D270C00DC8122 /* TuiJianViewController.m */; };
+		0F13D15F171D272200DC8122 /* GuanYuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F13D15E171D272200DC8122 /* GuanYuViewController.m */; };
 		0F94E6D2171C08C0007985B5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F94E6D1171C08C0007985B5 /* UIKit.framework */; };
 		0F94E6D4171C08C0007985B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F94E6D3171C08C0007985B5 /* Foundation.framework */; };
 		0F94E6D6171C08C0007985B5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F94E6D5171C08C0007985B5 /* CoreGraphics.framework */; };
@@ -16,10 +26,30 @@
 		0F94E6E4171C08C0007985B5 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F94E6E3171C08C0007985B5 /* Default.png */; };
 		0F94E6E6171C08C0007985B5 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F94E6E5171C08C0007985B5 /* Default@2x.png */; };
 		0F94E6E8171C08C0007985B5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F94E6E7171C08C0007985B5 /* Default-568h@2x.png */; };
-		0F94E6EB171C08C0007985B5 /* QyhViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F94E6EA171C08C0007985B5 /* QyhViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F13D12C171CDF9400DC8122 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		0F13D12D171CDF9400DC8122 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
+		0F13D12E171CDF9400DC8122 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
+		0F13D12F171CDF9400DC8122 /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
+		0F13D130171CDF9400DC8122 /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
+		0F13D131171CDF9400DC8122 /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
+		0F13D132171CDF9400DC8122 /* SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJSON.m; sourceTree = "<group>"; };
+		0F13D133171CDF9400DC8122 /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
+		0F13D134171CDF9400DC8122 /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonBase.m; sourceTree = "<group>"; };
+		0F13D135171CDF9400DC8122 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		0F13D136171CDF9400DC8122 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		0F13D137171CDF9400DC8122 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		0F13D138171CDF9400DC8122 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		0F13D149171CFE8300DC8122 /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
+		0F13D14A171CFE8300DC8122 /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
+		0F13D154171D26C900DC8122 /* SouSuoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SouSuoViewController.h; sourceTree = "<group>"; };
+		0F13D155171D26C900DC8122 /* SouSuoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SouSuoViewController.m; sourceTree = "<group>"; };
+		0F13D15A171D270C00DC8122 /* TuiJianViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuiJianViewController.h; sourceTree = "<group>"; };
+		0F13D15B171D270C00DC8122 /* TuiJianViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TuiJianViewController.m; sourceTree = "<group>"; };
+		0F13D15D171D272200DC8122 /* GuanYuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuanYuViewController.h; sourceTree = "<group>"; };
+		0F13D15E171D272200DC8122 /* GuanYuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuanYuViewController.m; sourceTree = "<group>"; };
 		0F94E6CD171C08C0007985B5 /* GitDouBan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitDouBan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F94E6D1171C08C0007985B5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		0F94E6D3171C08C0007985B5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -33,8 +63,6 @@
 		0F94E6E3171C08C0007985B5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		0F94E6E5171C08C0007985B5 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		0F94E6E7171C08C0007985B5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		0F94E6E9171C08C0007985B5 /* QyhViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QyhViewController.h; sourceTree = "<group>"; };
-		0F94E6EA171C08C0007985B5 /* QyhViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QyhViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,9 +79,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F13D12A171CDF6000DC8122 /* JOSN */ = {
+			isa = PBXGroup;
+			children = (
+				0F13D12C171CDF9400DC8122 /* JSON.h */,
+				0F13D12D171CDF9400DC8122 /* NSObject+SBJSON.h */,
+				0F13D12E171CDF9400DC8122 /* NSObject+SBJSON.m */,
+				0F13D12F171CDF9400DC8122 /* NSString+SBJSON.h */,
+				0F13D130171CDF9400DC8122 /* NSString+SBJSON.m */,
+				0F13D131171CDF9400DC8122 /* SBJSON.h */,
+				0F13D132171CDF9400DC8122 /* SBJSON.m */,
+				0F13D133171CDF9400DC8122 /* SBJsonBase.h */,
+				0F13D134171CDF9400DC8122 /* SBJsonBase.m */,
+				0F13D135171CDF9400DC8122 /* SBJsonParser.h */,
+				0F13D136171CDF9400DC8122 /* SBJsonParser.m */,
+				0F13D137171CDF9400DC8122 /* SBJsonWriter.h */,
+				0F13D138171CDF9400DC8122 /* SBJsonWriter.m */,
+			);
+			name = JOSN;
+			sourceTree = "<group>";
+		};
+		0F13D140171CDFB600DC8122 /* UISegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				0F13D149171CFE8300DC8122 /* Movie.h */,
+				0F13D14A171CFE8300DC8122 /* Movie.m */,
+				0F13D154171D26C900DC8122 /* SouSuoViewController.h */,
+				0F13D155171D26C900DC8122 /* SouSuoViewController.m */,
+				0F13D15A171D270C00DC8122 /* TuiJianViewController.h */,
+				0F13D15B171D270C00DC8122 /* TuiJianViewController.m */,
+				0F13D15D171D272200DC8122 /* GuanYuViewController.h */,
+				0F13D15E171D272200DC8122 /* GuanYuViewController.m */,
+			);
+			name = UISegmentedControl;
+			sourceTree = "<group>";
+		};
 		0F94E6C2171C08C0007985B5 = {
 			isa = PBXGroup;
 			children = (
+				0F13D140171CDFB600DC8122 /* UISegmentedControl */,
+				0F13D12A171CDF6000DC8122 /* JOSN */,
 				0F94E6D7171C08C0007985B5 /* GitDouBan */,
 				0F94E6D0171C08C0007985B5 /* Frameworks */,
 				0F94E6CE171C08C0007985B5 /* Products */,
@@ -83,8 +148,6 @@
 			children = (
 				0F94E6E0171C08C0007985B5 /* QyhAppDelegate.h */,
 				0F94E6E1171C08C0007985B5 /* QyhAppDelegate.m */,
-				0F94E6E9171C08C0007985B5 /* QyhViewController.h */,
-				0F94E6EA171C08C0007985B5 /* QyhViewController.m */,
 				0F94E6D8171C08C0007985B5 /* Supporting Files */,
 			);
 			path = GitDouBan;
@@ -172,7 +235,16 @@
 			files = (
 				0F94E6DE171C08C0007985B5 /* main.m in Sources */,
 				0F94E6E2171C08C0007985B5 /* QyhAppDelegate.m in Sources */,
-				0F94E6EB171C08C0007985B5 /* QyhViewController.m in Sources */,
+				0F13D139171CDF9400DC8122 /* NSObject+SBJSON.m in Sources */,
+				0F13D13A171CDF9400DC8122 /* NSString+SBJSON.m in Sources */,
+				0F13D13B171CDF9400DC8122 /* SBJSON.m in Sources */,
+				0F13D13C171CDF9400DC8122 /* SBJsonBase.m in Sources */,
+				0F13D13D171CDF9400DC8122 /* SBJsonParser.m in Sources */,
+				0F13D13E171CDF9400DC8122 /* SBJsonWriter.m in Sources */,
+				0F13D14B171CFE8300DC8122 /* Movie.m in Sources */,
+				0F13D156171D26C900DC8122 /* SouSuoViewController.m in Sources */,
+				0F13D15C171D270C00DC8122 /* TuiJianViewController.m in Sources */,
+				0F13D15F171D272200DC8122 /* GuanYuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +351,7 @@
 				0F94E6F3171C08C0007985B5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
