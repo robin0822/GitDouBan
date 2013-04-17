@@ -28,21 +28,22 @@
     TuiJianViewController *sousu = [[TuiJianViewController alloc]init];
     UINavigationController *navigation1 = [[UINavigationController alloc]initWithRootViewController:sousu];
     navigation1.tabBarItem.title = @"推荐";
-    navigation1.tabBarItem.image = [UIImage imageNamed:@"推荐.png"];
+    navigation1.navigationBar.tintColor = [UIColor grayColor];
+    navigation1.tabBarItem.image = [UIImage imageNamed:@"123.png"];
     [sousu release];
     
     
     SouSuoViewController *tuijian = [[SouSuoViewController alloc]init];
     UINavigationController *navigation2 = [[UINavigationController alloc]initWithRootViewController:tuijian];
     navigation2.tabBarItem.title = @"搜索";
-    navigation2.tabBarItem.image = [UIImage imageNamed:@"搜索.png"];
+    navigation2.tabBarItem.image = [UIImage imageNamed:@"456.png"];
     [tuijian release];
     
     
     GuanYuViewController *guanyu = [[GuanYuViewController alloc]init];
     UINavigationController *navigation3 = [[UINavigationController alloc]initWithRootViewController:guanyu];
     navigation3.tabBarItem.title = @"关于";
-    navigation3.tabBarItem.image = [UIImage imageNamed:@"关于.png"];
+    navigation3.tabBarItem.image = [UIImage imageNamed:@"789.png"];
     [guanyu release];
     
     UITabBarController *tab = [[UITabBarController alloc] init];
