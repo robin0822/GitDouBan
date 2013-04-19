@@ -10,6 +10,7 @@
 #import "JSON.h"
 #import "Book.h"
 #import "FirstaddlistViewController.h"
+#import "SeconAddViewController.h"
 
 @interface FirstViewController ()
 @property (nonatomic, retain) NSMutableData *responseData;
@@ -239,6 +240,7 @@
         if (!cell)
         {
             cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier1] autorelease];
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -309,6 +311,40 @@
 }
 
 
+//-(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+//{
+//    if(section == 1)
+//    {
+//        UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0.0, 0.0, 320.0, 40.0)];
+//        UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+//        button.frame = CGRectMake(100.0, 10.0, 30.0, 30.0);
+//        [button setTitle:@"kk" forState:UIControlStateNormal];
+//        [view addSubview:button];
+//        return view;
+//        
+//        
+//    }
+//    else
+//    {
+//        return nil;
+//    }
+//    
+//    
+//}
+//-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+//{
+//    if(section ==1)
+//    {
+//        return 40.0;
+//    }
+//    
+//   else
+//   {
+//       return  [super tableView:tableView heightForHeaderInSection:section];
+//   }
+//}
+
+
 
 
 -(void)tianjianmessage
@@ -348,7 +384,7 @@
     
     NSString * xml1 = [[NSString alloc]initWithData:self.responseData encoding:NSUTF8StringEncoding];
     NSDictionary *_xmlDic1 = [xml1 JSONValue];
-    NSLog(@"%@",_xmlDic1);
+    NSLog(@"111111111%@",_xmlDic1);
     
     
     NSString *responseString = [[NSString alloc] initWithData:self.responseData encoding:NSUTF8StringEncoding];
@@ -369,19 +405,23 @@
     {
         Book *book = [[[Book alloc]init]autorelease];
         book.bookTitle =  [_dic3 objectForKey:@"name"];
+        book.bookID = [_dic3 objectForKey:@"id"];
         book.bookString = [[_dic3 objectForKey:@"avatars"]objectForKey:@"small"];
         book.bookDescription = [_xmlDic1 objectForKey:@"summary"];
         NSData *thumbnailData1 = [NSData dataWithContentsOfURL:[NSURL URLWithString:book.bookString]];
         book.bookImage = [UIImage imageWithData:thumbnailData1];
-        NSLog(@"++++%@",book.bookTitle);
-        NSLog(@"fuck%@",book.bookDescription);
-        NSLog(@"%@",book.bookDescription);
+        //NSLog(@"++++%@",book.bookTitle);
+        //NSLog(@"fuck%@",book.bookDescription);
+        //NSLog(@"%@",book.bookDescription);
         self.books = books;
         self.restlabel.text= book.bookDescription;
-        NSLog(@"hkjwhfkjwafhwajkfhwajkfgfjgfjk%@",self.restlabel.text);
+       // NSLog(@"hkjwhfkjwafhwajkfhwajkfgfjgfjk%@",self.restlabel.text);
         //self.namelabel.text = book.bookTitle;
         self.daolabel.text = book.bookTitle;
         self.label.text = book.bookTitle;
+        
+        
+       // NSLog(@"5553333%@",book.bookID);
         
         
         [self.books addObject:book];
@@ -392,6 +432,7 @@
     
     
 }
+
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -462,6 +503,26 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      [detailViewController release];
      */
+   if(indexPath.section==1&indexPath.row==0)
+{
+    
+    
+    SeconAddViewController *secondadd= [[SeconAddViewController alloc]initWithStyle:UITableViewStyleGrouped];
+    Book *book = [self.books objectAtIndex:indexPath.row];
+    secondadd.ID= book.bookID;
+    secondadd.Name = book.bookTitle;
+    //NSLog(@"%@",book.bookID);
+    
+    [self.navigationController pushViewController:secondadd animated:YES];
+    [secondadd release];
+    
+    
+}
+        
+
+    
+    
+    
 }
 
 @end

@@ -31,6 +31,7 @@
 		0F94E6E6171C08C0007985B5 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F94E6E5171C08C0007985B5 /* Default@2x.png */; };
 		0F94E6E8171C08C0007985B5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F94E6E7171C08C0007985B5 /* Default-568h@2x.png */; };
 		0FDBBD441720C6B200BC16FE /* ActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDBBD431720C6B200BC16FE /* ActionViewController.m */; };
+		0FDBBD481720EE4400BC16FE /* SeconAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDBBD471720EE4400BC16FE /* SeconAddViewController.m */; };
 		0FE2692E171E4C140079D3CC /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE2692D171E4C140079D3CC /* Book.m */; };
 		0FE26931171E79910079D3CC /* Author.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE26930171E79910079D3CC /* Author.m */; };
 		0FF9ECCA171F951200652A0A /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9ECC9171F951200652A0A /* SecondViewController.m */; };
@@ -82,6 +83,8 @@
 		0F94E6E7171C08C0007985B5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		0FDBBD421720C6B200BC16FE /* ActionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionViewController.h; sourceTree = "<group>"; };
 		0FDBBD431720C6B200BC16FE /* ActionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionViewController.m; sourceTree = "<group>"; };
+		0FDBBD461720EE4400BC16FE /* SeconAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeconAddViewController.h; sourceTree = "<group>"; };
+		0FDBBD471720EE4400BC16FE /* SeconAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeconAddViewController.m; sourceTree = "<group>"; };
 		0FE2692C171E4C140079D3CC /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
 		0FE2692D171E4C140079D3CC /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
 		0FE2692F171E79910079D3CC /* Author.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Author.h; sourceTree = "<group>"; };
@@ -240,6 +243,8 @@
 				0FF9ECCF171FC2E900652A0A /* FirstaddlistViewController.m */,
 				0FF9ECD71720002000652A0A /* FirstViewController.h */,
 				0FF9ECD81720002000652A0A /* FirstViewController.m */,
+				0FDBBD461720EE4400BC16FE /* SeconAddViewController.h */,
+				0FDBBD471720EE4400BC16FE /* SeconAddViewController.m */,
 			);
 			name = "电影";
 			sourceTree = "<group>";
@@ -343,6 +348,7 @@
 				0FF9ECD3171FDD9A00652A0A /* QyhCell.m in Sources */,
 				0FF9ECD91720002000652A0A /* FirstViewController.m in Sources */,
 				0FDBBD441720C6B200BC16FE /* ActionViewController.m in Sources */,
+				0FDBBD481720EE4400BC16FE /* SeconAddViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

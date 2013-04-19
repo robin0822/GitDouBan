@@ -15,6 +15,8 @@
 @property(nonatomic,retain)NSMutableArray *books;
 @property(nonatomic,retain)Book *book;
 @property(nonatomic,retain)UILabel *label1;
+@property(nonatomic,retain)UILabel *restlabel;
+@property(nonatomic,retain)UILabel *restlabel2;
 @end
 
 
@@ -48,8 +50,19 @@
     NSURLConnection *connection = [[[NSURLConnection alloc]initWithRequest:request delegate:self startImmediately:NO]autorelease];
     
     [connection start];
-
     
+    UILabel *restlabel = [[UILabel alloc]initWithFrame:CGRectMake(0.0, -500.0, 320, 450.0)];
+    restlabel.font = [UIFont systemFontOfSize:15.0];
+    restlabel.text = @"";
+    self.restlabel = restlabel;
+    [self.tableView addSubview:restlabel];
+    
+
+    UILabel *restlabel2 = [[UILabel alloc]initWithFrame:CGRectMake(0.0, -100.0, 320, 50.0)];
+    restlabel2.font = [UIFont systemFontOfSize:15.0];
+    restlabel2.text = @"";
+    self.restlabel2 = restlabel2;
+    [self.tableView addSubview:restlabel2];
     
 }
 
@@ -76,11 +89,16 @@
         book.bookTitle =  [_xmlDic3 objectForKey:@"desc"];
         book.bookID = [_xmlDic3 objectForKey:@"id"];
         book.bookString = [[_xmlDic3 objectForKey:@"images"]objectForKey:@"small"];
+    
+    
+    book.bookDescription = [[_xmlDic3 objectForKey:@"owner"]objectForKey:@"name"];
         NSData *thumbnailData1 = [NSData dataWithContentsOfURL:[NSURL URLWithString:book.bookString]];
         book.bookImage = [UIImage imageWithData:thumbnailData1];
-        NSLog(@"bwajhfgfhwgfjwfjkfj%@",[_xmlDic3 objectForKey:@"desc"]);
-    self.label1.text = book.bookTitle;
+       // NSLog(@"bwajhfgfhwgfjwfjkfj%@",[_xmlDic3 objectForKey:@"desc"]);
+   self.restlabel.text= book.bookTitle;
         self.books = books;
+    self.restlabel2.text = book.bookDescription;
+    NSLog(@"pppppp%@",self.restlabel.text);
         
 //        [self.books addObject:book];
         [self.tableView reloadData];
@@ -126,9 +144,20 @@
             cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier] autorelease];
         }
         
-        cell.textLabel.text = self.Name;
+        //cell.textLabel.text = self.Name;
         cell.textLabel.textColor = [UIColor grayColor];
         cell.imageView.image = self.Image;
+        
+        UILabel *label3 = [[UILabel alloc]initWithFrame:CGRectMake(100.0, 20.0, 180.0, 70.0)];
+        label3.textAlignment = NSTextAlignmentCenter;
+        label3.backgroundColor = [UIColor clearColor];
+        label3.font = [UIFont systemFontOfSize:15.0];
+        //label1.textColor = [UIColor orangeColor];
+        label3.text = self.Name;
+        label3.numberOfLines=0;
+        
+        [cell.contentView addSubview:label3];
+        
     }
     else if (indexPath.section == 1)
     {
@@ -141,6 +170,7 @@
         {
             cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier1] autorelease];
         }
+        cell.textLabel.text = self.restlabel2.text;
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
@@ -170,16 +200,17 @@
         
         //cell.textLabel.text = message.content;
         
-        UILabel *label1 = [[UILabel alloc]initWithFrame:CGRectMake(10.0, 10.0, 100.0, 100.0)];
+        UILabel *label1 = [[UILabel alloc]initWithFrame:CGRectMake(10.0, 10.0, 280.0, 400.0)];
         label1.textAlignment = NSTextAlignmentCenter;
         label1.backgroundColor = [UIColor clearColor];
         label1.font = [UIFont systemFontOfSize:15.0];
         //label1.textColor = [UIColor orangeColor];
-        label1.text =@"";
+        label1.text =self.restlabel.text;
         label1.numberOfLines=0;
-        self.label1 = label1;
         [label1 sizeToFit];
         [cell.contentView addSubview:label1];
+
+        
         
         
         //cell.detailTextLabel.text = self.restlabel.text;
@@ -208,7 +239,22 @@
     }
     else
     {
-        return 300.0;
+        return 600.0;
+    }
+}
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if (section == 0)
+    {
+        return @"活动:";
+    }
+    else if (section == 1)
+    {
+        return @"发起者";
+    }
+    else
+    {
+        return @"活动要求:";
     }
 }
 

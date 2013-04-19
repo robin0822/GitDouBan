@@ -25,6 +25,10 @@
     UITableView * tableV1;
     UITableView * tableV2;
     UITableView * tableV3;
+    
+    UIActivityIndicatorView *juhua2;
+    //菊花
+    UIActivityIndicatorView * juhua;
 
 }
 @property(nonatomic,retain)Movie *movie;
@@ -41,6 +45,7 @@
 @property(nonatomic,retain)NSMutableData *responseData1;
 @property(nonatomic,retain)NSMutableData *responseData2;
 @property(nonatomic,retain) UIImage* scaledImage;
+@property(nonatomic,retain)UILabel *label;
 
 @end
 
@@ -216,6 +221,25 @@
 }
 
 
+//-(void)juhuaddd
+//{
+//    juhua = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(150, 150, 40, 40)];
+//    juhua.color = [UIColor blackColor];
+//    [tableV2 addSubview:juhua];
+//    
+//    
+//}
+
+//-(void)juhuadd2
+//{
+//    
+//    juhua2 = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(150.0, 150.0, 50.0, 50.0)];
+//    juhua2.color = [UIColor blackColor];
+//    [tableV3 addSubview:juhua2];
+//}
+
+
+
 -(void)searchbar
 {
     UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0.0, 40.0, 320.0, 44.0)];
@@ -225,65 +249,67 @@
     searchBar.delegate = self;
     [self.view addSubview:searchBar];
     [searchBar release];
-   
+    
 
+    
+    
+}
+
+
+
+-(void)loadtupian
+{
+    
+//    UIView *imageview = [[UIView alloc]initWithFrame:CGRectMake(0.0, 0.0,320, 400.0)];
+//    [tableV2 addSubview:imageview];
+//    
+//    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0.0, 0.0, 320.0,400.0 )];
+//    //label.backgroundColor = [UIColor blackColor];
+//    label.text = @"请搜素想要的图书";
+//    label.textColor = [UIColor blueColor];
+//    label.textAlignment = NSTextAlignmentCenter;
+//    self.label = label;
+//    [imageview addSubview:label];
     
     
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar;                     
 {
+//       [juhua startAnimating];
+//    [juhua2 startAnimating];
 //    NSLog(@"%@",searchBar.text);
     if (self.segmentControl.selectedSegmentIndex==1) {
         [self souSuo:searchBar.text];
+      
+        
     }
     if (self.segmentControl.selectedSegmentIndex==2) {
         [self yinYu:searchBar.text];
+        
     }
     
-     [self.searchBar resignFirstResponder];
+     [self hideKeyboards];
     
 }
 
 -(void)yinYu:(NSString*)searchTxt
 {
      searchTxt = [searchTxt stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSURLRequest *request4 = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://api.douban.com/v2/music/search?q=%@",searchTxt]]];
+//    NSURLRequest *request3 = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://api.douban.com/v2/music/search?q=%@",searchTxt]]];
     
     
-    NSData *responseData4 = [NSURLConnection sendSynchronousRequest:request4 returningResponse:NULL error:NULL];
-//    NSString *responseString4= [[NSString alloc] initWithData:responseData4 encoding:NSUTF8StringEncoding];
-    NSString * xml4 = [[NSString alloc]initWithData:responseData4 encoding:NSUTF8StringEncoding];
-    NSDictionary *_xmlDic4 = [xml4 JSONValue];
-  
-//    NSLog(@"%@",_xmlDic4);
-    NSMutableArray *authors = [NSMutableArray array];
-    NSArray *MovieList4 = [_xmlDic4 objectForKey:@"musics"];
-    NSLog(@"%@",MovieList4);
-    for(NSDictionary *_dic4 in MovieList4)
-    {
-        Author *author = [[[Author alloc]init]autorelease];
-        author.authorName =  [_dic4 objectForKey:@"title"];
-        author.authorString = [_dic4 objectForKey:@"image"];
-        author.authorId = [_dic4 objectForKey:@"id"];
-//        NSData *thumbnailData4 = [NSData dataWithContentsOfURL:[NSURL URLWithString:author.authorString]];
-//        author.authorImage = [UIImage imageWithData:thumbnailData4];
-//        NSLog(@"%@",[_dic4 objectForKey:@"image"]);
-        
-        [NSThread detachNewThreadSelector:@selector(loadAndRefreshForAuthor:) toTarget:self withObject:author];
+    NSURL *url4 = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.douban.com/v2/music/search?q=%@",searchTxt]];
+   NSURLRequest *request5 = [[NSURLRequest alloc]initWithURL:url4 cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
+    CustomURLConnection *connection = [[[CustomURLConnection alloc]initWithRequest:request5 delegate:self startImmediately:NO]autorelease];
+    // 连接的名字是活动
+    connection.name = @"music";
+    // 开始异步请求
+    [connection start];
 
-        
-        self.authors = authors;
-        
-        [self.authors addObject:author];
-        
-        
-        [self scaleToSize:author.authorImage size:CGSizeMake(100.0, 100.0)];
-        
-        
-    }
-   [tableV3 reloadData];
-
+    
+    
+    
 
 }
 
@@ -309,6 +335,8 @@
 
 -(void)souSuo:(NSString *)searchText
 {
+   
+    
     searchText = [searchText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     
@@ -422,8 +450,9 @@
             
             [self.books addObject:book];
         }
-        
+
         [tableV2 reloadData];
+             [juhua stopAnimating];
         [xml3 release];
  
     }
@@ -432,6 +461,7 @@
     {
         NSString * xml = [[NSString alloc]initWithData:self.responseData1 encoding:NSUTF8StringEncoding];
         NSDictionary *_xmlDic = [xml JSONValue];
+       // NSLog(@"dlkgjlsdjglsjdlgkj%@",_xmlDic);
         
         
         NSMutableArray *movies = [NSMutableArray array];
@@ -456,6 +486,47 @@
         [xml release];
             
     }
+    
+    if([((CustomURLConnection*)connection).name isEqualToString:@"music"] )
+    {
+        
+        
+        NSString * xml4 = [[NSString alloc]initWithData:self.responseData1 encoding:NSUTF8StringEncoding];
+        NSDictionary *_xmlDic4 = [xml4 JSONValue];
+        
+        //    NSLog(@"%@",_xmlDic4);
+        NSMutableArray *authors = [NSMutableArray array];
+        NSArray *MovieList4 = [_xmlDic4 objectForKey:@"musics"];
+        NSLog(@"%@",MovieList4);
+        for(NSDictionary *_dic4 in MovieList4)
+        {
+            Author *author = [[[Author alloc]init]autorelease];
+            author.authorName =  [_dic4 objectForKey:@"title"];
+            author.authorString = [_dic4 objectForKey:@"image"];
+            author.authorId = [_dic4 objectForKey:@"id"];
+                    NSData *thumbnailData4 = [NSData dataWithContentsOfURL:[NSURL URLWithString:author.authorString]];
+                author.authorImage = [UIImage imageWithData:thumbnailData4];
+            //        NSLog(@"%@",[_dic4 objectForKey:@"image"]);
+            //
+            //        [NSThread detachNewThreadSelector:@selector(loadAndRefreshForAuthor:) toTarget:self withObject:author];
+            
+            
+            self.authors = authors;
+            
+            [self.authors addObject:author];
+            
+            
+            [self scaleToSize:author.authorImage size:CGSizeMake(100.0, 100.0)];
+            
+            
+        }
+//        [juhua2 stopAnimating];
+        [tableV3 reloadData];
+
+        
+    }
+    
+    
     
     
 }
@@ -496,6 +567,7 @@
         self.navigationItem.title =@"图书";
         [self searchbar];
         [self.view addSubview:tableV2];
+        [self loadtupian];
         
         
     }

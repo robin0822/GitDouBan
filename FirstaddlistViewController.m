@@ -86,7 +86,7 @@
         book.bookString = [[_dic3 objectForKey:@"images"]objectForKey:@"small"];
         NSData *thumbnailData1 = [NSData dataWithContentsOfURL:[NSURL URLWithString:book.bookString]];
         book.bookImage = [UIImage imageWithData:thumbnailData1];
-        NSLog(@"++++%@",book.bookTitle);
+       // NSLog(@"++++%@",book.bookTitle);
         
         self.books = books;
         
