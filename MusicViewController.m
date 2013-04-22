@@ -1,23 +1,20 @@
 //
-//  FirstaddlistViewController.m
+//  MusicViewController.m
 //  GitDouBan
 //
-//  Created by ibokan on 13-4-18.
+//  Created by ibokan on 13-4-22.
 //  Copyright (c) 2013年 quyanhui. All rights reserved.
 //
 
-#import "FirstaddlistViewController.h"
+#import "MusicViewController.h"
 #import "JSON.h"
-#import "Book.h"
-#import "QyhCell.h"
 
-@interface FirstaddlistViewController ()
+@interface MusicViewController ()
 @property(nonatomic,retain)NSMutableData *responseData;
-@property(nonatomic,retain)NSMutableArray *books;
-@property(nonatomic,retain)Book *book;
+
 @end
 
-@implementation FirstaddlistViewController
+@implementation MusicViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -37,30 +34,20 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.navigationItem.title = self.Name;
     
-    UIBarButtonItem *returnButton = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStyleBordered target:self action:@selector(closeInterface)];
-    self.navigationItem.leftBarButtonItem = returnButton;
-    
-    [returnButton release];
-//    
-//   self.Name = [self.Name stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-//    NSURLRequest *request4 = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://api.douban.com/v2/music/search?q=%@",self.Name]]];
-    
-    self.Name = [self.Name stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.douban.com/v2/movie/search?q=%@",self.Name]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.douban.com/v2/music/%@",self.musicID]];
     NSURLRequest *request = [[NSURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
-   NSURLConnection *connection = [[[NSURLConnection alloc]initWithRequest:request delegate:self startImmediately:NO]autorelease];
-  
+    NSURLConnection *connection = [[[NSURLConnection alloc]initWithRequest:request delegate:self startImmediately:NO]autorelease];
+    
     [connection start];
+
     
-    
-    
-    
-                                      
 }
 
+- (void)didReceiveMemoryWarning
+{
+    
+}
 
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
@@ -77,85 +64,31 @@
 {
     NSString * xml3 = [[NSString alloc]initWithData:self.responseData encoding:NSUTF8StringEncoding];
     NSDictionary *_xmlDic3 = [xml3 JSONValue];
-    // NSLog(@"adsasdas%@",responseString3);
     NSLog(@"%@",_xmlDic3);
-    NSMutableArray *books = [NSMutableArray array];
-    NSArray *MovieList3 = [_xmlDic3 objectForKey:@"subjects"];
-    
-    for(NSDictionary *_dic3 in MovieList3)
-    {
-        Book *book = [[[Book alloc]init]autorelease];
-        book.bookTitle =  [_dic3 objectForKey:@"title"];
-        book.bookID = [_dic3 objectForKey:@"id"];
-        book.bookString = [[_dic3 objectForKey:@"images"]objectForKey:@"small"];
-        NSData *thumbnailData1 = [NSData dataWithContentsOfURL:[NSURL URLWithString:book.bookString]];
-        book.bookImage = [UIImage imageWithData:thumbnailData1];
-       // NSLog(@"++++%@",book.bookTitle);
-        
-        self.books = books;
-        
-        [self.books addObject:book];
-    }
 
-        [self.tableView reloadData];
 }
-
--(void)closeInterface
-{
-    // 关闭当前modal view
-    //[self dismissModalViewControllerAnimated:YES];
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
 
-    return 1;
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 
-    return [self.books count];
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *identifier = @"MovieCell";
-    QyhCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    if (!cell)
-    {
-        cell = [[[QyhCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier] autorelease];
-    }
-    Book *book = [self.books objectAtIndex:indexPath.row];
-    cell.nameLabel.text = book.bookTitle;
-    if(book.bookImage)
-    {
-        
-        cell.imageV.image = book.bookImage;
-        
-    }
     // Configure the cell...
     
     return cell;
-}
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-    return 80.0;
-    
-    
 }
 
 /*

@@ -5,7 +5,7 @@
 //  Created by ibokan on 13-4-16.
 //  Copyright (c) 2013年 quyanhui. All rights reserved.
 //
-
+#import "Student.h"
 #import "TuiJianViewController.h"
 #import "JSON.h"
 #import "Movie.h"
@@ -17,6 +17,8 @@
 #import "SecondViewController.h"
 #import "QyhCell.h"
 #import "ActionViewController.h"
+#import "MusicViewController.h"
+#import "MusicViewController.h"
 
 @interface TuiJianViewController ()
 {
@@ -47,6 +49,9 @@
 @property(nonatomic,retain) UIImage* scaledImage;
 @property(nonatomic,retain)UILabel *label;
 
+
+
+@property (nonatomic, retain) NSMutableArray *students;
 @end
 
 @implementation TuiJianViewController
@@ -81,6 +86,7 @@
 	// Do any additional setup after loading the view.
     
     self.view.backgroundColor = [UIColor grayColor];
+    self.students = [NSMutableArray array];
     
     UIView *headerview = [[UIView alloc]initWithFrame:CGRectMake(0.0, 0.0, 320.0, 50.0)];
     [self.view addSubview:headerview];
@@ -124,11 +130,13 @@
     _segmentedControl.frame = CGRectMake(0, 0, 320, 40);
     _segmentedControl.tintColor = [UIColor grayColor];
     [_segmentedControl addTarget:self action:@selector(_loadData:) forControlEvents:UIControlEventValueChanged];
+    
+    
     _segmentedControl.selectedSegmentIndex=0;
     self.segmentControl=_segmentedControl;
     [self.view addSubview:_segmentedControl];
     
-    
+    //[NSThread detachNewThreadSelector:@selector(didsegmentcontrol) toTarget:self withObject:nil];
     
 
     
@@ -145,19 +153,11 @@
     
     
     
-//        NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(loadAndRefreshForMovie:) object:movie];
-//        [thread start];
-//        [thread release];
-//
-        
+
         
 
     
-    
-    UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboards)];
-    recognizer.numberOfTapsRequired = 1;
-    [self.view addGestureRecognizer:recognizer];
-    [recognizer release];
+
 
     
     
@@ -167,51 +167,74 @@
 
 }
 
-//-(void)loadAndRefreshForMovie:(Movie *)movie
+
+//-(void)didsegmentcontrol
 //{
-//    [self loadImageForMovie:movie];
+//    _segmentedControlArray = [NSArray arrayWithObjects:@"电影",@"图书",@"音乐",@"活动", nil];
+//    //创建分区视图
+//    UISegmentedControl * _segmentedControl = [[UISegmentedControl alloc]initWithItems:_segmentedControlArray];
+//    _segmentedControl.momentary  = NO;
+//    _segmentedControl.segmentedControlStyle = UISegmentedControlNoSegment;
+//    _segmentedControl.frame = CGRectMake(0, 0, 320, 40);
+//    _segmentedControl.tintColor = [UIColor grayColor];
+//   // [_segmentedControl addTarget:self action:@selector(_loadData:) forControlEvents:UIControlEventValueChanged];
 //    
-//    [self performSelectorOnMainThread:@selector(refreshTableViewCellForMovie:) withObject:movie waitUntilDone:NO];
+//    [self performSelectorOnMainThread:@selector(refasegmentcontrol:) withObject:_segmentControl waitUntilDone:NO];
+//    _segmentedControl.selectedSegmentIndex=0;
+//    self.segmentControl=_segmentedControl;
+//    [self.view addSubview:_segmentedControl];
 //}
-//-(void)loadImageForMovie:(Movie *)movie
+//-(void)refasegmentcontrol:(UISegmentedControl *) _segmentedControl
 //{
-//    if (!movie.thumbnail)
-//    {
-//        
-//        NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:movie.thumbnailURLString]];
-//        movie.thumbnail = [UIImage imageWithData:imageData];
-//        NSLog(@"loaded image for %@", movie.movieName);
-//    }
+//    [_segmentedControl addTarget:self action:@selector(_loadData:) forControlEvents:UIControlEventValueChanged];
+//}
+
+
+//-(void)loadAndRefreshForsegmentedcontrol:(UISegmentedControl *) _segmentedControl
+//{
+//  
+//        [_segmentedControl addTarget:self action:@selector(_loadData:) forControlEvents:UIControlEventValueChanged];
+//    [self performSelectorOnMainThread:@selector(refreshTableViewCellFor_segmentControl) withObject:_segmentControl waitUntilDone:NO];
+//    
+//    
+//}
+//-(void)refreshTableViewCellFor_segmentControl
+//{
+//    
+//    [self _loadData:_segmentControl];
+//    
+//    
+//}
+
+//-(void)segement
+//{
+//    _segmentedControlArray = [NSArray arrayWithObjects:@"电影",@"图书",@"音乐",@"活动", nil];
+//    //创建分区视图
+//    UISegmentedControl * _segmentedControl = [[UISegmentedControl alloc]initWithItems:_segmentedControlArray];
+//    _segmentedControl.momentary  = NO;
+//    _segmentedControl.segmentedControlStyle = UISegmentedControlNoSegment;
+//    _segmentedControl.frame = CGRectMake(0, 0, 320, 40);
+//    _segmentedControl.tintColor = [UIColor grayColor];
+//    [_segmentedControl addTarget:self action:@selector(_loadData:) forControlEvents:UIControlEventValueChanged];
+//    _segmentedControl.selectedSegmentIndex=0;
+//    self.segmentControl=_segmentedControl;
+//    [self.view addSubview:_segmentedControl];
+//}
+
+
+//-(void)loadmovie
+//{
+//    
+//    NSURL *url3 = [NSURL URLWithString:@"https://api.douban.com/v2/movie/top250?apikey=0dea1ee3719c992829be5caa54d5cb78"];
+//    NSURLRequest *request3 = [[NSURLRequest alloc]initWithURL:url3 cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
+//    CustomURLConnection *connection = [[[CustomURLConnection alloc]initWithRequest:request3 delegate:self startImmediately:NO]autorelease];
+//    // 连接的名字是活动
+//    connection.name = @"movie";
+//    // 开始异步请求
+//    [connection start];
 //}
 //
-//
-//-(void)refreshTableViewCellForMovie:(Movie *)movie
-//{
-//    if (movie.thumbnail)
-//    {
-//        
-//        for (NSIndexPath *indexPath in tableV.indexPathsForVisibleRows)
-//        {
-//            int rowNumber = indexPath.row;
-//            Movie *movieInArray = [self.movies objectAtIndex:rowNumber];
-//            if (movieInArray == movie)
-//            {
-//                
-//                [tableV reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
-//            }
-//        }
-//    }
-//}
 
-
-
-
-//-(void)tianjianmessage
-//{
-//    UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithTitle:@"相关列表" style:UIBarButtonItemStyleDone target:self action:@selector(jianmessage)];
-//    self.navigationItem.rightBarButtonItem = saveButton;
-//    [saveButton release];
-//}
 
 
 -(void)hideKeyboards
@@ -221,22 +244,6 @@
 }
 
 
-//-(void)juhuaddd
-//{
-//    juhua = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(150, 150, 40, 40)];
-//    juhua.color = [UIColor blackColor];
-//    [tableV2 addSubview:juhua];
-//    
-//    
-//}
-
-//-(void)juhuadd2
-//{
-//    
-//    juhua2 = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(150.0, 150.0, 50.0, 50.0)];
-//    juhua2.color = [UIColor blackColor];
-//    [tableV3 addSubview:juhua2];
-//}
 
 
 
@@ -254,34 +261,27 @@
     
     
 }
-
-
-
--(void)loadtupian
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar;
 {
-    
-//    UIView *imageview = [[UIView alloc]initWithFrame:CGRectMake(0.0, 0.0,320, 400.0)];
-//    [tableV2 addSubview:imageview];
-//    
-//    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0.0, 0.0, 320.0,400.0 )];
-//    //label.backgroundColor = [UIColor blackColor];
-//    label.text = @"请搜素想要的图书";
-//    label.textColor = [UIColor blueColor];
-//    label.textAlignment = NSTextAlignmentCenter;
-//    self.label = label;
-//    [imageview addSubview:label];
-    
-    
+    [searchBar setShowsCancelButton:YES animated:YES];
+    return YES;
 }
+- (void)searchBarCancelButtonClicked:(UISearchBar *) searchBar;
+{
+    [searchBar setShowsCancelButton:NO animated:YES];
+    searchBar.text=@"";
+    [self.books removeAllObjects];
+    [searchBar resignFirstResponder];
+    [tableV2 reloadData];
+}
+
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar;                     
 {
-//       [juhua startAnimating];
-//    [juhua2 startAnimating];
-//    NSLog(@"%@",searchBar.text);
+   
     if (self.segmentControl.selectedSegmentIndex==1) {
         [self souSuo:searchBar.text];
-      
+       
         
     }
     if (self.segmentControl.selectedSegmentIndex==2) {
@@ -296,8 +296,6 @@
 -(void)yinYu:(NSString*)searchTxt
 {
      searchTxt = [searchTxt stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-//    NSURLRequest *request3 = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://api.douban.com/v2/music/search?q=%@",searchTxt]]];
-    
     
     NSURL *url4 = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.douban.com/v2/music/search?q=%@",searchTxt]];
    NSURLRequest *request5 = [[NSURLRequest alloc]initWithURL:url4 cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
@@ -314,19 +312,6 @@
 }
 
 
-
-- (UIImage *)scaleToSize:(UIImage *)img size:(CGSize)size{
-    
-    UIGraphicsBeginImageContext(size);
-    [img drawInRect:CGRectMake(0, 0, size.width, size.height)];
-    UIImage* scaledImage = UIGraphicsGetImageFromCurrentImageContext();
-    self.scaledImage = scaledImage;
-    UIGraphicsEndImageContext();
-    
-    return self.scaledImage;
-    
-    
-}
 
 
 
@@ -345,6 +330,8 @@
     CustomURLConnection *connection = [[[CustomURLConnection alloc]initWithRequest:request2 delegate:self startImmediately:NO]autorelease];
     // 连接的名字是活动
     connection.name = @"book";
+    
+    
     // 开始异步请求
     [connection start];
     
@@ -378,90 +365,23 @@
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-//    if ([connection isMemberOfClass:[CustomURLConnection class]])
-//    {
-//        NSLog(@"%@", ((CustomURLConnection *)connection).name);
-//    }
     
-    if([((CustomURLConnection*)connection).name isEqualToString:@"huodong"] )
-    {
+    [NSThread detachNewThreadSelector:@selector(loadAndRefresh:) toTarget:self withObject:connection];
     
     
+}
 
-    NSString * xml1 = [[NSString alloc]initWithData:self.responseData1 encoding:NSUTF8StringEncoding];
-    NSDictionary *_xmlDic1 = [xml1 JSONValue];
-    
-        //NSLog(@"！！！！！++++%@",_xmlDic1);
-    
-    
-    NSString *responseString = [[NSString alloc] initWithData:self.responseData1 encoding:NSUTF8StringEncoding];
-    NSString* esc1 = [responseString stringByReplacingOccurrencesOfString:@"\\u" withString:@"\\U"];
-    NSString* esc2 = [esc1 stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
-    NSString* quoted = [[@"\"" stringByAppendingString:esc2] stringByAppendingString:@"\""];
-    NSData* data = [quoted dataUsingEncoding:NSUTF8StringEncoding];
-    NSString* unesc = [NSPropertyListSerialization propertyListFromData:data mutabilityOption:NSPropertyListImmutable format:NULL errorDescription:NULL];
-    assert([unesc isKindOfClass:[NSString class]]);
-    
-    NSMutableArray *onlines = [NSMutableArray array];
-    NSArray *  MovieList2  =   [_xmlDic1 objectForKey:@"onlines"];
-    for(NSDictionary *_dic1 in MovieList2)
-    {
-        OnLine *online = [[[OnLine alloc]init]autorelease];
-        online.onlineTitle =  [_dic1 objectForKey:@"title"];
-        online.onlineString = [_dic1 objectForKey:@"thumb"];
-        online.onlineId = [_dic1 objectForKey:@"id"];
-        NSData *thumbnailData = [NSData dataWithContentsOfURL:[NSURL URLWithString:online.onlineString]];
-        online.onlineImage = [UIImage imageWithData:thumbnailData];
-        
-        NSLog(@"!!!!####%@",online.onlineId);
-        
-        self.onlines = onlines;
-        
-        [self.onlines addObject:online];
-    }
 
-    [tableV1 reloadData];
-    
-    [responseString release];
-    [xml1 release];
-    
-    }
-    
-    if([((CustomURLConnection*)connection).name isEqualToString:@"book"] )
-    {
-        NSString * xml3 = [[NSString alloc]initWithData:self.responseData1 encoding:NSUTF8StringEncoding];
-        NSDictionary *_xmlDic3 = [xml3 JSONValue];
-       // NSLog(@"adsasdas%@",responseString3);
-        NSLog(@"%@",_xmlDic3);
-        NSMutableArray *books = [NSMutableArray array];
-        NSArray *MovieList3 = [_xmlDic3 objectForKey:@"books"];
-        
-        for(NSDictionary *_dic3 in MovieList3)
-        {
-            Book *book = [[[Book alloc]init]autorelease];
-            book.bookTitle =  [_dic3 objectForKey:@"title"];
-            book.bookID = [_dic3 objectForKey:@"id"];
-            book.bookString = [[_dic3 objectForKey:@"images"]objectForKey:@"small"];
-            NSData *thumbnailData1 = [NSData dataWithContentsOfURL:[NSURL URLWithString:book.bookString]];
-            book.bookImage = [UIImage imageWithData:thumbnailData1];
-            NSLog(@"++++%@",book.bookTitle);
-            
-            self.books = books;
-            
-            [self.books addObject:book];
-        }
 
-        [tableV2 reloadData];
-             [juhua stopAnimating];
-        [xml3 release];
- 
-    }
+-(void)loadAndRefresh:(NSURLConnection *)connection
+{
+    
     
     if([((CustomURLConnection*)connection).name isEqualToString:@"movie"] )
     {
         NSString * xml = [[NSString alloc]initWithData:self.responseData1 encoding:NSUTF8StringEncoding];
         NSDictionary *_xmlDic = [xml JSONValue];
-       // NSLog(@"dlkgjlsdjglsjdlgkj%@",_xmlDic);
+        // NSLog(@"dlkgjlsdjglsjdlgkj%@",_xmlDic);
         
         
         NSMutableArray *movies = [NSMutableArray array];
@@ -476,16 +396,96 @@
             movie.thumbnail = [UIImage imageWithData:thumbnailData];
             
             
+            
             self.movies = movies;
             
             [self.movies addObject:movie];
+            
+            [self performSelectorOnMainThread:@selector(refreshTableViewCellForMovie) withObject:movie waitUntilDone:NO];
+             
         }
         
-        [tableV reloadData];
+         
+    
         
         [xml release];
-            
+        
     }
+    
+    
+    if([((CustomURLConnection*)connection).name isEqualToString:@"huodong"] )
+    {
+        
+        
+        
+        NSString * xml1 = [[NSString alloc]initWithData:self.responseData1 encoding:NSUTF8StringEncoding];
+        NSDictionary *_xmlDic1 = [xml1 JSONValue];
+        
+        //NSLog(@"！！！！！++++%@",_xmlDic1);
+        
+        
+        NSString *responseString = [[NSString alloc] initWithData:self.responseData1 encoding:NSUTF8StringEncoding];
+        NSString* esc1 = [responseString stringByReplacingOccurrencesOfString:@"\\u" withString:@"\\U"];
+        NSString* esc2 = [esc1 stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
+        NSString* quoted = [[@"\"" stringByAppendingString:esc2] stringByAppendingString:@"\""];
+        NSData* data = [quoted dataUsingEncoding:NSUTF8StringEncoding];
+        NSString* unesc = [NSPropertyListSerialization propertyListFromData:data mutabilityOption:NSPropertyListImmutable format:NULL errorDescription:NULL];
+        assert([unesc isKindOfClass:[NSString class]]);
+        
+        NSMutableArray *onlines = [NSMutableArray array];
+        NSArray *  MovieList2  =   [_xmlDic1 objectForKey:@"onlines"];
+        for(NSDictionary *_dic1 in MovieList2)
+        {
+            OnLine *online = [[[OnLine alloc]init]autorelease];
+            online.onlineTitle =  [_dic1 objectForKey:@"title"];
+            online.onlineString = [_dic1 objectForKey:@"thumb"];
+            online.onlineId = [_dic1 objectForKey:@"id"];
+            NSData *thumbnailData = [NSData dataWithContentsOfURL:[NSURL URLWithString:online.onlineString]];
+            online.onlineImage = [UIImage imageWithData:thumbnailData];
+            
+            NSLog(@"!!!!####%@",online.onlineId);
+            
+            self.onlines = onlines;
+            
+            [self.onlines addObject:online];
+            [self performSelectorOnMainThread:@selector(refreshTableViewCellForonline) withObject:online waitUntilDone:NO];
+        }
+        
+       
+        
+        [responseString release];
+        [xml1 release];
+        
+    }
+    if([((CustomURLConnection*)connection).name isEqualToString:@"book"] )
+    {
+        NSString * xml3 = [[NSString alloc]initWithData:self.responseData1 encoding:NSUTF8StringEncoding];
+        NSDictionary *_xmlDic3 = [xml3 JSONValue];
+        //NSLog(@"%@",_xmlDic3);
+        NSMutableArray *books = [NSMutableArray array];
+        NSArray *MovieList3 = [_xmlDic3 objectForKey:@"books"];
+        
+        for(NSDictionary *_dic3 in MovieList3)
+        {
+            Book *book = [[[Book alloc]init]autorelease];
+            book.bookTitle =  [_dic3 objectForKey:@"title"];
+            book.bookID = [_dic3 objectForKey:@"id"];
+            book.bookString = [[_dic3 objectForKey:@"images"]objectForKey:@"small"];
+            NSData *thumbnailData1 = [NSData dataWithContentsOfURL:[NSURL URLWithString:book.bookString]];
+            book.bookImage = [UIImage imageWithData:thumbnailData1];
+            //NSLog(@"++++%@",book.bookID);
+            
+            self.books = books;
+            
+            [self.books addObject:book];
+            [self performSelectorOnMainThread:@selector(refreshTableViewCellForbook) withObject:book waitUntilDone:NO];
+        }
+        
+        //[juhua stopAnimating];
+        [xml3 release];
+        
+    }
+    
     
     if([((CustomURLConnection*)connection).name isEqualToString:@"music"] )
     {
@@ -504,42 +504,63 @@
             author.authorName =  [_dic4 objectForKey:@"title"];
             author.authorString = [_dic4 objectForKey:@"image"];
             author.authorId = [_dic4 objectForKey:@"id"];
-                    NSData *thumbnailData4 = [NSData dataWithContentsOfURL:[NSURL URLWithString:author.authorString]];
-                author.authorImage = [UIImage imageWithData:thumbnailData4];
-            //        NSLog(@"%@",[_dic4 objectForKey:@"image"]);
-            //
-            //        [NSThread detachNewThreadSelector:@selector(loadAndRefreshForAuthor:) toTarget:self withObject:author];
+            NSData *thumbnailData4 = [NSData dataWithContentsOfURL:[NSURL URLWithString:author.authorString]];
+            author.authorImage = [UIImage imageWithData:thumbnailData4];
+            
             
             
             self.authors = authors;
             
             [self.authors addObject:author];
             
-            
-            [self scaleToSize:author.authorImage size:CGSizeMake(100.0, 100.0)];
-            
+             [self performSelectorOnMainThread:@selector(refreshTableViewCellFormuisc) withObject:author waitUntilDone:NO];
             
         }
-//        [juhua2 stopAnimating];
-        [tableV3 reloadData];
-
+        
+        
+        
         
     }
+
+
     
-    
-    
+
     
 }
 
+
+-(void)refreshTableViewCellFormuisc
+{
+    [tableV3 reloadData];
+    
+}
+-(void)refreshTableViewCellForbook
+{
+    [tableV2 reloadData];
+    
+}
+-(void)refreshTableViewCellForonline
+{
+    
+     [tableV1 reloadData];
+    
+}
+-(void)refreshTableViewCellForMovie
+{
+    [tableV reloadData];
+}
+
+
 -(void)_loadData:(UISegmentedControl*)yy
 {
+    [tableV removeFromSuperview];
+    [tableV1 removeFromSuperview];
+    [tableV2 removeFromSuperview];
+    [tableV3 removeFromSuperview];
     
     NSInteger index = yy.selectedSegmentIndex ;
     if (index == 3) {
-        [tableV removeFromSuperview];
-        [tableV2 removeFromSuperview];
-        [tableV3 removeFromSuperview];
-        [self.view addSubview:tableV1];
+             [self.view addSubview:tableV1];
         self.navigationItem.title = @"活动";
         
         
@@ -548,34 +569,28 @@
         
     }
     if (index == 0) {
-        [tableV1 removeFromSuperview];
-        [tableV2 removeFromSuperview];
-        [tableV3 removeFromSuperview];
+     
         self.navigationItem.title= @"电影";
         //[self.headerview removeFromSuperview];
 //        [self tianjianmessage];
         [self.view addSubview:tableV];
-        
+        [tableV reloadData];
+               
         
     }
     
     if(index == 1)
     {
-        [tableV1 removeFromSuperview];
-        [tableV removeFromSuperview];
-        [tableV3 removeFromSuperview];
-        self.navigationItem.title =@"图书";
+             self.navigationItem.title =@"图书";
         [self searchbar];
         [self.view addSubview:tableV2];
-        [self loadtupian];
+        //[self loadtupian];
         
         
     }
     if(index == 2)
     {
-        [tableV1 removeFromSuperview];
-        [tableV removeFromSuperview];
-        [tableV2 removeFromSuperview];
+       
         self.navigationItem.title= @"音乐";
         [self searchbar];
         [self.view addSubview:tableV3];
@@ -653,6 +668,50 @@
     else if(tableView.tag ==3)
     {
         Book *book = [self.books objectAtIndex:indexPath.row];
+        
+        //2013 9 12
+//        NSMutableArray *studentArray = [NSMutableArray array];
+//        Student *student = [[Student alloc]init];
+//        student.bookName = book.bookTitle;
+//        [studentArray addObject:student];
+//        //gui dang
+//        NSData *studentData = [NSKeyedArchiver archivedDataWithRootObject:studentArray];
+//        NSString *filepath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject];
+//        [studentData writeToFile:[filepath stringByAppendingPathComponent:@"students.archive"] atomically:YES];
+        
+        
+//        //jie dang
+//       NSString *filepath2 = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject];
+//       NSData *studentData3 = [NSData dataWithContentsOfFile:[filepath2 stringByAppendingPathComponent:@"students.archive"]];
+//        NSMutableArray *studentsArray = [NSKeyedUnarchiver unarchiveObjectWithData:studentData3];
+//        
+//        Student *student = [studentsArray objectAtIndex:indexPath.row];
+//        cell.nameLabel.text = student.bookName;
+        
+        
+//        if(studentsArray)
+//        {
+//            
+//            for(Student *stuent in studentsArray)
+//            {
+//                cell.nameLabel.text = stuent.bookName;
+//                
+//            }
+//            
+//            
+//                
+//            
+//        }
+//       else
+//       {
+//         self.students= [NSMutableArray array];
+//           
+//       }
+//        
+        
+        
+        
+        
         cell.nameLabel.text = book.bookTitle;
         if(book.bookImage)
         {
@@ -664,9 +723,9 @@
     {
         Author *author = [self.authors objectAtIndex:indexPath.row];
         cell.nameLabel.text = author.authorName;
-        if(self.scaledImage)
+        if(author.authorImage)
         {
-            cell.imageV.image = self.scaledImage;
+            cell.imageV.image =author.authorImage ;
         }
         
     }
@@ -690,6 +749,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
+  
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     if (self.segmentControl.selectedSegmentIndex==0){
@@ -699,6 +759,7 @@
     first.movieID =movie.movieID;
     first.movieName = movie.movieName;
     first.movieimage = movie.thumbnail;
+        first.movieString = movie.thumbnailURLString;
     first.kamovie = [self.movies objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:first animated:YES];
     
@@ -741,7 +802,22 @@
     }
     
     
-    
+    else
+   {
+       MusicViewController *music = [[MusicViewController alloc]initWithStyle:UITableViewStylePlain];
+       Author *authour = [self.authors objectAtIndex:indexPath.row];
+       music.musicID = authour.authorId;
+       music.musicName = authour.authorName;
+       music.musicImage = authour.authorImage;
+       NSLog(@"%@",music.musicID);
+       [self.navigationController pushViewController:music animated:YES];
+       [music release];
+       
+       
+       
+       
+       
+   }
     
     
     

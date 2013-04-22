@@ -12,7 +12,17 @@
 #import "FirstaddlistViewController.h"
 #import "SeconAddViewController.h"
 
+#import "Student.h"
+
 @interface FirstViewController ()
+{
+    UIProgressView* progressView_;
+}
+
+
+-(CGFloat)hanggao;
+
+
 @property (nonatomic, retain) NSMutableData *responseData;
 @property(nonatomic,retain)Book *book;
 @property(nonatomic,retain)NSMutableArray *books;
@@ -21,9 +31,30 @@
 @property(nonatomic,retain)UILabel *daolabel;
 @property(nonatomic,retain) UILabel *restlabel;
 @property(nonatomic,retain)UIScrollView *scrollView;
+@property(nonatomic,retain)UIButton *button;
+@property(nonatomic,retain)Student *student;
+@property(nonatomic,retain) NSMutableArray *students;
 @end
 
 @implementation FirstViewController
+
+-(CGFloat)hanggao
+{
+   
+    
+    UILabel *label1 = [[[UILabel alloc]initWithFrame:CGRectMake(10.0, 10.0, 280.0, 400.0)] autorelease];
+    label1.textAlignment = NSTextAlignmentCenter;
+   
+    label1.font = [UIFont systemFontOfSize:15.0];
+    //label1.textColor = [UIColor orangeColor];
+    label1.text = self.restlabel.text;
+    label1.numberOfLines=0;
+    [label1 sizeToFit];
+    
+    return  label1.frame.size.height+30;
+    
+}
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -48,83 +79,24 @@
     
     NSString *str = self.movieID;
     
-    //    NSURLRequest *request1 = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://api.douban.com/v2/movie/subject/%@",str]]];
-    //   // NSData *responseData1 = [NSURLConnection sendSynchronousRequest:request1 returningResponse:NULL error:NULL];
-    //     NSURLConnection *connection = [[NSURLConnection alloc]initWithRequest:request1 delegate:self];
-    //     NSString *responseString1= [[NSString alloc] initWithData:responseData1 encoding:NSUTF8StringEncoding];
-    //    NSLog(@"%@",responseString1);
+//    //    NSURLRequest *request1 = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://api.douban.com/v2/movie/subject/%@",str]]];
+//    //   // NSData *responseData1 = [NSURLConnection sendSynchronousRequest:request1 returningResponse:NULL error:NULL];
+//    //     NSURLConnection *connection = [[NSURLConnection alloc]initWithRequest:request1 delegate:self];
+//    //     NSString *responseString1= [[NSString alloc] initWithData:responseData1 encoding:NSUTF8StringEncoding];
+//    //    NSLog(@"%@",responseString1);
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.douban.com/v2/movie/subject/%@",str]];
     NSURLRequest *request = [[NSURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
     NSURLConnection *connection = [[[NSURLConnection alloc]initWithRequest:request delegate:self]autorelease];
     NSLog(@"%@",connection);
     //    NSString * xml1 = [[NSString alloc]initWithData:responseData1 encoding:NSUTF8StringEncoding];
-    //    NSDictionary *_xmlDic1 = [xml1 JSONValue];
-    //    NSLog(@"%@",_xmlDic1);
-    self.navigationItem.title = self.movieName;
+//    //    NSDictionary *_xmlDic1 = [xml1 JSONValue];
+//    //    NSLog(@"%@",_xmlDic1);
+//    self.navigationItem.title = self.movieName;
     
     
     
     
-    
-    //    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0.0, 0.0, 320, 180.0)];
-    //    [tableV addSubview:view];
-    
-    
-//    UIImageView *imageview = [[UIImageView alloc]initWithFrame:CGRectMake(10.0, 10.0, 100, 100)];
-//    //[self.view addSubview:imageview];
-//    imageview.image =self.movieimage;
-//    [self.view addSubview:imageview];
-//    [imageview release];
-//    
-//    UILabel *titlelabel = [[UILabel alloc]initWithFrame:CGRectMake(120.0, 10.0, 95.0, 30.0)];
-//    titlelabel.text = @"电影名称:";
-//    titlelabel.font = [UIFont boldSystemFontOfSize:15];
-//    [self.view addSubview:titlelabel];
-//    [titlelabel release];
-//    
-//    UILabel *namelabel = [[UILabel alloc]initWithFrame:CGRectMake(200.0, 10.0, 110.0, 28.0)];
-//    namelabel.numberOfLines=1;
-//    namelabel.font = [UIFont systemFontOfSize:18];
-//    namelabel.text = self.movieName;
-//    self.namelabel = namelabel;
-//    [self.view addSubview:namelabel];
-//    [namelabel release];
-//    
-//    UILabel *daoyanlabel = [[UILabel alloc]initWithFrame:CGRectMake(120.0, 40.0, 50.0, 30.0)];
-//    daoyanlabel.text = @"导演:";
-//    daoyanlabel.font = [UIFont boldSystemFontOfSize:15];
-//    [self.view addSubview:daoyanlabel];
-//    
-//    
-//    UILabel *daolabel = [[UILabel alloc]initWithFrame:CGRectMake(200.0, 40.0, 110.0, 60.0)];
-//    daolabel.numberOfLines = 2;
-//    daolabel.font = [UIFont systemFontOfSize:18.0];
-//    daolabel.text = @"";
-//    self.daolabel = daolabel;
-//    [self.view addSubview:daolabel];
-//    [daolabel release];
-//    
-//    
-//    UILabel *xianshilabel = [[UILabel alloc]initWithFrame:CGRectMake(20.0, 150.0, 200.0,40.0 )];
-//    xianshilabel.text = @"电影简介:";
-//    xianshilabel.font = [UIFont boldSystemFontOfSize:18];
-//    [self.view addSubview:xianshilabel];
-//    [xianshilabel release];
-//    
-    
-//
-//    
-//    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0.0, 180.0, 320.0, 280.0)];
-//    //scrollView.pagingEnabled = YES;
-//    scrollView.delegate = self;
-//    scrollView.contentSize = CGSizeMake(320.0, 300.0);
-//    self.scrollView=scrollView;
-//    [self.view addSubview:scrollView];
-//    [scrollView release];
-//    
-//    
-//
-       UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0.0,-100.0 , 50.0, 40.0)];
+           UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0.0,-100.0 , 50.0, 40.0)];
     
         label.textAlignment = NSTextAlignmentCenter;
         label.backgroundColor = [UIColor grayColor];
@@ -169,7 +141,40 @@
     self.restlabel = restlabel;
     [self.tableView addSubview:restlabel];
     
+    
+    
+    
+    
+    
+    
+//    Student *student = [[Student alloc]init];
+//    student.bookName = self.movieName;
+//    NSString *filepath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject];
+//    NSData *studentData = [NSData dataWithContentsOfFile:[filepath stringByAppendingPathComponent:@"students.archive"]];
+//    NSMutableArray *students = [NSKeyedUnarchiver unarchiveObjectWithData:studentData];
+//    if(students)
+//    {
+//        self.students = students;
+//    }
+//    else
+//    {
+//        self.students = [NSMutableArray array];
+//    }
+//    
+//    
+//    [self.students addObject:student];
+//    
+//    
+//    
+//    
+//    
+//    [student release];
+//    //归档
+//    NSData *studentData1 = [NSKeyedArchiver archivedDataWithRootObject:self.students];
+//    NSString *filepath1 = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject];
+//    [studentData1 writeToFile:[filepath1 stringByAppendingPathComponent:@"students.archive"] atomically:YES];
 
+    
     
     
     
@@ -179,7 +184,7 @@
 
 //-(void)resefd
 //{
-//    
+//
 //    UILabel *restlabel = [[UILabel alloc]initWithFrame:CGRectMake(0.0, -500.0, 320, 450.0)];
 //    restlabel.font = [UIFont systemFontOfSize:15.0];
 //    restlabel.text = @"";
@@ -224,11 +229,24 @@
         if (!cell)
         {
             cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier] autorelease];
+            //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
         }
         
         cell.textLabel.text = self.movieName;
+        cell.textLabel.font = [UIFont boldSystemFontOfSize:18.0];
         cell.textLabel.textColor = [UIColor grayColor];
         cell.imageView.image = self.movieimage;
+
+        
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.frame = CGRectMake(220.0, 35.0, 40.0, 30.0);
+        [button setTitle:@"收藏" forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        button.backgroundColor = [UIColor clearColor];
+        [button addTarget:self action:@selector(add) forControlEvents:UIControlEventTouchUpInside];
+        [cell.contentView addSubview:button];
+        
     }
     else if (indexPath.section == 1)
     {
@@ -245,15 +263,7 @@
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
-        // 输入标题用的text field
-//        UILabel *restlabel = [[UILabel alloc]initWithFrame:CGRectMake(10.0, 10.0, 150.0, 40.0)];
-//        restlabel.font = [UIFont systemFontOfSize:18.0];
-//        restlabel.text = @"";
-//        self.restlabel = restlabel;
-//        [cell.contentView addSubview:restlabel];
-//        [restlabel release];
         cell.textLabel.text = self.label.text;
-        
         
     
     }
@@ -269,27 +279,26 @@
             cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier] autorelease];
         }
         
-        //cell.textLabel.text = message.content;
+        
         
         UILabel *label1 = [[UILabel alloc]initWithFrame:CGRectMake(10.0, 10.0, 280.0, 400.0)];
             label1.textAlignment = NSTextAlignmentCenter;
             label1.backgroundColor = [UIColor clearColor];
             label1.font = [UIFont systemFontOfSize:15.0];
-            //label1.textColor = [UIColor orangeColor];
-            label1.text =self.restlabel.text;
+            
+        label1.text =self.restlabel.text;
             label1.numberOfLines=0;
         [label1 sizeToFit];
         [cell.contentView addSubview:label1];
         
              
-        //cell.detailTextLabel.text = self.restlabel.text;
-        
+               
         
                 
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
     }
-    //[self.tableView reloadData];
+   
     
     return cell;
 }
@@ -316,9 +325,12 @@
 //    if(section == 1)
 //    {
 //        UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0.0, 0.0, 320.0, 40.0)];
-//        UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-//        button.frame = CGRectMake(100.0, 10.0, 30.0, 30.0);
-//        [button setTitle:@"kk" forState:UIControlStateNormal];
+//        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+//        button.frame = CGRectMake(260.0, 5.0, 50.0, 30.0);
+//        [button setTitle:@"收藏" forState:UIControlStateNormal];
+//        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//        button.backgroundColor = [UIColor clearColor];
+//        [button addTarget:self action:@selector(add) forControlEvents:UIControlEventTouchUpInside];
 //        [view addSubview:button];
 //        return view;
 //        
@@ -345,7 +357,77 @@
 //}
 
 
+-(void)add
+{
+    
+    UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle:@"提示"
+                          message:@"选择了菜单中的操作"
+                          delegate:self
+                          cancelButtonTitle:@"取消"
+                          otherButtonTitles:@"确定",nil];
+    
+//    progressView_ = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleBar];
+//    progressView_.frame = CGRectMake(30, 80, 225, 30);
+//    [alert addSubview:progressView_];
+    
+    [alert show];        
+    [alert release];
+    
+   
+    
+    
+}
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    
+    if(buttonIndex==1)
+    {
+        
+        UIAlertView *alert2 = [[UIAlertView alloc]
+                              initWithTitle:nil
+                              message:@"选择了菜单中的操作"
+                              delegate:self
+                              cancelButtonTitle:@"收藏成功"
+                              otherButtonTitles:nil];
+        
+        [alert2 show];
+        [alert2 release];
+        
+        Student *student = [[Student alloc]init];
+        student.bookName = self.movieName;
+        student.bookString = self.movieString;
+        
+        NSString *filepath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject];
+        NSData *studentData = [NSData dataWithContentsOfFile:[filepath stringByAppendingPathComponent:@"students.bbchive"]];
+        NSMutableArray *students = [NSKeyedUnarchiver unarchiveObjectWithData:studentData];
+        if(students)
+        {
+            self.students = students;
+        }
+        else
+        {
+            self.students = [NSMutableArray array];
+        }
+        
+        
+        [self.students addObject:student];
+        
+        
+        
+        
+        
+        [student release];
+        //归档
+        NSData *studentData1 = [NSKeyedArchiver archivedDataWithRootObject:self.students];
+        NSString *filepath1 = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject];
+        [studentData1 writeToFile:[filepath1 stringByAppendingPathComponent:@"students.bbchive"] atomically:YES];
+        
+    }
+    
+    
+}
 
 -(void)tianjianmessage
 {
@@ -384,7 +466,7 @@
     
     NSString * xml1 = [[NSString alloc]initWithData:self.responseData encoding:NSUTF8StringEncoding];
     NSDictionary *_xmlDic1 = [xml1 JSONValue];
-    NSLog(@"111111111%@",_xmlDic1);
+   // NSLog(@"111111111%@",_xmlDic1);
     
     
     NSString *responseString = [[NSString alloc] initWithData:self.responseData encoding:NSUTF8StringEncoding];
@@ -442,11 +524,28 @@
     }
     else if(indexPath.section == 1)
     {
+        
+        
+        
         return 60.0;
     }
     else
     {
-        return 500.0;
+        
+//        Book *book = [self.books objectAtIndex:indexPath.row];
+//    
+//        UILabel *label1 = [[UILabel alloc]initWithFrame:CGRectMake(10.0, 10.0, 280.0, 400.0)];
+//        label1.textAlignment = NSTextAlignmentCenter;
+//        label1.backgroundColor = [UIColor clearColor];
+//        label1.font = [UIFont systemFontOfSize:15.0];
+//        //label1.textColor = [UIColor orangeColor];
+//        label1.text =book.bookDescription;
+//        label1.numberOfLines=0;
+//        [label1 sizeToFit];
+        
+//        return  label1.frame.size.height+30;
+        return [self hanggao];
+        
     }
 }
 
@@ -511,14 +610,38 @@
     Book *book = [self.books objectAtIndex:indexPath.row];
     secondadd.ID= book.bookID;
     secondadd.Name = book.bookTitle;
-    //NSLog(@"%@",book.bookID);
+    NSLog(@"%@",book.bookID);
     
     [self.navigationController pushViewController:secondadd animated:YES];
     [secondadd release];
     
     
 }
-        
+//if(indexPath.section==0&indexPath.row==0)
+//{
+//    
+//    SouSuoViewController *sousuo = [[SouSuoViewController alloc]init];
+//    sousuo.movieName = self.movieName;
+//    sousuo.movieImage = self.movieimage;
+//    UIAlertView *alert = [[UIAlertView alloc]
+//                          initWithTitle:@"提示"
+//                          message:@"选择了菜单中的操作"
+//                          delegate:self
+//                          cancelButtonTitle:@"确定"
+//                          otherButtonTitles:@"取消",nil];
+//    //[alert addButtonWithTitle:@"新增加项"];
+//    [alert show];
+//    [alert release];
+//    
+//    [self.navigationController pushViewController:sousuo animated:YES];
+//    
+//    
+//    
+//
+//    
+//    
+//    
+//}
 
     
     

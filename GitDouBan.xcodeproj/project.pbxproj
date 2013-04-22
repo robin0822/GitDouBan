@@ -18,7 +18,6 @@
 		0F13D13D171CDF9400DC8122 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F13D136171CDF9400DC8122 /* SBJsonParser.m */; };
 		0F13D13E171CDF9400DC8122 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F13D138171CDF9400DC8122 /* SBJsonWriter.m */; };
 		0F13D14B171CFE8300DC8122 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F13D14A171CFE8300DC8122 /* Movie.m */; };
-		0F13D156171D26C900DC8122 /* SouSuoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F13D155171D26C900DC8122 /* SouSuoViewController.m */; };
 		0F13D15C171D270C00DC8122 /* TuiJianViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F13D15B171D270C00DC8122 /* TuiJianViewController.m */; };
 		0F13D15F171D272200DC8122 /* GuanYuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F13D15E171D272200DC8122 /* GuanYuViewController.m */; };
 		0F94E6D2171C08C0007985B5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F94E6D1171C08C0007985B5 /* UIKit.framework */; };
@@ -30,11 +29,16 @@
 		0F94E6E4171C08C0007985B5 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F94E6E3171C08C0007985B5 /* Default.png */; };
 		0F94E6E6171C08C0007985B5 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F94E6E5171C08C0007985B5 /* Default@2x.png */; };
 		0F94E6E8171C08C0007985B5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F94E6E7171C08C0007985B5 /* Default-568h@2x.png */; };
+		0FB9CDA01721334A00B76973 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB9CD9F1721334A00B76973 /* Student.m */; };
+		0FC4CFB31724DD5900D349C5 /* SeconApadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC4CFB21724DD5900D349C5 /* SeconApadViewController.m */; };
+		0FC4CFB617252BC400D349C5 /* SouCangViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC4CFB517252BC400D349C5 /* SouCangViewController.m */; };
+		0FC4CFBB17254F8900D349C5 /* MusicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC4CFBA17254F8900D349C5 /* MusicViewController.m */; };
+		0FCC13CE1723C14E00FE567B /* QyhOOOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FCC13CD1723C14E00FE567B /* QyhOOOViewController.m */; };
+		0FCC13D11723D81C00FE567B /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FCC13D01723D81C00FE567B /* SecondViewController.m */; };
 		0FDBBD441720C6B200BC16FE /* ActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDBBD431720C6B200BC16FE /* ActionViewController.m */; };
 		0FDBBD481720EE4400BC16FE /* SeconAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDBBD471720EE4400BC16FE /* SeconAddViewController.m */; };
 		0FE2692E171E4C140079D3CC /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE2692D171E4C140079D3CC /* Book.m */; };
 		0FE26931171E79910079D3CC /* Author.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE26930171E79910079D3CC /* Author.m */; };
-		0FF9ECCA171F951200652A0A /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9ECC9171F951200652A0A /* SecondViewController.m */; };
 		0FF9ECCD171F97AC00652A0A /* CustomURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9ECCC171F97AC00652A0A /* CustomURLConnection.m */; };
 		0FF9ECD0171FC2E900652A0A /* FirstaddlistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9ECCF171FC2E900652A0A /* FirstaddlistViewController.m */; };
 		0FF9ECD3171FDD9A00652A0A /* QyhCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9ECD2171FDD9A00652A0A /* QyhCell.m */; };
@@ -62,8 +66,6 @@
 		0F13D138171CDF9400DC8122 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		0F13D149171CFE8300DC8122 /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
 		0F13D14A171CFE8300DC8122 /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
-		0F13D154171D26C900DC8122 /* SouSuoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SouSuoViewController.h; sourceTree = "<group>"; };
-		0F13D155171D26C900DC8122 /* SouSuoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SouSuoViewController.m; sourceTree = "<group>"; };
 		0F13D15A171D270C00DC8122 /* TuiJianViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuiJianViewController.h; sourceTree = "<group>"; };
 		0F13D15B171D270C00DC8122 /* TuiJianViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TuiJianViewController.m; sourceTree = "<group>"; };
 		0F13D15D171D272200DC8122 /* GuanYuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuanYuViewController.h; sourceTree = "<group>"; };
@@ -81,6 +83,18 @@
 		0F94E6E3171C08C0007985B5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		0F94E6E5171C08C0007985B5 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		0F94E6E7171C08C0007985B5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		0FB9CD9E1721334A00B76973 /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
+		0FB9CD9F1721334A00B76973 /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
+		0FC4CFB11724DD5900D349C5 /* SeconApadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeconApadViewController.h; sourceTree = "<group>"; };
+		0FC4CFB21724DD5900D349C5 /* SeconApadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeconApadViewController.m; sourceTree = "<group>"; };
+		0FC4CFB417252BC400D349C5 /* SouCangViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SouCangViewController.h; sourceTree = "<group>"; };
+		0FC4CFB517252BC400D349C5 /* SouCangViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SouCangViewController.m; sourceTree = "<group>"; };
+		0FC4CFB917254F8900D349C5 /* MusicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicViewController.h; sourceTree = "<group>"; };
+		0FC4CFBA17254F8900D349C5 /* MusicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicViewController.m; sourceTree = "<group>"; };
+		0FCC13CC1723C14E00FE567B /* QyhOOOViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QyhOOOViewController.h; sourceTree = "<group>"; };
+		0FCC13CD1723C14E00FE567B /* QyhOOOViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QyhOOOViewController.m; sourceTree = "<group>"; };
+		0FCC13CF1723D81C00FE567B /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		0FCC13D01723D81C00FE567B /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		0FDBBD421720C6B200BC16FE /* ActionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionViewController.h; sourceTree = "<group>"; };
 		0FDBBD431720C6B200BC16FE /* ActionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionViewController.m; sourceTree = "<group>"; };
 		0FDBBD461720EE4400BC16FE /* SeconAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeconAddViewController.h; sourceTree = "<group>"; };
@@ -89,8 +103,6 @@
 		0FE2692D171E4C140079D3CC /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
 		0FE2692F171E79910079D3CC /* Author.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Author.h; sourceTree = "<group>"; };
 		0FE26930171E79910079D3CC /* Author.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Author.m; sourceTree = "<group>"; };
-		0FF9ECC8171F951200652A0A /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		0FF9ECC9171F951200652A0A /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		0FF9ECCB171F97AC00652A0A /* CustomURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomURLConnection.h; sourceTree = "<group>"; };
 		0FF9ECCC171F97AC00652A0A /* CustomURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomURLConnection.m; sourceTree = "<group>"; };
 		0FF9ECCE171FC2E900652A0A /* FirstaddlistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstaddlistViewController.h; sourceTree = "<group>"; };
@@ -135,29 +147,30 @@
 			name = JOSN;
 			sourceTree = "<group>";
 		};
-		0F13D140171CDFB600DC8122 /* UISegmentedControl */ = {
+		0F13D140171CDFB600DC8122 /* TaNbar */ = {
 			isa = PBXGroup;
 			children = (
-				0F13D154171D26C900DC8122 /* SouSuoViewController.h */,
-				0F13D155171D26C900DC8122 /* SouSuoViewController.m */,
 				0F13D15A171D270C00DC8122 /* TuiJianViewController.h */,
 				0F13D15B171D270C00DC8122 /* TuiJianViewController.m */,
 				0F13D15D171D272200DC8122 /* GuanYuViewController.h */,
 				0F13D15E171D272200DC8122 /* GuanYuViewController.m */,
 				0FF9ECCB171F97AC00652A0A /* CustomURLConnection.h */,
 				0FF9ECCC171F97AC00652A0A /* CustomURLConnection.m */,
+				0FC4CFB417252BC400D349C5 /* SouCangViewController.h */,
+				0FC4CFB517252BC400D349C5 /* SouCangViewController.m */,
 			);
-			name = UISegmentedControl;
+			name = TaNbar;
 			sourceTree = "<group>";
 		};
 		0F94E6C2171C08C0007985B5 = {
 			isa = PBXGroup;
 			children = (
+				0FC4CFB817254F6E00D349C5 /* 音乐 */,
 				0FDBBD411720C68700BC16FE /* 活动 */,
 				0FDBBD401720C63C00BC16FE /* 对象 */,
 				0FF9ECC7171F94EF00652A0A /* 图书 */,
 				0FE26933171E86810079D3CC /* 电影 */,
-				0F13D140171CDFB600DC8122 /* UISegmentedControl */,
+				0F13D140171CDFB600DC8122 /* TaNbar */,
 				0F13D12A171CDF6000DC8122 /* JOSN */,
 				0F94E6D7171C08C0007985B5 /* GitDouBan */,
 				0F94E6D0171C08C0007985B5 /* Frameworks */,
@@ -210,6 +223,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		0FC4CFB817254F6E00D349C5 /* 音乐 */ = {
+			isa = PBXGroup;
+			children = (
+				0FC4CFB917254F8900D349C5 /* MusicViewController.h */,
+				0FC4CFBA17254F8900D349C5 /* MusicViewController.m */,
+			);
+			name = "音乐";
+			sourceTree = "<group>";
+		};
 		0FDBBD401720C63C00BC16FE /* 对象 */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,6 +245,8 @@
 				0FE26930171E79910079D3CC /* Author.m */,
 				0FF9ECD1171FDD9A00652A0A /* QyhCell.h */,
 				0FF9ECD2171FDD9A00652A0A /* QyhCell.m */,
+				0FB9CD9E1721334A00B76973 /* Student.h */,
+				0FB9CD9F1721334A00B76973 /* Student.m */,
 			);
 			name = "对象";
 			sourceTree = "<group>";
@@ -232,6 +256,8 @@
 			children = (
 				0FDBBD421720C6B200BC16FE /* ActionViewController.h */,
 				0FDBBD431720C6B200BC16FE /* ActionViewController.m */,
+				0FCC13CC1723C14E00FE567B /* QyhOOOViewController.h */,
+				0FCC13CD1723C14E00FE567B /* QyhOOOViewController.m */,
 			);
 			name = "活动";
 			sourceTree = "<group>";
@@ -252,8 +278,10 @@
 		0FF9ECC7171F94EF00652A0A /* 图书 */ = {
 			isa = PBXGroup;
 			children = (
-				0FF9ECC8171F951200652A0A /* SecondViewController.h */,
-				0FF9ECC9171F951200652A0A /* SecondViewController.m */,
+				0FCC13CF1723D81C00FE567B /* SecondViewController.h */,
+				0FCC13D01723D81C00FE567B /* SecondViewController.m */,
+				0FC4CFB11724DD5900D349C5 /* SeconApadViewController.h */,
+				0FC4CFB21724DD5900D349C5 /* SeconApadViewController.m */,
 			);
 			name = "图书";
 			sourceTree = "<group>";
@@ -336,19 +364,23 @@
 				0F13D13D171CDF9400DC8122 /* SBJsonParser.m in Sources */,
 				0F13D13E171CDF9400DC8122 /* SBJsonWriter.m in Sources */,
 				0F13D14B171CFE8300DC8122 /* Movie.m in Sources */,
-				0F13D156171D26C900DC8122 /* SouSuoViewController.m in Sources */,
 				0F13D15C171D270C00DC8122 /* TuiJianViewController.m in Sources */,
 				0F13D15F171D272200DC8122 /* GuanYuViewController.m in Sources */,
 				0F04FB27171D6B9900866673 /* OnLine.m in Sources */,
 				0FE2692E171E4C140079D3CC /* Book.m in Sources */,
 				0FE26931171E79910079D3CC /* Author.m in Sources */,
-				0FF9ECCA171F951200652A0A /* SecondViewController.m in Sources */,
 				0FF9ECCD171F97AC00652A0A /* CustomURLConnection.m in Sources */,
 				0FF9ECD0171FC2E900652A0A /* FirstaddlistViewController.m in Sources */,
 				0FF9ECD3171FDD9A00652A0A /* QyhCell.m in Sources */,
 				0FF9ECD91720002000652A0A /* FirstViewController.m in Sources */,
 				0FDBBD441720C6B200BC16FE /* ActionViewController.m in Sources */,
 				0FDBBD481720EE4400BC16FE /* SeconAddViewController.m in Sources */,
+				0FB9CDA01721334A00B76973 /* Student.m in Sources */,
+				0FCC13CE1723C14E00FE567B /* QyhOOOViewController.m in Sources */,
+				0FCC13D11723D81C00FE567B /* SecondViewController.m in Sources */,
+				0FC4CFB31724DD5900D349C5 /* SeconApadViewController.m in Sources */,
+				0FC4CFB617252BC400D349C5 /* SouCangViewController.m in Sources */,
+				0FC4CFBB17254F8900D349C5 /* MusicViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,6 +13,7 @@
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+   
     if (self) {
         // Initialization code
         imageV = [[UIImageView alloc]initWithFrame:CGRectMake(3, 3, 65, 75)];
@@ -21,6 +22,7 @@
         nameLabel.font = [UIFont systemFontOfSize:15.0];
         nameLabel.backgroundColor = [UIColor clearColor];
         imageV.backgroundColor = [UIColor clearColor];
+
         [self addSubview:imageV];
         [self addSubview:nameLabel];
     }

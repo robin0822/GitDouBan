@@ -8,7 +8,7 @@
 
 #import "QyhAppDelegate.h"
 
-#import "SouSuoViewController.h" 
+#import "SouCangViewController.h" 
 #import "GuanYuViewController.h"
 #import "TuiJianViewController.h"
 
@@ -33,9 +33,9 @@
     [sousu release];
     
     
-    SouSuoViewController *tuijian = [[SouSuoViewController alloc]init];
+    SouCangViewController *tuijian = [[SouCangViewController alloc]initWithStyle:UITableViewStylePlain];
     UINavigationController *navigation2 = [[UINavigationController alloc]initWithRootViewController:tuijian];
-    navigation2.tabBarItem.title = @"搜索";
+    navigation2.tabBarItem.title = @"收藏";
     navigation2.tabBarItem.image = [UIImage imageNamed:@"456.png"];
     [tuijian release];
     

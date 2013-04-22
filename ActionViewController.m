@@ -9,6 +9,7 @@
 #import "ActionViewController.h"
 #import "Book.h"
 #import "JSON.h"
+#import "QyhOOOViewController.h"
 
 @interface ActionViewController ()
 @property(nonatomic,retain)NSMutableData *responseData;
@@ -89,7 +90,7 @@
         book.bookTitle =  [_xmlDic3 objectForKey:@"desc"];
         book.bookID = [_xmlDic3 objectForKey:@"id"];
         book.bookString = [[_xmlDic3 objectForKey:@"images"]objectForKey:@"small"];
-    
+    NSLog(@"!!!!!!!%@",book.bookID);
     
     book.bookDescription = [[_xmlDic3 objectForKey:@"owner"]objectForKey:@"name"];
         NSData *thumbnailData1 = [NSData dataWithContentsOfURL:[NSURL URLWithString:book.bookString]];
@@ -155,6 +156,7 @@
         //label1.textColor = [UIColor orangeColor];
         label3.text = self.Name;
         label3.numberOfLines=0;
+        
         
         [cell.contentView addSubview:label3];
         
@@ -239,7 +241,18 @@
     }
     else
     {
-        return 600.0;
+        
+        UILabel *label1 = [[UILabel alloc]initWithFrame:CGRectMake(10.0, 10.0, 280.0, 400.0)];
+        label1.textAlignment = NSTextAlignmentCenter;
+        label1.backgroundColor = [UIColor clearColor];
+        label1.font = [UIFont systemFontOfSize:15.0];
+        //label1.textColor = [UIColor orangeColor];
+        label1.text =self.restlabel.text;
+        label1.numberOfLines=0;
+        [label1 sizeToFit];
+        return label1.frame.size.height+20;
+        
+        //return 600.0;
     }
 }
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -302,14 +315,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+    
+    QyhOOOViewController *qyhoo = [[QyhOOOViewController alloc]init];
+    
+    
+    
+    [self.navigationController pushViewController:qyhoo animated:YES];
+    
+    
+
 }
 
 @end
