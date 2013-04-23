@@ -64,7 +64,8 @@
     restlabel2.text = @"";
     self.restlabel2 = restlabel2;
     [self.tableView addSubview:restlabel2];
-    
+    [restlabel2 release];
+    [restlabel release];
 }
 
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -104,7 +105,7 @@
 //        [self.books addObject:book];
         [self.tableView reloadData];
     
-    
+   // [_xmlDic3 release];
     
 }
 
@@ -188,7 +189,7 @@
         
         
     }
-    else
+    else 
     {
         // 标题
         static NSString *identifier = @"MessageContentCell";
@@ -212,7 +213,7 @@
         [label1 sizeToFit];
         [cell.contentView addSubview:label1];
 
-        
+        [label1 release];
         
         
         //cell.detailTextLabel.text = self.restlabel.text;
@@ -251,6 +252,7 @@
         label1.numberOfLines=0;
         [label1 sizeToFit];
         return label1.frame.size.height+20;
+        [label1 release];
         
         //return 600.0;
     }

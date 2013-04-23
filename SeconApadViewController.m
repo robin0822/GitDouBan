@@ -41,7 +41,7 @@
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.douban.com/v2/book/%@/annotations",self.ID]];
     NSURLRequest *request = [[NSURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
     NSURLConnection *connection = [[[NSURLConnection alloc]initWithRequest:request delegate:self]autorelease];
-    //NSLog(@"%@",connection);
+    NSLog(@"%@",connection);
 }
 
 - (void)didReceiveMemoryWarning

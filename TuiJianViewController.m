@@ -295,17 +295,31 @@
 
 -(void)yinYu:(NSString*)searchTxt
 {
-     searchTxt = [searchTxt stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
-    NSURL *url4 = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.douban.com/v2/music/search?q=%@",searchTxt]];
-   NSURLRequest *request5 = [[NSURLRequest alloc]initWithURL:url4 cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
+     NSLog(@"%@",searchTxt);
+    
+//     searchTxt = [searchTxt stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//   
+//    
+//    
+//    NSURL *url4 = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.douban.com/v2/music/search?q=%@",searchTxt]];
+//   NSURLRequest *request5 = [[NSURLRequest alloc]initWithURL:url4 cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
+//    CustomURLConnection *connection = [[[CustomURLConnection alloc]initWithRequest:request5 delegate:self startImmediately:NO]autorelease];
+//    // 连接的名字是活动
+//    connection.name = @"music";
+//    // 开始异步请求
+//    [connection start];
+
+    searchTxt = [searchTxt stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    NSURL *url4 = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.douban.com/v2/music/search?q=%@&apikey=0dea1ee3719c992829be5caa54d5cb78",searchTxt]];
+    NSURLRequest *request5 = [[NSURLRequest alloc]initWithURL:url4 cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
     CustomURLConnection *connection = [[[CustomURLConnection alloc]initWithRequest:request5 delegate:self startImmediately:NO]autorelease];
     // 连接的名字是活动
     connection.name = @"music";
     // 开始异步请求
     [connection start];
-
-    
+ 
     
     
 
@@ -321,19 +335,34 @@
 -(void)souSuo:(NSString *)searchText
 {
    
+    NSLog(@"%@",searchText);
+    
+//    searchText = [searchText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//    
+//    
+//    NSURL *url2 = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.douban.com/v2/book/search/?q=%@",searchText]];
+//    NSURLRequest *request2 = [[NSURLRequest alloc]initWithURL:url2 cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
+//    CustomURLConnection *connection = [[[CustomURLConnection alloc]initWithRequest:request2 delegate:self startImmediately:NO]autorelease];
+//    // 连接的名字是活动
+//    connection.name = @"book";
+//    
+//    
+//    // 开始异步请求
+//    [connection start];
+//    
+    
     
     searchText = [searchText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     
-    NSURL *url2 = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.douban.com/v2/book/search?q=%@",searchText]];
+    NSURL *url2 = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.douban.com/v2/book/search?q=%@&apikey=0dea1ee3719c992829be5caa54d5cb78",searchText]];
     NSURLRequest *request2 = [[NSURLRequest alloc]initWithURL:url2 cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
     CustomURLConnection *connection = [[[CustomURLConnection alloc]initWithRequest:request2 delegate:self startImmediately:NO]autorelease];
     // 连接的名字是活动
     connection.name = @"book";
-    
-    
     // 开始异步请求
     [connection start];
+
     
     
     
@@ -553,13 +582,17 @@
 
 -(void)_loadData:(UISegmentedControl*)yy
 {
-    [tableV removeFromSuperview];
-    [tableV1 removeFromSuperview];
-    [tableV2 removeFromSuperview];
-    [tableV3 removeFromSuperview];
+//    [tableV removeFromSuperview];
+//    [tableV1 removeFromSuperview];
+//    [tableV2 removeFromSuperview];
+//    [tableV3 removeFromSuperview];
     
     NSInteger index = yy.selectedSegmentIndex ;
     if (index == 3) {
+        
+        [tableV removeFromSuperview];
+        [tableV2 removeFromSuperview];
+        [tableV3 removeFromSuperview];
              [self.view addSubview:tableV1];
         self.navigationItem.title = @"活动";
         
@@ -570,11 +603,16 @@
     }
     if (index == 0) {
      
-        self.navigationItem.title= @"电影";
+        //self.navigationItem.title= @"电影";
         //[self.headerview removeFromSuperview];
+        [tableV1 removeFromSuperview];
+        [tableV2 removeFromSuperview];
+        [tableV3 removeFromSuperview];
+        
+        self.navigationItem.title= @"电影";
 //        [self tianjianmessage];
         [self.view addSubview:tableV];
-        [tableV reloadData];
+        //[tableV reloadData];
                
         
     }
@@ -582,6 +620,10 @@
     if(index == 1)
     {
              self.navigationItem.title =@"图书";
+        [tableV removeFromSuperview];
+        [tableV1 removeFromSuperview];
+        
+        [tableV3 removeFromSuperview];
         [self searchbar];
         [self.view addSubview:tableV2];
         //[self loadtupian];
@@ -592,6 +634,10 @@
     {
        
         self.navigationItem.title= @"音乐";
+        
+        [tableV removeFromSuperview];
+        [tableV1 removeFromSuperview];
+        [tableV2 removeFromSuperview];
         [self searchbar];
         [self.view addSubview:tableV3];
     }
@@ -643,7 +689,7 @@
         cell = [[[QyhCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier] autorelease];
     }
     
-    if(tableView.tag == 1)
+    else if(tableView.tag == 1)
     {
         Movie *movie = [self.movies objectAtIndex:indexPath.row];
         
@@ -665,7 +711,7 @@
         }
     }
     
-    else if(tableView.tag ==3)
+     else if(tableView.tag ==3)
     {
         Book *book = [self.books objectAtIndex:indexPath.row];
         
@@ -767,7 +813,7 @@
     [first release];
     }
     
-    if(self.segmentControl.selectedSegmentIndex == 1)
+    else if(self.segmentControl.selectedSegmentIndex == 1)
     {
         
         SecondViewController *second = [[SecondViewController alloc]init];
@@ -783,7 +829,7 @@
     }
     
     
-    if(self.segmentControl.selectedSegmentIndex==3)
+     else if(self.segmentControl.selectedSegmentIndex==3)
     {
         
         
@@ -802,7 +848,7 @@
     }
     
     
-    else
+    else if(self.segmentControl.selectedSegmentIndex==2)
    {
        MusicViewController *music = [[MusicViewController alloc]initWithStyle:UITableViewStylePlain];
        Author *authour = [self.authors objectAtIndex:indexPath.row];

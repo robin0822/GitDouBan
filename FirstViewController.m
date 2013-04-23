@@ -76,6 +76,7 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     self.view.backgroundColor = [UIColor whiteColor];
+    //self.navigationItem.backBarButtonItem.title = self.movieName;
     
     NSString *str = self.movieID;
     
@@ -84,7 +85,7 @@
 //    //     NSURLConnection *connection = [[NSURLConnection alloc]initWithRequest:request1 delegate:self];
 //    //     NSString *responseString1= [[NSString alloc] initWithData:responseData1 encoding:NSUTF8StringEncoding];
 //    //    NSLog(@"%@",responseString1);
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.douban.com/v2/movie/subject/%@",str]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.douban.com/v2/movie/subject/%@?apikey=0dea1ee3719c992829be5caa54d5cb78",str]];
     NSURLRequest *request = [[NSURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
     NSURLConnection *connection = [[[NSURLConnection alloc]initWithRequest:request delegate:self]autorelease];
     NSLog(@"%@",connection);
@@ -140,7 +141,7 @@
     restlabel.text = @"";
     self.restlabel = restlabel;
     [self.tableView addSubview:restlabel];
-    
+    [restlabel release];
     
     
     
@@ -290,7 +291,7 @@
             label1.numberOfLines=0;
         [label1 sizeToFit];
         [cell.contentView addSubview:label1];
-        
+        [label1 release];
              
                
         

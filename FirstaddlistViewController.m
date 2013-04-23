@@ -49,7 +49,7 @@
     
     self.Name = [self.Name stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.douban.com/v2/movie/search?q=%@",self.Name]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.douban.com/v2/movie/search?q=%@?apikey=0dea1ee3719c992829be5caa54d5cb78",self.Name]];
     NSURLRequest *request = [[NSURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
    NSURLConnection *connection = [[[NSURLConnection alloc]initWithRequest:request delegate:self startImmediately:NO]autorelease];
   
@@ -98,7 +98,7 @@
     }
 
         [self.tableView reloadData];
-}
+    }
 
 -(void)closeInterface
 {

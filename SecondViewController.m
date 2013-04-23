@@ -42,7 +42,7 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     NSString *str = self.ID;
     
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.douban.com/v2/book/%@",str]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.douban.com/v2/book/%@?apikey=0dea1ee3719c992829be5caa54d5cb78",str]];
     NSURLRequest *request = [[NSURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
     NSURLConnection *connection = [[[NSURLConnection alloc]initWithRequest:request delegate:self]autorelease];
     NSLog(@"%@",connection);

@@ -69,7 +69,7 @@
     
     self.navigationItem.title = self.Name;
    // NSLog(@"%@",self.ID);
-    NSURL *url3 = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.douban.com/v2/movie/celebrity/%@",self.ID]];
+    NSURL *url3 = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.douban.com/v2/movie/celebrity/%@?apikey=0dea1ee3719c992829be5caa54d5cb78",self.ID]];
     NSLog(@"!!!%@",self.ID);
 
     NSURLRequest *request3 = [[NSURLRequest alloc]initWithURL:url3 cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
