@@ -19,6 +19,7 @@
 #import "ActionViewController.h"
 #import "MusicViewController.h"
 #import "MusicViewController.h"
+#import "WebViewController.h"
 
 @interface TuiJianViewController ()
 {
@@ -55,6 +56,9 @@
 @end
 
 @implementation TuiJianViewController
+static NSString * const kAPIKey = @"04e0b2ab7ca02a8a0ea2180275e07f9e";
+static NSString * const kPrivateKey = @"4275ee2fa3689a2f";
+static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -119,7 +123,10 @@
     tableV3.dataSource = self;
     
     
-    
+    UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithTitle:@"登陆" style:UIBarButtonItemStyleDone target:self action:@selector(eat)];
+    self.navigationItem.rightBarButtonItem = saveButton;
+    [saveButton release];
+
    
     
     _segmentedControlArray = [NSArray arrayWithObjects:@"电影",@"图书",@"音乐",@"活动", nil];
@@ -165,6 +172,20 @@
 
     
 
+}
+
+
+-(void)eat
+{
+    NSString *str = [NSString stringWithFormat:@"https://www.douban.com/service/auth2/auth?client_id=%@&redirect_uri=%@&response_type=code", kAPIKey, kRedirectUrl];
+    
+    NSString *urlStr = [str stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSURL *url = [NSURL URLWithString:urlStr];
+    
+    UIViewController *webViewController = [[WebViewController alloc] initWithRequestURL:url];
+    [self.navigationController pushViewController:webViewController animated:YES];
+    
+    
 }
 
 

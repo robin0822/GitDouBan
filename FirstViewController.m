@@ -88,7 +88,7 @@
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.douban.com/v2/movie/subject/%@?apikey=0dea1ee3719c992829be5caa54d5cb78",str]];
     NSURLRequest *request = [[NSURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
     NSURLConnection *connection = [[[NSURLConnection alloc]initWithRequest:request delegate:self]autorelease];
-    NSLog(@"%@",connection);
+    //NSLog(@"%@",connection);
     //    NSString * xml1 = [[NSString alloc]initWithData:responseData1 encoding:NSUTF8StringEncoding];
 //    //    NSDictionary *_xmlDic1 = [xml1 JSONValue];
 //    //    NSLog(@"%@",_xmlDic1);
@@ -109,27 +109,7 @@
     [self.tableView addSubview:label];
 
     
-//    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(10.0, 10.0, 280.0, 400.0)];
-//    label.textAlignment = NSTextAlignmentCenter;
-//    //label.backgroundColor = [UIColor grayColor];
-//    //label.font = [UIFont systemFontOfSize:15.0];
-//    label.textColor = [UIColor orangeColor];
-//    label.text =@"";
-//    label.numberOfLines=0;
-//    self.label = label;
-//    
-//    [self.scrollView addSubview:label];
-//    //[label sizeToFit];
-//    [label release];
-//    
-//    
-//    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-//    button.frame = CGRectMake(170.0, 120.0, 100.0, 30.0);
-//    [button setTitle:@"相 关 作 品" forState:UIControlStateNormal];
-//    button.titleLabel.font = [UIFont systemFontOfSize:15];
-//    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-//    [button addTarget:self action:@selector(tianjianmessage) forControlEvents:UIControlEventTouchUpInside];
-//    [self.view addSubview:button];
+
     
     
     UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithTitle:@"相关列表" style:UIBarButtonItemStyleDone target:self action:@selector(tianjianmessage)];
@@ -145,58 +125,42 @@
     
     
     
-    
-    
-    
-//    Student *student = [[Student alloc]init];
-//    student.bookName = self.movieName;
-//    NSString *filepath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject];
-//    NSData *studentData = [NSData dataWithContentsOfFile:[filepath stringByAppendingPathComponent:@"students.archive"]];
-//    NSMutableArray *students = [NSKeyedUnarchiver unarchiveObjectWithData:studentData];
-//    if(students)
-//    {
-//        self.students = students;
-//    }
-//    else
-//    {
-//        self.students = [NSMutableArray array];
-//    }
+//    NSString *urlString = @"https://api.douban.com/v2/user/~me";
+//    NSString *appkey = @"Bearer 8dd3053775ee31fda9790fa661ca95f7";
+//    NSMutableURLRequest *request2 = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+//    [request2 setValue:appkey forHTTPHeaderField:@"Authorization"];
+//    NSData *responseData2 = [NSURLConnection sendSynchronousRequest:request2 returningResponse:NULL error:NULL];
 //    
 //    
-//    [self.students addObject:student];
+//    NSString * xml2 = [[NSString alloc]initWithData:responseData2 encoding:NSUTF8StringEncoding];
+//    NSDictionary *_xmlDic2 = [xml2 JSONValue];
+//    NSLog(@"%@",_xmlDic2);
+    
+       NSString *appkey = @"Bearer c27b84887ad3381547728d997079a83f";
+    NSURL *url3 = [NSURL URLWithString:@"https://api.douban.com/v2/book/1442720/annotations"];
+    NSMutableURLRequest *request3 = [[NSMutableURLRequest alloc]initWithURL:url3 cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
+    [request3 setHTTPMethod:@"POST"];
+     [request3 setValue:appkey forHTTPHeaderField:@"Authorization"];
 //    
+    //NSString *resttitle = @"这本书写的我热血沸腾啊，感觉自己身在其中啊。";
+//    NSString *restdesc = @"开展各种体育活动健身";
+//    NSString *ssda = @" ";
+   //resttitle = [resttitle stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+   // NSLog(@"%@",resttitle);
+//restdesc = [restdesc stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 //    
-//    
-//    
-//    
-//    [student release];
-//    //归档
-//    NSData *studentData1 = [NSKeyedArchiver archivedDataWithRootObject:self.students];
-//    NSString *filepath1 = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject];
-//    [studentData1 writeToFile:[filepath1 stringByAppendingPathComponent:@"students.archive"] atomically:YES];
-
+//    NSLog(@"%@",restdesc);
+    NSString *str2 = @"content=%E8%BF%99%E6%9C%AC%E4%B9%A6%E5%86%99%E7%9A%84%E6%88%91%E7%83%AD%E8%A1%80%E6%B2%B8%E8%85%BE%E5%95%8A%EF%BC%8C%E6%84%9F%E8%A7%89%E8%87%AA%E5%B7%B1%E8%BA%AB%E5%9C%A8%E5%85%B6%E4%B8%AD%E5%95%8A%E3%80%82&page=110";
+    NSData *data = [str2 dataUsingEncoding:NSUTF8StringEncoding];
+    [request3 setHTTPBody:data];
     
     
+    NSData *received = [NSURLConnection sendSynchronousRequest:request3 returningResponse:nil error:nil];
     
+    NSString *str1 = [[NSString alloc]initWithData:received encoding:NSUTF8StringEncoding];
     
-    
+    NSLog(@"1111%@",str1);
 }
-
-
-//-(void)resefd
-//{
-//
-//    UILabel *restlabel = [[UILabel alloc]initWithFrame:CGRectMake(0.0, -500.0, 320, 450.0)];
-//    restlabel.font = [UIFont systemFontOfSize:15.0];
-//    restlabel.text = @"";
-//    self.restlabel = restlabel;
-//    [self.tableView addSubview:restlabel];
-//    
-//    
-//    
-//    NSLog(@"++++++!!!!!%@",restlabel.text);
-//    
-//}
 
 - (void)didReceiveMemoryWarning
 {

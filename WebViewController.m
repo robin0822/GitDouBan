@@ -1,45 +1,47 @@
 //
 //  WebViewController.m
-//  DoubanAPIEngineDemo
+//  GitDouBan
 //
-//  Created by Lin GUO on 3/26/12.
-//  Copyright (c) 2012 douban Inc. All rights reserved.
+//  Created by ibokan on 13-4-24.
+//  Copyright (c) 2013年 quyanhui. All rights reserved.
 //
 
 #import "WebViewController.h"
 #import "DOUAPIEngine.h"
 
 
-static NSString * const kAPIKey = @"0dea1ee3719c992829be5caa54d5cb78";
-static NSString * const kPrivateKey = @"1db2db3bfd246faa";
+
+static NSString * const kAPIKey = @"04e0b2ab7ca02a8a0ea2180275e07f9e";
+static NSString * const kPrivateKey = @"4275ee2fa3689a2f";
 static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
 
 
+
 @interface NSString (ParseCategory)
-- (NSMutableDictionary *)explodeToDictionaryInnerGlue:(NSString *)innerGlue 
+- (NSMutableDictionary *)explodeToDictionaryInnerGlue:(NSString *)innerGlue
                                            outterGlue:(NSString *)outterGlue;
 @end
 
 @implementation NSString (ParseCategory)
 
-- (NSMutableDictionary *)explodeToDictionaryInnerGlue:(NSString *)innerGlue 
+- (NSMutableDictionary *)explodeToDictionaryInnerGlue:(NSString *)innerGlue
                                            outterGlue:(NSString *)outterGlue {
-  // Explode based on outter glue
-  NSArray *firstExplode = [self componentsSeparatedByString:outterGlue];
-  NSArray *secondExplode;
-  
-  // Explode based on inner glue
-  NSInteger count = [firstExplode count];
-  NSMutableDictionary* returnDictionary = [NSMutableDictionary dictionaryWithCapacity:count];
-  for (NSInteger i = 0; i < count; i++) {
-    secondExplode = 
-    [(NSString*)[firstExplode objectAtIndex:i] componentsSeparatedByString:innerGlue];
-    if ([secondExplode count] == 2) {
-      [returnDictionary setObject:[secondExplode objectAtIndex:1] 
-                           forKey:[secondExplode objectAtIndex:0]];
+    // Explode based on outter glue
+    NSArray *firstExplode = [self componentsSeparatedByString:outterGlue];
+    NSArray *secondExplode;
+    
+    // Explode based on inner glue
+    NSInteger count = [firstExplode count];
+    NSMutableDictionary* returnDictionary = [NSMutableDictionary dictionaryWithCapacity:count];
+    for (NSInteger i = 0; i < count; i++) {
+        secondExplode =
+        [(NSString*)[firstExplode objectAtIndex:i] componentsSeparatedByString:innerGlue];
+        if ([secondExplode count] == 2) {
+            [returnDictionary setObject:[secondExplode objectAtIndex:1]
+                                 forKey:[secondExplode objectAtIndex:0]];
+        }
     }
-  }
-  return returnDictionary;
+    return returnDictionary;
 }
 
 @end
@@ -62,41 +64,52 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
 #pragma mark - View lifecycle
 
 - (id)initWithRequestURL:(NSURL *)aURL {
-  self = [super init];
-  if (self) {
-    self.requestURL = aURL;
-  }
-  return self;
+    self = [super init];
+    if (self) {
+        self.requestURL = aURL;
+    }
+    return self;
 }
 
 
-- (void)viewDidLoad {
-  [super viewDidLoad];
-  self.navigationItem.title = @"登录"; 
-  webView_ = [[UIWebView alloc] initWithFrame:CGRectMake(0, 
-                                                         0, 
-                                                         self.view.bounds.size.width, 
-                                                         self.view.bounds.size.height - 49)];
-  webView_.scalesPageToFit = YES;
-  webView_.delegate = self;
-  NSURLRequest *request = [NSURLRequest requestWithURL:requestURL_];
-  [webView_ loadRequest:request];
-  [self.view addSubview:webView_];    
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+	// Do any additional setup after loading the view.
+    self.navigationItem.title = @"登录";
+    webView_ = [[UIWebView alloc] initWithFrame:CGRectMake(0,
+                                                           0,
+                                                           self.view.bounds.size.width,
+                                                           self.view.bounds.size.height - 49)];
+    webView_.scalesPageToFit = YES;
+    webView_.delegate = self;
+    NSURLRequest *request = [NSURLRequest requestWithURL:requestURL_];
+    [webView_ loadRequest:request];
+    [self.view addSubview:webView_];
+    
+    self.tabBarController.view.frame= CGRectMake(0, 0, 320.0, 650);
 
 }
 
-
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+    
+    
+    
+}
 - (void)viewDidUnload {
-  self.webView = nil;
-  self.requestURL = nil;
-  [super viewDidUnload];
+    self.webView = nil;
+    self.requestURL = nil;
+    [super viewDidUnload];
 }
 
 
 - (void)dealloc {
-  [webView_ release];
-  [requestURL_ release];
-  [super dealloc];
+    [webView_ release];
+    [requestURL_ release];
+    [super dealloc];
 }
 
 
@@ -105,50 +118,50 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
 - (BOOL)webView:(UIWebView *)webView
 shouldStartLoadWithRequest:(NSURLRequest *)request
  navigationType:(UIWebViewNavigationType)navigationType {
-  
-  NSURL *urlObj =  [request URL];
-  NSString *url = [urlObj absoluteString];
-  
-   
-  if ([url hasPrefix:kRedirectUrl]) {
     
-    NSString* query = [urlObj query];
-    NSMutableDictionary *parsedQuery = [query explodeToDictionaryInnerGlue:@"=" 
-                                                                outterGlue:@"&"];
-
-    //access_denied
-    NSString *error = [parsedQuery objectForKey:@"error"];
-    if (error) {
+    NSURL *urlObj =  [request URL];
+    NSString *url = [urlObj absoluteString];
+    
+    
+    if ([url hasPrefix:kRedirectUrl]) {
+        
+        NSString* query = [urlObj query];
+        NSMutableDictionary *parsedQuery = [query explodeToDictionaryInnerGlue:@"="
+                                                                    outterGlue:@"&"];
+        
+        //access_denied
+        NSString *error = [parsedQuery objectForKey:@"error"];
+        if (error) {
+            return NO;
+        }
+        
+        //access_accept
+        NSString *code = [parsedQuery objectForKey:@"code"];
+        DOUOAuthService *service = [DOUOAuthService sharedInstance];
+        service.authorizationURL = kTokenUrl;
+        service.delegate = self;
+        service.clientId = kAPIKey;
+        service.clientSecret = kPrivateKey;
+        service.callbackURL = kRedirectUrl;
+        service.authorizationCode = code;
+        
+        [service validateAuthorizationCode];
+        
         return NO;
     }
-      
-    //access_accept
-    NSString *code = [parsedQuery objectForKey:@"code"];
-    DOUOAuthService *service = [DOUOAuthService sharedInstance];
-    service.authorizationURL = kTokenUrl;
-    service.delegate = self;
-    service.clientId = kAPIKey;
-    service.clientSecret = kPrivateKey;
-    service.callbackURL = kRedirectUrl;
-    service.authorizationCode = code;
-
-    [service validateAuthorizationCode];
     
-    return NO;
-  }
-  
-  return YES;
+    return YES;
 }
 
 
 - (void)OAuthClient:(DOUOAuthService *)client didAcquireSuccessDictionary:(NSDictionary *)dic {
-  NSLog(@"success!");
-  [self.navigationController popViewControllerAnimated:YES];
-
+    NSLog(@"success!");
+    [self.navigationController popViewControllerAnimated:YES];
+    
 }
 
 - (void)OAuthClient:(DOUOAuthService *)client didFailWithError:(NSError *)error {
-  NSLog(@"Fail!");
+    NSLog(@"Fail!");
 }
 
 

@@ -10,6 +10,8 @@
 #import "Book.h"
 #import "JSON.h"
 #import "SeconApadViewController.h"
+#import "SeconAddViewController.h"
+#import "SecondBookViewController.h"
 
 @interface SecondViewController ()
 @property(nonatomic,retain)NSMutableData *responseData1;
@@ -48,7 +50,9 @@
     NSLog(@"%@",connection);
     
     
-   
+    UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithTitle:@"书评" style:UIBarButtonItemStyleDone target:self action:@selector(xiangguanmessage)];
+    self.navigationItem.rightBarButtonItem = saveButton;
+    [saveButton release];
    
     
     
@@ -64,6 +68,23 @@
 }
 
 #pragma mark - Table view data source
+
+
+
+-(void)xiangguanmessage
+{
+    
+    SecondBookViewController *secondbook = [[SecondBookViewController alloc]initWithStyle:UITableViewStylePlain];
+    secondbook.ID = self.ID;
+    UINavigationController *navigation1 = [[UINavigationController alloc]initWithRootViewController:secondbook];
+    
+    
+    
+    [self presentViewController:navigation1 animated:YES completion:nil];
+    [secondbook release];
+    [navigation1 release];
+    
+}
 
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
@@ -98,7 +119,7 @@
     book.price = [_xmlDic3 objectForKey:@"price"];
     book.bookID = [_xmlDic3 objectForKey:@"id"];
     
-    NSLog(@"%@",book.bookID);
+   // NSLog(@"%@",book.bookID);
    
 //        book.bookString = [_xmlDic3 objectForKey:@"books"];
 //        NSData *thumbnailData1 = [NSData dataWithContentsOfURL:[NSURL URLWithString:book.bookString]];
@@ -243,10 +264,11 @@ cell.imageView.image = self.bookImage;
         cell.textLabel.font = [UIFont systemFontOfSize:18.0];
         
     }
-    else
+    
+       else
     {
         // 标题
-        static NSString *identifier = @"MessageContentCell";
+        static NSString *identifier = @"MesageContentCell";
         
         // 重用
         cell = [self.tableView dequeueReusableCellWithIdentifier:identifier];
@@ -274,6 +296,9 @@ cell.imageView.image = self.bookImage;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
     }
+    
+    
+       
 return cell;
 
 }
@@ -290,8 +315,14 @@ return cell;
     }
     else
     {
+        
+        
+      
+
+        
         return @"作品简介";
     }
+       
     
 }
 
@@ -309,12 +340,23 @@ return cell;
         
         return 60;
     }
-    else
+    else 
     {
-        return 200;
+        
+        Book *book = [self.books  objectAtIndex:indexPath.row];
+        
+        UILabel *label1 = [[UILabel alloc]initWithFrame:CGRectMake(10.0, 10.0, 280.0, 400.0)];
+        label1.textAlignment = NSTextAlignmentCenter;
+        label1.backgroundColor = [UIColor clearColor];
+        label1.font = [UIFont systemFontOfSize:15.0];
+        
+        label1.text =book.summay;
+        label1.numberOfLines=0;
+        [label1 sizeToFit];
+        
+        return label1.frame.size.height*1.2;
     }
-    
-    
+       
 }
 
 /*

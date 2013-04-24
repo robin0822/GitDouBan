@@ -33,8 +33,9 @@
     [sousu release];
     
     
-    SouCangViewController *tuijian = [[SouCangViewController alloc]initWithStyle:UITableViewStylePlain];
+    SouCangViewController *tuijian = [[SouCangViewController alloc]init];
     UINavigationController *navigation2 = [[UINavigationController alloc]initWithRootViewController:tuijian];
+    navigation2.navigationBar.tintColor = [UIColor grayColor];
     navigation2.tabBarItem.title = @"收藏";
     navigation2.tabBarItem.image = [UIImage imageNamed:@"456.png"];
     [tuijian release];

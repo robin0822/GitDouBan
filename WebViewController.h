@@ -1,16 +1,14 @@
 //
 //  WebViewController.h
-//  DoubanAPIEngineDemo
+//  GitDouBan
 //
-//  Created by Lin GUO on 3/26/12.
-//  Copyright (c) 2012 douban Inc. All rights reserved.
+//  Created by ibokan on 13-4-24.
+//  Copyright (c) 2013年 quyanhui. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import "DOUOAuthService.h"
 
-@interface WebViewController : UIViewController<UIWebViewDelegate, DOUOAuthServiceDelegate>
-
+@interface WebViewController : UIViewController<UIWebViewDelegate,DOUOAuthServiceDelegate>
 - (id)initWithRequestURL:(NSURL *)aURL;
-
 @end
