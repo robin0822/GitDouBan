@@ -190,6 +190,10 @@
 		0FE6E8581727BC6D005F0B55 /* DOUOAuthService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE6E7C31727BC6D005F0B55 /* DOUOAuthService.m */; };
 		0FE6E8591727BC6D005F0B55 /* DOUOAuthStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE6E7C51727BC6D005F0B55 /* DOUOAuthStore.m */; };
 		0FE6E8621727ECA1005F0B55 /* SecondBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE6E8611727ECA1005F0B55 /* SecondBookViewController.m */; };
+		0FE6E8651728B8FE005F0B55 /* SecondMusicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE6E8641728B8FE005F0B55 /* SecondMusicViewController.m */; };
+		0FE6E8681728D887005F0B55 /* Kuke.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE6E8671728D886005F0B55 /* Kuke.m */; };
+		0FE6E86A1728F387005F0B55 /* tabbar_more.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FE6E8691728F387005F0B55 /* tabbar_more.png */; };
+		0FE6E86D1729029E005F0B55 /* SecondMovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE6E86C1729029E005F0B55 /* SecondMovieViewController.m */; };
 		0FF9ECCD171F97AC00652A0A /* CustomURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9ECCC171F97AC00652A0A /* CustomURLConnection.m */; };
 		0FF9ECD0171FC2E900652A0A /* FirstaddlistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9ECCF171FC2E900652A0A /* FirstaddlistViewController.m */; };
 		0FF9ECD3171FDD9A00652A0A /* QyhCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9ECD2171FDD9A00652A0A /* QyhCell.m */; };
@@ -561,6 +565,13 @@
 		0FE6E7C51727BC6D005F0B55 /* DOUOAuthStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUOAuthStore.m; sourceTree = "<group>"; };
 		0FE6E8601727ECA1005F0B55 /* SecondBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondBookViewController.h; sourceTree = "<group>"; };
 		0FE6E8611727ECA1005F0B55 /* SecondBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondBookViewController.m; sourceTree = "<group>"; };
+		0FE6E8631728B8FD005F0B55 /* SecondMusicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondMusicViewController.h; sourceTree = "<group>"; };
+		0FE6E8641728B8FE005F0B55 /* SecondMusicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondMusicViewController.m; sourceTree = "<group>"; };
+		0FE6E8661728D886005F0B55 /* Kuke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Kuke.h; sourceTree = "<group>"; };
+		0FE6E8671728D886005F0B55 /* Kuke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Kuke.m; sourceTree = "<group>"; };
+		0FE6E8691728F387005F0B55 /* tabbar_more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_more.png; sourceTree = "<group>"; };
+		0FE6E86B1729029E005F0B55 /* SecondMovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondMovieViewController.h; sourceTree = "<group>"; };
+		0FE6E86C1729029E005F0B55 /* SecondMovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondMovieViewController.m; sourceTree = "<group>"; };
 		0FF9ECCB171F97AC00652A0A /* CustomURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomURLConnection.h; sourceTree = "<group>"; };
 		0FF9ECCC171F97AC00652A0A /* CustomURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomURLConnection.m; sourceTree = "<group>"; };
 		0FF9ECCE171FC2E900652A0A /* FirstaddlistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstaddlistViewController.h; sourceTree = "<group>"; };
@@ -652,6 +663,7 @@
 		0F94E6D7171C08C0007985B5 /* GitDouBan */ = {
 			isa = PBXGroup;
 			children = (
+				0FE6E8691728F387005F0B55 /* tabbar_more.png */,
 				0F04FB1F171D523700866673 /* 123.png */,
 				0F04FB20171D523700866673 /* 456.png */,
 				0F04FB21171D523700866673 /* 789.png */,
@@ -681,6 +693,8 @@
 			children = (
 				0FC4CFB917254F8900D349C5 /* MusicViewController.h */,
 				0FC4CFBA17254F8900D349C5 /* MusicViewController.m */,
+				0FE6E8631728B8FD005F0B55 /* SecondMusicViewController.h */,
+				0FE6E8641728B8FE005F0B55 /* SecondMusicViewController.m */,
 			);
 			name = "音乐";
 			sourceTree = "<group>";
@@ -707,6 +721,8 @@
 				0FF9ECD2171FDD9A00652A0A /* QyhCell.m */,
 				0FB9CD9E1721334A00B76973 /* Student.h */,
 				0FB9CD9F1721334A00B76973 /* Student.m */,
+				0FE6E8661728D886005F0B55 /* Kuke.h */,
+				0FE6E8671728D886005F0B55 /* Kuke.m */,
 			);
 			name = "对象";
 			sourceTree = "<group>";
@@ -733,6 +749,8 @@
 				0FDBBD471720EE4400BC16FE /* SeconAddViewController.m */,
 				0FE6E65C1727B925005F0B55 /* WebViewController.h */,
 				0FE6E65D1727B925005F0B55 /* WebViewController.m */,
+				0FE6E86B1729029E005F0B55 /* SecondMovieViewController.h */,
+				0FE6E86C1729029E005F0B55 /* SecondMovieViewController.m */,
 			);
 			name = "电影";
 			sourceTree = "<group>";
@@ -1428,6 +1446,7 @@
 				0F04FB22171D523700866673 /* 123.png in Resources */,
 				0F04FB23171D523700866673 /* 456.png in Resources */,
 				0F04FB24171D523700866673 /* 789.png in Resources */,
+				0FE6E86A1728F387005F0B55 /* tabbar_more.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1609,6 +1628,9 @@
 				0FE6E8581727BC6D005F0B55 /* DOUOAuthService.m in Sources */,
 				0FE6E8591727BC6D005F0B55 /* DOUOAuthStore.m in Sources */,
 				0FE6E8621727ECA1005F0B55 /* SecondBookViewController.m in Sources */,
+				0FE6E8651728B8FE005F0B55 /* SecondMusicViewController.m in Sources */,
+				0FE6E8681728D887005F0B55 /* Kuke.m in Sources */,
+				0FE6E86D1729029E005F0B55 /* SecondMovieViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

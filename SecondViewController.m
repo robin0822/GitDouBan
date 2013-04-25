@@ -12,13 +12,15 @@
 #import "SeconApadViewController.h"
 #import "SeconAddViewController.h"
 #import "SecondBookViewController.h"
-
+#import "Student.h"
+#import "Kuke.h"
 @interface SecondViewController ()
 @property(nonatomic,retain)NSMutableData *responseData1;
 @property(nonatomic,retain)Book *book;
 @property(nonatomic,retain)NSMutableArray *books;
 @property(nonatomic,retain)UILabel *label2;
 @property(nonatomic,retain)UILabel *label3;
+@property(nonatomic,retain)NSMutableArray *students;
 
 @end
 
@@ -76,8 +78,11 @@
     
     SecondBookViewController *secondbook = [[SecondBookViewController alloc]initWithStyle:UITableViewStylePlain];
     secondbook.ID = self.ID;
-    UINavigationController *navigation1 = [[UINavigationController alloc]initWithRootViewController:secondbook];
+    secondbook.Name = self.Name;
     
+    
+    UINavigationController *navigation1 = [[UINavigationController alloc]initWithRootViewController:secondbook];
+    navigation1.navigationBar.tintColor = [UIColor grayColor];
     
     
     [self presentViewController:navigation1 animated:YES completion:nil];
@@ -158,7 +163,7 @@
         {
             cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier] autorelease];
             //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            //cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
         }
         
 //        cell.textLabel.text = self.label2.text;
@@ -239,11 +244,28 @@
         
         //[label2 sizeToFit];
         [self.tableView addSubview:label2];
+        
+        
+        
+        
+        
        
         
-        
+        [label0 release];
+        [label2 release];
+        [label3 release];
+        [label4 release];
+        [label5 release];
+        [label6 release];
         
 cell.imageView.image = self.bookImage;
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.frame = CGRectMake(240.0, 35.0, 40.0, 30.0);
+        [button setTitle:@"收藏" forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        button.backgroundColor = [UIColor clearColor];
+        [button addTarget:self action:@selector(add) forControlEvents:UIControlEventTouchUpInside];
+        [cell.contentView addSubview:button];
 
         
     }
@@ -290,7 +312,7 @@ cell.imageView.image = self.bookImage;
         [cell.contentView addSubview:label1];
         
         
-        
+        [label1 release];
         
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -302,7 +324,77 @@ cell.imageView.image = self.bookImage;
 return cell;
 
 }
+-(void)add
+{
+    
+    UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle:@"提示"
+                          message:@"选择了菜单中的操作"
+                          delegate:self
+                          cancelButtonTitle:@"取消"
+                          otherButtonTitles:@"确定",nil];
+    
+    //    progressView_ = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleBar];
+    //    progressView_.frame = CGRectMake(30, 80, 225, 30);
+    //    [alert addSubview:progressView_];
+    
+    [alert show];
+    [alert release];
+    
+    
+    
+    
+}
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    
+    if(buttonIndex==1)
+    {
+        
+        UIAlertView *alert2 = [[UIAlertView alloc]
+                               initWithTitle:nil
+                               message:@"选择了菜单中的操作"
+                               delegate:self
+                               cancelButtonTitle:@"收藏成功"
+                               otherButtonTitles:nil];
+        
+        [alert2 show];
+        [alert2 release];
+        
+        Kuke *kuke = [[Kuke alloc]init];
+        kuke.bookTitle = self.Name;
+        kuke.bookPhone = self.bookString;
+        NSString *filepath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject];
+        NSData *studentData = [NSData dataWithContentsOfFile:[filepath stringByAppendingPathComponent:@"students.00bbchive"]];
+        NSMutableArray *students = [NSKeyedUnarchiver unarchiveObjectWithData:studentData];
+        if(students)
+        {
+            self.students = students;
+        }
+        else
+        {
+            self.students = [NSMutableArray array];
+        }
+        
+        
+        [self.students addObject:kuke];
+        
+        
+        
+        
+        
+      
+        //归档
+        NSData *studentData1 = [NSKeyedArchiver archivedDataWithRootObject:self.students];
+        NSString *filepath1 = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject];
+        [studentData1 writeToFile:[filepath1 stringByAppendingPathComponent:@"students.00bbchive"] atomically:YES];
+        
+
+        
+        
+    }
+}
 
 -(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
@@ -419,7 +511,7 @@ return cell;
     
     [self.navigationController pushViewController:secondapad animated:YES];
     
-    
+    [secondapad release];
     
     
 }

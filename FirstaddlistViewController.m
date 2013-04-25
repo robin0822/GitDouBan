@@ -10,6 +10,7 @@
 #import "JSON.h"
 #import "Book.h"
 #import "QyhCell.h"
+#import "FirstViewController.h"
 
 @interface FirstaddlistViewController ()
 @property(nonatomic,retain)NSMutableData *responseData;
@@ -201,14 +202,24 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+    
+   FirstViewController *first = [[FirstViewController alloc]initWithStyle:UITableViewStyleGrouped];
+    
+    Book *book = [self.books objectAtIndex:indexPath.row];
+    first.movieID =book.bookID;
+    first.movieName = book.bookTitle;
+    first.movieimage = book.bookImage;
+    first.movieString = book.bookString;
+    //first.kamovie = [self.books objectAtIndex:indexPath.row];
+    [self.navigationController pushViewController:first animated:YES];
+    
+    
+    [first release];
+
+    
+    
+    
+
 }
 
 @end

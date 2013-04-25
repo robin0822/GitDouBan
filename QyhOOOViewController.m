@@ -42,7 +42,7 @@
     NSData *received = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     
     NSString *str1 = [[NSString alloc]initWithData:received encoding:NSUTF8StringEncoding];
-    
+    [str1 release];
     NSLog(@"%@",str1);
 }
 

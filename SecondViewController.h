@@ -13,4 +13,5 @@
 @property(nonatomic,retain)NSString *Name;
 @property(nonatomic,retain)UIImage *bookImage;
 @property(nonatomic,retain)NSMutableArray *mmbook;
+@property(nonatomic,retain)NSString *bookString;
 @end

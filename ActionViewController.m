@@ -324,7 +324,7 @@
     
     [self.navigationController pushViewController:qyhoo animated:YES];
     
-    
+    [qyhoo release];
 
 }
 

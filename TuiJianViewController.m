@@ -92,9 +92,7 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
     self.view.backgroundColor = [UIColor grayColor];
     self.students = [NSMutableArray array];
     
-    UIView *headerview = [[UIView alloc]initWithFrame:CGRectMake(0.0, 0.0, 320.0, 50.0)];
-    [self.view addSubview:headerview];
-    
+       
     
     
     tableV = [[UITableView alloc]initWithFrame:CGRectMake(0.0, 40.0, 320.0, 420)];
@@ -105,7 +103,7 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
     [self.view addSubview:tableV];
     
     
-     tableV1 = [[UITableView alloc]initWithFrame:CGRectMake(0.0, 40.0, 320.0, 400)];
+     tableV1 = [[UITableView alloc]initWithFrame:CGRectMake(0.0, 40.0, 320.0, 420)];
     
     tableV1.tag = 2;
     tableV1.delegate = self;
@@ -148,7 +146,7 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
 
     
     
-    NSURL *url3 = [NSURL URLWithString:@"https://api.douban.com/v2/movie/top250?apikey=0dea1ee3719c992829be5caa54d5cb78"];
+    NSURL *url3 = [NSURL URLWithString:@"https://api.douban.com/v2/movie/top250?start-index=1&max-results=20&apikey=0dea1ee3719c992829be5caa54d5cb78"];
     NSURLRequest *request3 = [[NSURLRequest alloc]initWithURL:url3 cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
     CustomURLConnection *connection = [[[CustomURLConnection alloc]initWithRequest:request3 delegate:self startImmediately:NO]autorelease];
     // 连接的名字是活动
@@ -159,21 +157,42 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
     
     
     
+//    NSString *searchTxt = @"一个";
+//    
+//
+//    searchTxt = [searchTxt stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//    
+//    NSURL *url4 = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.douban.com/v2/music/search?q=%@&apikey=0dea1ee3719c992829be5caa54d5cb78",searchTxt]];
+//    NSURLRequest *request5 = [[NSURLRequest alloc]initWithURL:url4 cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
+//    NSURLConnection *connection2 = [[[NSURLConnection alloc]initWithRequest:request5 delegate:self startImmediately:NO]autorelease];
+//    // 连接的名字是活动
+//    connection.name = @"music";
+//    // 开始异步请求
+//    [connection2 start];
+
     
 
-        
 
     
-
-
-    
-    
+   
    
 
     
 
 }
-
+//-(void) mmccc
+//{
+//    NSString *searchTxt = @"一个";
+//    
+//    
+//    searchTxt = [searchTxt stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//    
+//    NSURL *url4 = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.douban.com/v2/music/search?q=%@&apikey=0dea1ee3719c992829be5caa54d5cb78",searchTxt]];
+//    NSURLRequest *request5 = [[NSURLRequest alloc]initWithURL:url4 cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
+//    NSURLConnection *connection = [[[NSURLConnection alloc]initWithRequest:request5 delegate:self startImmediately:NO]autorelease];
+//   
+//    [connection start];
+//}
 
 -(void)eat
 {
@@ -184,7 +203,7 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
     
     UIViewController *webViewController = [[WebViewController alloc] initWithRequestURL:url];
     [self.navigationController pushViewController:webViewController animated:YES];
-    
+    [webViewController release];
     
 }
 
@@ -336,9 +355,9 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
     NSURL *url4 = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.douban.com/v2/music/search?q=%@&apikey=0dea1ee3719c992829be5caa54d5cb78",searchTxt]];
     NSURLRequest *request5 = [[NSURLRequest alloc]initWithURL:url4 cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
     CustomURLConnection *connection = [[[CustomURLConnection alloc]initWithRequest:request5 delegate:self startImmediately:NO]autorelease];
-    // 连接的名字是活动
+    
     connection.name = @"music";
-    // 开始异步请求
+   
     [connection start];
  
     
@@ -418,6 +437,9 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
     
     [NSThread detachNewThreadSelector:@selector(loadAndRefresh:) toTarget:self withObject:connection];
     
+   
+   
+    
     
 }
 
@@ -431,7 +453,7 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
     {
         NSString * xml = [[NSString alloc]initWithData:self.responseData1 encoding:NSUTF8StringEncoding];
         NSDictionary *_xmlDic = [xml JSONValue];
-        // NSLog(@"dlkgjlsdjglsjdlgkj%@",_xmlDic);
+         NSLog(@"dlkgjlsdjglsjdlgkj%@",_xmlDic);
         
         
         NSMutableArray *movies = [NSMutableArray array];
@@ -458,7 +480,7 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
          
     
         
-        [xml release];
+        //[xml release];
         
     }
     
@@ -471,7 +493,7 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
         NSString * xml1 = [[NSString alloc]initWithData:self.responseData1 encoding:NSUTF8StringEncoding];
         NSDictionary *_xmlDic1 = [xml1 JSONValue];
         
-        //NSLog(@"！！！！！++++%@",_xmlDic1);
+        NSLog(@"！！！！！++++%@",_xmlDic1);
         
         
         NSString *responseString = [[NSString alloc] initWithData:self.responseData1 encoding:NSUTF8StringEncoding];
@@ -541,7 +563,7 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
     {
         
         
-        NSString * xml4 = [[NSString alloc]initWithData:self.responseData1 encoding:NSUTF8StringEncoding];
+        NSString * xml4 = [[[NSString alloc]initWithData:self.responseData1 encoding:NSUTF8StringEncoding]autorelease];
         NSDictionary *_xmlDic4 = [xml4 JSONValue];
         
         //    NSLog(@"%@",_xmlDic4);
@@ -615,7 +637,7 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
         [tableV2 removeFromSuperview];
         [tableV3 removeFromSuperview];
              [self.view addSubview:tableV1];
-        self.navigationItem.title = @"活动";
+        self.navigationItem.title = @"本周活动";
         
         
         [self getData];
@@ -630,7 +652,7 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
         [tableV2 removeFromSuperview];
         [tableV3 removeFromSuperview];
         
-        self.navigationItem.title= @"电影";
+        self.navigationItem.title= @"TOP10电影";
 //        [self tianjianmessage];
         [self.view addSubview:tableV];
         //[tableV reloadData];
@@ -640,13 +662,14 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
     
     if(index == 1)
     {
-             self.navigationItem.title =@"图书";
+             self.navigationItem.title =@"搜索图书";
         [tableV removeFromSuperview];
         [tableV1 removeFromSuperview];
         
         [tableV3 removeFromSuperview];
         [self searchbar];
         [self.view addSubview:tableV2];
+        
         //[self loadtupian];
         
         
@@ -654,7 +677,7 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
     if(index == 2)
     {
        
-        self.navigationItem.title= @"音乐";
+        self.navigationItem.title= @"搜索音乐";
         
         [tableV removeFromSuperview];
         [tableV1 removeFromSuperview];
@@ -841,11 +864,12 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
         Book *book = [self.books objectAtIndex:indexPath.row];
         second.Name = book.bookTitle;
         second.ID = book.bookID;
+        second.bookString = book.bookString;
         second.bookImage = book.bookImage;
         second.mmbook = [self.books objectAtIndex:indexPath.row];
         [self.navigationController pushViewController:second animated:YES];
         
-        
+        [second release];
         
     }
     

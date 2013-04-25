@@ -1,22 +1,23 @@
 //
-//  SecondBookViewController.m
+//  SecondMusicViewController.m
 //  GitDouBan
 //
-//  Created by ibokan on 13-4-24.
+//  Created by ibokan on 13-4-25.
 //  Copyright (c) 2013年 quyanhui. All rights reserved.
 //
 
-#import "SecondBookViewController.h"
+#import "SecondMusicViewController.h"
 #import "JSON.h"
 #import "Book.h"
 
-@interface SecondBookViewController ()
+@interface SecondMusicViewController ()
 @property(nonatomic,retain)NSMutableData *responseData1;
-@property(nonatomic,retain) NSMutableArray *books;
+@property(nonatomic,retain)NSMutableArray *books;
 @property(nonatomic,retain)Book *book;
+
 @end
 
-@implementation SecondBookViewController
+@implementation SecondMusicViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -37,8 +38,14 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.douban.com/music/subject/%@/reviews?alt=json&apikey=0dea1ee3719c992829be5caa54d5cb78",self.ID]];
+    NSURLRequest *request = [[NSURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
+    NSURLConnection *connection = [[[NSURLConnection alloc]initWithRequest:request delegate:self startImmediately:NO]autorelease];
+    
+    [connection start];
+    
     self.navigationItem.title = self.Name;
-    NSLog(@"adsfasdfg%@",self.ID);
     
     UIBarButtonItem *returnButton = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStyleBordered target:self action:@selector(closeInterface)];
     self.navigationItem.leftBarButtonItem = returnButton;
@@ -48,25 +55,7 @@
     
     
     
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.douban.com/book/subject/%@/reviews?alt=json&apikey=0dea1ee3719c992829be5caa54d5cb78",self.ID]];
-    NSURLRequest *request = [[NSURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
-    NSURLConnection *connection = [[[NSURLConnection alloc]initWithRequest:request delegate:self startImmediately:NO]autorelease];
-    
-    [connection start];
-
-    
 }
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-    
-    
-    
-    
-}
-
 
 
 -(void)closeInterface
@@ -77,7 +66,7 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-#pragma mark - Table view data source
+
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
     
@@ -97,53 +86,58 @@
     NSDictionary *_xmlDic3 = [xml3 JSONValue];
     NSLog(@"%@",_xmlDic3);
     
-    
-//    NSString * xml3 = [[NSString alloc]initWithData:self.responseData1 encoding:NSUTF8StringEncoding];
-//    NSDictionary *_xmlDic3 = [xml3 JSONValue];
-//    NSLog(@"%@",_xmlDic3);
     NSMutableArray *books = [NSMutableArray array];
     // NSArray *MovieList3 = [_xmlDic3 objectForKey:@"books"];
     NSArray *  MovieList  =   [_xmlDic3 objectForKey:@"entry"];
     for(NSDictionary *_dic in MovieList)
     {
-
-    
-    Book *book = [[[Book alloc]init]autorelease];
-    //book.bookTitle =  [_dic3 objectForKey:@"title"];
-    //book.bookID = [_dic3 objectForKey:@"id"];
-    book.author= [[_dic objectForKey:@"title"]objectForKey:@"$t"];
-    book.summay = [[_dic objectForKey:@"summary"]objectForKey:@"$t"];
-    book.publish = [[[_dic objectForKey:@"author"]objectForKey:@"name"]objectForKey:@"$t"];
-    book.pubdate = [[_dic objectForKey:@"published"]objectForKey:@"$t"];
-    book.pages = [_xmlDic3 objectForKey:@"pages"];
-    book.price = [_xmlDic3 objectForKey:@"price"];
-    book.bookID = [_xmlDic3 objectForKey:@"id"];
+        
+        
+        Book *book = [[[Book alloc]init]autorelease];
+        //book.bookTitle =  [_dic3 objectForKey:@"title"];
+        //book.bookID = [_dic3 objectForKey:@"id"];
+        book.author= [[_dic objectForKey:@"title"]objectForKey:@"$t"];
+        book.summay = [[_dic objectForKey:@"summary"]objectForKey:@"$t"];
+        book.publish = [[[_dic objectForKey:@"author"]objectForKey:@"name"]objectForKey:@"$t"];
+        book.pubdate = [[_dic objectForKey:@"published"]objectForKey:@"$t"];
+        book.pages = [_xmlDic3 objectForKey:@"pages"];
+        book.price = [_xmlDic3 objectForKey:@"price"];
+        book.bookID = [_xmlDic3 objectForKey:@"id"];
         
         
         
-    
-     NSLog(@"%@",book.summay);
+        
+        NSLog(@"%@",book.summay);
         NSLog(@"sdfghsag%@",book.author);
         NSLog(@"%@",book.publish);
         NSLog(@"%@",book.pubdate);
-    //        book.bookString = [_xmlDic3 objectForKey:@"books"];
-    //        NSData *thumbnailData1 = [NSData dataWithContentsOfURL:[NSURL URLWithString:book.bookString]];
-    //        book.bookImage = [UIImage imageWithData:thumbnailData1];
-    
-    
-    self.books = books;
-    
-    [self.books addObject:book];
-    [self.tableView reloadData];
-
-    
+        //        book.bookString = [_xmlDic3 objectForKey:@"books"];
+        //        NSData *thumbnailData1 = [NSData dataWithContentsOfURL:[NSURL URLWithString:book.bookString]];
+        //        book.bookImage = [UIImage imageWithData:thumbnailData1];
+        
+        
+        self.books = books;
+        
+        [self.books addObject:book];
+        [self.tableView reloadData];
+        
+        
     }
+
     
     
 }
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Table view data source
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-
     return 1;
 }
 
@@ -156,18 +150,18 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell;
-   
-        // 标题
-        static NSString *identifier = @"MessageTitleCell";
-        
-        // 重用
-        cell = [self.tableView dequeueReusableCellWithIdentifier:identifier];
-        if (!cell)
-        {
-            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier] autorelease];
-            //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            //cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        }
+    
+    // 标题
+    static NSString *identifier = @"MessageTitleCell";
+    
+    // 重用
+    cell = [self.tableView dequeueReusableCellWithIdentifier:identifier];
+    if (!cell)
+    {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier] autorelease];
+        //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        //cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
     
     Book *book = [self.books objectAtIndex:indexPath.row];
     
@@ -177,7 +171,7 @@
     label.font = [UIFont systemFontOfSize:14.0];
     [cell.contentView addSubview:label];
     UILabel*label2 =[[UILabel alloc]initWithFrame:CGRectMake(0.0, 0.0, 40.0, 30.0)];
-    label2.text = @"书评者:";
+    label2.text = @"乐评者:";
     label2.numberOfLines = 0;
     label2.font = [UIFont systemFontOfSize:12.0];
     [cell.contentView addSubview:label2];
@@ -188,7 +182,7 @@
     label1.font = [UIFont systemFontOfSize:12.0];
     [cell.contentView addSubview:label1];
     
-    UILabel *label3 = [[UILabel alloc]initWithFrame:CGRectMake(35.0, 40.0, 63.0, 50.0)];
+    UILabel *label3 = [[UILabel alloc]initWithFrame:CGRectMake(35.0, 40.0, 63.0, 70.0)];
     label3.text = book.author;
     label3.numberOfLines=0;
     label3.font = [UIFont systemFontOfSize:12.0];
@@ -201,12 +195,12 @@
     label4.font = [UIFont systemFontOfSize:12.0];
     [cell.contentView addSubview:label4];
     
-    UILabel *label5 = [[UILabel alloc]initWithFrame:CGRectMake(35.0, 80.0, 63.0, 50.0)];
+    UILabel *label5 = [[UILabel alloc]initWithFrame:CGRectMake(35.0, 113.0, 63.0, 50.0)];
     label5.text = book.pubdate;
     label5.numberOfLines=0;
     label5.font = [UIFont systemFontOfSize:12.0];
     [cell.contentView addSubview:label5];
-    UILabel *label6 = [[UILabel alloc]initWithFrame:CGRectMake(0.0, 75.0, 33.0, 30.0)];
+    UILabel *label6 = [[UILabel alloc]initWithFrame:CGRectMake(0.0, 85.0, 33.0, 30.0)];
     label6.text = @"时间:";
     label6.numberOfLines=0;
     label6.font = [UIFont systemFontOfSize:12.0];
@@ -221,17 +215,16 @@
     [label5 release];
     [label6 release];
     
-    
-    
+
     
     return cell;
 }
 
-
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 150.0;
+    return 160.0;
 }
+
 
 /*
 // Override to support conditional editing of the table view.

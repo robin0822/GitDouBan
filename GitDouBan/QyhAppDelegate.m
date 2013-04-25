@@ -29,7 +29,7 @@
     UINavigationController *navigation1 = [[UINavigationController alloc]initWithRootViewController:sousu];
     navigation1.tabBarItem.title = @"推荐";
     navigation1.navigationBar.tintColor = [UIColor grayColor];
-    navigation1.tabBarItem.image = [UIImage imageNamed:@"123.png"];
+    navigation1.tabBarItem.image = [UIImage imageNamed:@"456.png"];
     [sousu release];
     
     
@@ -37,14 +37,14 @@
     UINavigationController *navigation2 = [[UINavigationController alloc]initWithRootViewController:tuijian];
     navigation2.navigationBar.tintColor = [UIColor grayColor];
     navigation2.tabBarItem.title = @"收藏";
-    navigation2.tabBarItem.image = [UIImage imageNamed:@"456.png"];
+    navigation2.tabBarItem.image = [UIImage imageNamed:@"789.png"];
     [tuijian release];
     
     
     GuanYuViewController *guanyu = [[GuanYuViewController alloc]init];
     UINavigationController *navigation3 = [[UINavigationController alloc]initWithRootViewController:guanyu];
-    navigation3.tabBarItem.title = @"关于";
-    navigation3.tabBarItem.image = [UIImage imageNamed:@"789.png"];
+    navigation3.tabBarItem.title = @"更多";
+    navigation3.tabBarItem.image = [UIImage imageNamed:@"tabbar_more.png"];
     [guanyu release];
     
     UITabBarController *tab = [[UITabBarController alloc] init];

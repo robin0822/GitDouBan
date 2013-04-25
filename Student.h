@@ -12,5 +12,8 @@
 
 @property(nonatomic,retain)NSString *bookName;
 @property(nonatomic,retain)NSString *bookString;
+@property(nonatomic,retain)NSString *bookTitle;
+@property(nonatomic,retain)NSString *bookPhone;
+@property(nonatomic,retain)NSString *bookID;
 
 @end

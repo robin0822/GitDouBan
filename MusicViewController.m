@@ -9,6 +9,7 @@
 #import "MusicViewController.h"
 #import "JSON.h"
 #import "Book.h"
+#import "SecondMusicViewController.h"
 
 @interface MusicViewController ()
 @property(nonatomic,retain)NSMutableData *responseData;
@@ -43,6 +44,13 @@
     NSURLConnection *connection = [[[NSURLConnection alloc]initWithRequest:request delegate:self startImmediately:NO]autorelease];
     
     [connection start];
+    
+    
+    UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithTitle:@"乐评" style:UIBarButtonItemStyleDone target:self action:@selector(xiangguanmessage)];
+    self.navigationItem.rightBarButtonItem = saveButton;
+    [saveButton release];
+
+    
 
     
 }
@@ -51,6 +59,27 @@
 {
     
 }
+
+
+-(void)xiangguanmessage
+{
+    
+    
+    SecondMusicViewController *secondmusic = [[SecondMusicViewController alloc]initWithStyle:UITableViewStylePlain];
+    secondmusic.ID = self.musicID;
+    secondmusic.Name = self.musicName;
+    
+    
+    UINavigationController *navigation1 = [[UINavigationController alloc]initWithRootViewController:secondmusic];
+    navigation1.navigationBar.tintColor = [UIColor grayColor];
+    
+    
+    [self presentViewController:navigation1 animated:YES completion:nil];
+
+    
+    
+}
+
 
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
@@ -205,6 +234,14 @@
          [self.tableView addSubview:label6];
         
             cell.imageView.image = self.musicImage;
+        
+        
+        [label6 release];
+        [label5 release];
+        [label4 release];
+        [label3 release];
+        [label2 release];
+        [label0 release];
 
             
         }
@@ -252,7 +289,7 @@
             [label1 sizeToFit];
             [cell.contentView addSubview:label1];
             
-            
+            [label1 release];
             
             
             
@@ -311,7 +348,9 @@
         NSLog(@"%@",book.summay);
         label1.numberOfLines=0;
         [label1 sizeToFit];
+        
         return label1.frame.size.height*1.2;
+        
     }
     
     

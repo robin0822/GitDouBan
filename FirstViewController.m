@@ -11,6 +11,7 @@
 #import "Book.h"
 #import "FirstaddlistViewController.h"
 #import "SeconAddViewController.h"
+#import "SecondMovieViewController.h"
 
 #import "Student.h"
 
@@ -88,7 +89,7 @@
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.douban.com/v2/movie/subject/%@?apikey=0dea1ee3719c992829be5caa54d5cb78",str]];
     NSURLRequest *request = [[NSURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
     NSURLConnection *connection = [[[NSURLConnection alloc]initWithRequest:request delegate:self]autorelease];
-    //NSLog(@"%@",connection);
+    NSLog(@"%@",connection);
     //    NSString * xml1 = [[NSString alloc]initWithData:responseData1 encoding:NSUTF8StringEncoding];
 //    //    NSDictionary *_xmlDic1 = [xml1 JSONValue];
 //    //    NSLog(@"%@",_xmlDic1);
@@ -107,7 +108,7 @@
         label.numberOfLines=0;
         self.label = label;
     [self.tableView addSubview:label];
-
+    [label release];
     
 
     
@@ -158,7 +159,7 @@
     NSData *received = [NSURLConnection sendSynchronousRequest:request3 returningResponse:nil error:nil];
     
     NSString *str1 = [[NSString alloc]initWithData:received encoding:NSUTF8StringEncoding];
-    
+    //[str1 release];
     NSLog(@"1111%@",str1);
 }
 
@@ -172,7 +173,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 3;
+    return 4;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -184,7 +185,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell;
-    if (indexPath.section == 0)
+     if (indexPath.section == 0)
     {
         // 标题
         static NSString *identifier = @"MessageTitleCell";
@@ -216,7 +217,7 @@
     else if (indexPath.section == 1)
     {
         // 标题
-        static NSString *identifier1 = @"MessageTitleCell";
+        static NSString *identifier1 = @"ssageTitleCell";
         
         // 重用
         cell = [self.tableView dequeueReusableCellWithIdentifier:identifier1];
@@ -232,7 +233,7 @@
         
     
     }
-    else
+    else if(indexPath.section==2)
     {
         // 标题
         static NSString *identifier = @"MessageContentCell";
@@ -265,6 +266,24 @@
     }
    
     
+    else 
+    {
+        static NSString *identifier = @"MeageContentCell";
+        
+        // 重用
+        cell = [self.tableView dequeueReusableCellWithIdentifier:identifier];
+        if (!cell)
+        {
+            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier] autorelease];
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        }
+        
+
+        cell.textLabel.text = @"电影评价";
+        cell.textLabel.textAlignment = NSTextAlignmentCenter;
+        
+    }
+    
     return cell;
 }
 
@@ -278,9 +297,13 @@
     {
         return @"导演";
     }
-    else
+    else if(section == 2)
     {
         return @"电影简介";
+    }
+    else
+    {
+        return @"";
     }
 }
 
@@ -344,6 +367,32 @@
     
 }
 
+//-(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+//{
+//    
+//    if(section==1)
+//    {
+//        
+//        UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0.0, 0.0, 320.0, 60.0)];
+//        
+//        UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(5.0, 5.0, 80.0, 35.0)];
+//        [button setTitle:@"影评信息" forState:UIControlStateNormal];
+//        [button setTintColor:[UIColor blackColor]];
+//        
+//        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//        [view addSubview:button];
+//        return view;
+//        
+//        
+//    }
+//    else
+//    {
+//        return  nil;
+//    }
+//    
+//}
+
+
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     
@@ -363,9 +412,9 @@
         Student *student = [[Student alloc]init];
         student.bookName = self.movieName;
         student.bookString = self.movieString;
-        
+        student.bookID = self.movieID;
         NSString *filepath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject];
-        NSData *studentData = [NSData dataWithContentsOfFile:[filepath stringByAppendingPathComponent:@"students.bbchive"]];
+        NSData *studentData = [NSData dataWithContentsOfFile:[filepath stringByAppendingPathComponent:@"students.bmbbchive"]];
         NSMutableArray *students = [NSKeyedUnarchiver unarchiveObjectWithData:studentData];
         if(students)
         {
@@ -387,7 +436,7 @@
         //归档
         NSData *studentData1 = [NSKeyedArchiver archivedDataWithRootObject:self.students];
         NSString *filepath1 = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject];
-        [studentData1 writeToFile:[filepath1 stringByAppendingPathComponent:@"students.bbchive"] atomically:YES];
+        [studentData1 writeToFile:[filepath1 stringByAppendingPathComponent:@"students.bmbbchive"] atomically:YES];
         
     }
     
@@ -411,8 +460,7 @@
     
     
     [self presentViewController:navigation1 animated:YES completion:nil];
-    [fristlist release];
-    [navigation1 release];
+   
     
 }
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -494,7 +542,7 @@
         
         return 60.0;
     }
-    else
+    else if(indexPath.section==2)
     {
         
 //        Book *book = [self.books objectAtIndex:indexPath.row];
@@ -511,6 +559,9 @@
 //        return  label1.frame.size.height+30;
         return [self hanggao];
         
+    }
+    else{
+        return 50.0;
     }
 }
 
@@ -582,6 +633,18 @@
     
     
 }
+    if(indexPath.section==3&indexPath.row==0)
+    {
+        
+        SecondMovieViewController *secondMovie = [[SecondMovieViewController alloc]initWithStyle:UITableViewStylePlain];
+        Book *book = [self.books objectAtIndex:indexPath.row];
+        secondMovie.ID = self.movieID;
+        secondMovie.Name = book.bookTitle;
+        [self.navigationController pushViewController:secondMovie animated:YES];
+        [secondMovie release];
+        
+        
+    }
 //if(indexPath.section==0&indexPath.row==0)
 //{
 //    

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SouCangViewController : UIViewController
+@interface SouCangViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
 @end

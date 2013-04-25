@@ -212,11 +212,12 @@ static const NSUInteger kDomainSection = 1;
 	return [self textFieldInRow:kDomainRow section:kDomainSection];
 }
 
-#pragma mark show / dismiss
+#pragma mark show / dismis
 
 + (void)dismiss
 {
-	[[sharedDialog parentViewController] dismissModalViewControllerAnimated:YES];
+	//[[sharedDialog parentViewController] dismissModalViewControllerAnimated:YES];
+    [[sharedDialog parentViewController]dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -233,7 +234,8 @@ static const NSUInteger kDomainSection = 1;
 	if (self == sharedDialog) {
 		[[self class] dismiss];
 	} else {
-		[[self parentViewController] dismissModalViewControllerAnimated:YES];
+		//[[self parentViewController] dismissModalViewControllerAnimated:YES];
+        [[self parentViewController]dismissViewControllerAnimated:YES completion:nil];
 	}
 }
 
@@ -309,7 +311,9 @@ static const NSUInteger kDomainSection = 1;
 	}
 #endif
 
-	[[self presentingController] presentModalViewController:self animated:YES];
+	//[[self presentingController] presentModalViewController:self animated:YES];
+    
+    [[self presentingController]presentViewController:self animated:YES completion:nil];
 }
 
 #pragma mark button callbacks

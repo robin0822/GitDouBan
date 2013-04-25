@@ -215,6 +215,8 @@
         
         //[label2 sizeToFit];
         [self.tableView addSubview:label2];
+        [label2 release];
+        [label3 release];
         
         //cell.detailTextLabel.textAlignment = NSTextAlignmentRight;
         
@@ -272,6 +274,7 @@
         label1.numberOfLines=0;
         [label1 sizeToFit];
         [cell.contentView addSubview:label1];
+        [label1 release];
         //NSLog(@"%@",book.bookTitle);
                //cell.textLabel.numberOfLines=0;
         //cell.textLabel.text=str;

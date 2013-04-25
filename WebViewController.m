@@ -87,7 +87,7 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
     [webView_ loadRequest:request];
     [self.view addSubview:webView_];
     
-    self.tabBarController.view.frame= CGRectMake(0, 0, 320.0, 650);
+   // self.tabBarController.view.frame= CGRectMake(0, 0, 320.0, 650);
 
 }
 
