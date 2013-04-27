@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TuiJianViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate>
+@interface TuiJianViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate,UISearchDisplayDelegate,UIAlertViewDelegate>
 
 @end

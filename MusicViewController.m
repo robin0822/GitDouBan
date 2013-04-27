@@ -40,7 +40,7 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.douban.com/v2/music/%@?apikey=0dea1ee3719c992829be5caa54d5cb78",self.musicID]];
-    NSURLRequest *request = [[NSURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
+    NSURLRequest *request = [[[NSURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10]autorelease];
     NSURLConnection *connection = [[[NSURLConnection alloc]initWithRequest:request delegate:self startImmediately:NO]autorelease];
     
     [connection start];
@@ -69,14 +69,15 @@
     secondmusic.ID = self.musicID;
     secondmusic.Name = self.musicName;
     
-    
+    secondmusic.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     UINavigationController *navigation1 = [[UINavigationController alloc]initWithRootViewController:secondmusic];
     navigation1.navigationBar.tintColor = [UIColor grayColor];
     
     
     [self presentViewController:navigation1 animated:YES completion:nil];
 
-    
+    [secondmusic release];
+    [navigation1 release];
     
 }
 
@@ -94,19 +95,19 @@
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    NSString * xml3 = [[NSString alloc]initWithData:self.responseData encoding:NSUTF8StringEncoding];
+    NSString * xml3 = [[[NSString alloc]initWithData:self.responseData encoding:NSUTF8StringEncoding]autorelease];
     NSDictionary *_xmlDic3 = [xml3 JSONValue];
     NSLog(@"%@",_xmlDic3);
     
     
-    
-    NSString *responseString = [[NSString alloc] initWithData:self.responseData encoding:NSUTF8StringEncoding];
-    NSString* esc1 = [responseString stringByReplacingOccurrencesOfString:@"\\u" withString:@"\\U"];
-    NSString* esc2 = [esc1 stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
-    NSString* quoted = [[@"\"" stringByAppendingString:esc2] stringByAppendingString:@"\""];
-    NSData* data = [quoted dataUsingEncoding:NSUTF8StringEncoding];
-    NSString* unesc = [NSPropertyListSerialization propertyListFromData:data mutabilityOption:NSPropertyListImmutable format:NULL errorDescription:NULL];
-    assert([unesc isKindOfClass:[NSString class]]);
+//    
+//    NSString *responseString = [[NSString alloc] initWithData:self.responseData encoding:NSUTF8StringEncoding];
+//    NSString* esc1 = [responseString stringByReplacingOccurrencesOfString:@"\\u" withString:@"\\U"];
+//    NSString* esc2 = [esc1 stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
+//    NSString* quoted = [[@"\"" stringByAppendingString:esc2] stringByAppendingString:@"\""];
+//    NSData* data = [quoted dataUsingEncoding:NSUTF8StringEncoding];
+//    NSString* unesc = [NSPropertyListSerialization propertyListFromData:data mutabilityOption:NSPropertyListImmutable format:NULL errorDescription:NULL];
+//    assert([unesc isKindOfClass:[NSString class]]);
     
     NSMutableArray *books = [NSMutableArray array];
    // NSArray *MovieList3 = [_xmlDic3 objectForKey:@"attrs"];
@@ -339,7 +340,7 @@
         
         Book *book = [self.books  objectAtIndex:indexPath.row];
         
-        UILabel *label1 = [[UILabel alloc]initWithFrame:CGRectMake(10.0, 10.0, 280.0, 400.0)];
+        UILabel *label1 = [[[UILabel alloc]initWithFrame:CGRectMake(10.0, 10.0, 280.0, 400.0)]autorelease];
         label1.textAlignment = NSTextAlignmentCenter;
         label1.backgroundColor = [UIColor clearColor];
         label1.font = [UIFont systemFontOfSize:15.0];

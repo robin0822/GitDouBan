@@ -68,7 +68,7 @@
 {
     //
     //    [NSThread detachNewThreadSelector:@selector(loadAndRefresh:) toTarget:self withObject:connection];
-    NSString * xml3 = [[NSString alloc]initWithData:self.responseData1 encoding:NSUTF8StringEncoding];
+    NSString * xml3 = [[[NSString alloc]initWithData:self.responseData1 encoding:NSUTF8StringEncoding]autorelease];
     NSDictionary *_xmlDic3 = [xml3 JSONValue];
     NSLog(@"%@",_xmlDic3);
     

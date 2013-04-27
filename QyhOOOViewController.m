@@ -32,7 +32,7 @@
     
     NSURL *url = [NSURL URLWithString:@"https://api.douban.com/v2/onlines"];
     //第二步，创建请求
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
+    NSMutableURLRequest *request = [[[NSMutableURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10]autorelease];
     [request setHTTPMethod:@"POST"];//设置请求方式为POST，默认为GET
     NSString *str = @"type=focus-c";//设置参数
     NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
@@ -43,7 +43,7 @@
     
     NSString *str1 = [[NSString alloc]initWithData:received encoding:NSUTF8StringEncoding];
     [str1 release];
-    NSLog(@"%@",str1);
+    
 }
 
 - (void)didReceiveMemoryWarning

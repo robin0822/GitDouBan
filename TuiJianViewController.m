@@ -20,6 +20,7 @@
 #import "MusicViewController.h"
 #import "MusicViewController.h"
 #import "WebViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface TuiJianViewController ()
 {
@@ -49,6 +50,12 @@
 @property(nonatomic,retain)NSMutableData *responseData2;
 @property(nonatomic,retain) UIImage* scaledImage;
 @property(nonatomic,retain)UILabel *label;
+@property(nonatomic,retain)UIImageView *imgView;
+@property(nonatomic,retain)UISearchDisplayController *search;
+@property (nonatomic, retain) NSMutableArray *searchResults;
+@property(nonatomic,retain)UIImageView *imgView2;
+@property(nonatomic,retain)UIImageView *imgView3;
+
 
 
 
@@ -147,7 +154,7 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
     
     
     NSURL *url3 = [NSURL URLWithString:@"https://api.douban.com/v2/movie/top250?start-index=1&max-results=20&apikey=0dea1ee3719c992829be5caa54d5cb78"];
-    NSURLRequest *request3 = [[NSURLRequest alloc]initWithURL:url3 cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
+    NSURLRequest *request3 = [[[NSURLRequest alloc]initWithURL:url3 cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10]autorelease];
     CustomURLConnection *connection = [[[CustomURLConnection alloc]initWithRequest:request3 delegate:self startImmediately:NO]autorelease];
     // 连接的名字是活动
     connection.name = @"movie";
@@ -172,7 +179,20 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
 
     
 
-
+    
+    
+//    UIImage *img = [UIImage imageNamed:@"douban.jpg"];
+//    
+//    
+//    UIImageView *imgView = [[UIImageView alloc]initWithFrame:CGRectMake(0.0, 0.0, 320, 480)];
+//    imgView.image= img;
+//    self.imgView = imgView;
+//    [self.view addSubview:imgView];
+//    //self.tabBarController.tabBar.hidden = YES;
+//    //self.navigationController.navigationBar.hidden = YES;
+//    
+//    [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(stopimage) userInfo:nil repeats:NO];
+//  
     
    
    
@@ -180,6 +200,48 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
     
 
 }
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+}
+
+//-(void)showImage
+//{
+//    // 以动画效果显示第二张图片
+//    [UIView beginAnimations:@"image" context:NULL];
+//    
+//    [UIView setAnimationDuration:1.5];
+//    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+//    
+//    // 设置transition效果
+//    //[UIView setAnimationTransition:UIViewAnimationTransitionCurlDown forView:self.imageView1 cache:NO];
+//    //[UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.imageView1 cache:NO];
+//    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:tableV cache:NO];
+//    //[UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.imageView1 cache:NO];
+//    
+//    
+//    //[UIView setAnimationTransition:UIViewAnimationTransitionCurlDown forView:self.imageView1 cache:NO];
+//    
+//    // 显示第二张图片
+//    //self.imageView2.alpha = 1.0;
+//    self.imgView.hidden = YES;
+//    tableV.hidden = YES;
+//    
+//    
+//    [UIView commitAnimations];
+//}
+
+
+
+-(void)stopimage
+{
+    
+    [self.imgView removeFromSuperview];
+    
+}
+
+
 //-(void) mmccc
 //{
 //    NSString *searchTxt = @"一个";
@@ -297,10 +359,15 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
     [self.view addSubview:searchBar];
     [searchBar release];
     
+    
 
     
     
 }
+
+
+
+
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar;
 {
     [searchBar setShowsCancelButton:YES animated:YES];
@@ -319,6 +386,9 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar;                     
 {
    
+    
+    [self.imgView2 removeFromSuperview];
+    [self.imgView3 removeFromSuperview];
     if (self.segmentControl.selectedSegmentIndex==1) {
         [self souSuo:searchBar.text];
        
@@ -329,9 +399,16 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
         
     }
     
+    
+    
+    
+    
      [self hideKeyboards];
     
 }
+
+
+
 
 -(void)yinYu:(NSString*)searchTxt
 {
@@ -353,7 +430,7 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
     searchTxt = [searchTxt stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     NSURL *url4 = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.douban.com/v2/music/search?q=%@&apikey=0dea1ee3719c992829be5caa54d5cb78",searchTxt]];
-    NSURLRequest *request5 = [[NSURLRequest alloc]initWithURL:url4 cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
+    NSURLRequest *request5 = [[[NSURLRequest alloc]initWithURL:url4 cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10]autorelease];
     CustomURLConnection *connection = [[[CustomURLConnection alloc]initWithRequest:request5 delegate:self startImmediately:NO]autorelease];
     
     connection.name = @"music";
@@ -396,7 +473,7 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
     
     
     NSURL *url2 = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.douban.com/v2/book/search?q=%@&apikey=0dea1ee3719c992829be5caa54d5cb78",searchText]];
-    NSURLRequest *request2 = [[NSURLRequest alloc]initWithURL:url2 cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
+    NSURLRequest *request2 = [[[NSURLRequest alloc]initWithURL:url2 cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10]autorelease];
     CustomURLConnection *connection = [[[CustomURLConnection alloc]initWithRequest:request2 delegate:self startImmediately:NO]autorelease];
     // 连接的名字是活动
     connection.name = @"book";
@@ -411,7 +488,7 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
 {
     
     NSURL *url = [NSURL URLWithString:@"https://api.douban.com/v2/onlines?apikey=0dea1ee3719c992829be5caa54d5cb78"];
-    NSURLRequest *request = [[NSURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
+    NSURLRequest *request = [[[NSURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10]autorelease];
     CustomURLConnection *connection = [[[CustomURLConnection alloc]initWithRequest:request delegate:self startImmediately:NO]autorelease];
     // 连接的名字是活动
     connection.name = @"huodong";
@@ -451,9 +528,9 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
     
     if([((CustomURLConnection*)connection).name isEqualToString:@"movie"] )
     {
-        NSString * xml = [[NSString alloc]initWithData:self.responseData1 encoding:NSUTF8StringEncoding];
+        NSString * xml = [[[NSString alloc]initWithData:self.responseData1 encoding:NSUTF8StringEncoding]autorelease];
         NSDictionary *_xmlDic = [xml JSONValue];
-         NSLog(@"dlkgjlsdjglsjdlgkj%@",_xmlDic);
+         //NSLog(@"dlkgjlsdjglsjdlgkj%@",_xmlDic);
         
         
         NSMutableArray *movies = [NSMutableArray array];
@@ -670,6 +747,15 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
         [self searchbar];
         [self.view addSubview:tableV2];
         
+        UIImage *img2 = [UIImage imageNamed:@"book.jpg"];
+        
+        UIImageView *imgView2 = [[UIImageView alloc]initWithFrame:CGRectMake(0.0, 80.0, 320.0, 420.0)];
+        imgView2.image = img2;
+        self.imgView2 = imgView2;
+        [self.view addSubview:imgView2];
+        [imgView2 release];
+        
+        
         //[self loadtupian];
         
         
@@ -684,6 +770,15 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
         [tableV2 removeFromSuperview];
         [self searchbar];
         [self.view addSubview:tableV3];
+        
+        UIImage *img3 = [UIImage imageNamed:@"music.jpg"];
+        
+        UIImageView *imgView3 = [[UIImageView alloc]initWithFrame:CGRectMake(0.0, 80.0, 320.0, 420.0)];
+        imgView3.image = img3;
+        self.imgView2 = imgView3;
+        [self.view addSubview:imgView3];
+        [imgView3 release];
+        
     }
     
 }
@@ -850,6 +945,17 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
     first.movieName = movie.movieName;
     first.movieimage = movie.thumbnail;
         first.movieString = movie.thumbnailURLString;
+        //first.hidesBottomBarWhenPushed = YES;
+        
+//        CATransition *transition = [CATransition animation];
+//        transition.duration = 1;
+//        transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+//        transition.type = @"cube";
+//        transition.subtype = kCATransitionFromRight;
+//        transition.delegate = self;
+//        [self.navigationController.view.layer addAnimation:transition forKey:nil];
+        //first.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+        
     first.kamovie = [self.movies objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:first animated:YES];
     

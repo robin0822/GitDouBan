@@ -72,7 +72,7 @@
     NSURL *url3 = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.douban.com/v2/movie/celebrity/%@?apikey=0dea1ee3719c992829be5caa54d5cb78",self.ID]];
     NSLog(@"!!!%@",self.ID);
 
-    NSURLRequest *request3 = [[NSURLRequest alloc]initWithURL:url3 cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
+    NSURLRequest *request3 = [[[NSURLRequest alloc]initWithURL:url3 cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10]autorelease];
     NSURLConnection *connection = [[[NSURLConnection alloc]initWithRequest:request3 delegate:self startImmediately:NO]autorelease];
     // 连接的名字是活动
 //    connection.name = @"movie";
@@ -98,7 +98,7 @@
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    NSString * xml3 = [[NSString alloc]initWithData:self.responseData encoding:NSUTF8StringEncoding];
+    NSString * xml3 = [[[NSString alloc]initWithData:self.responseData encoding:NSUTF8StringEncoding]autorelease];
     NSDictionary *_xmlDic3 = [xml3 JSONValue];
     // NSLog(@"adsasdas%@",responseString3);
     NSLog(@"19998888%@",_xmlDic3);

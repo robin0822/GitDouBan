@@ -51,7 +51,7 @@
     self.Name = [self.Name stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.douban.com/v2/movie/search?q=%@?apikey=0dea1ee3719c992829be5caa54d5cb78",self.Name]];
-    NSURLRequest *request = [[NSURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
+    NSURLRequest *request = [[[NSURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10]autorelease];
    NSURLConnection *connection = [[[NSURLConnection alloc]initWithRequest:request delegate:self startImmediately:NO]autorelease];
   
     [connection start];
@@ -76,7 +76,7 @@
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    NSString * xml3 = [[NSString alloc]initWithData:self.responseData encoding:NSUTF8StringEncoding];
+    NSString * xml3 = [[[NSString alloc]initWithData:self.responseData encoding:NSUTF8StringEncoding]autorelease];
     NSDictionary *_xmlDic3 = [xml3 JSONValue];
     // NSLog(@"adsasdas%@",responseString3);
     NSLog(@"%@",_xmlDic3);

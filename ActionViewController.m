@@ -47,7 +47,7 @@
     NSString *str = self.Id;
     NSLog(@"%@",str);
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.douban.com/v2/online/%@",str]];
-    NSURLRequest *request = [[NSURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
+    NSURLRequest *request = [[[NSURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10]autorelease];
     NSURLConnection *connection = [[[NSURLConnection alloc]initWithRequest:request delegate:self startImmediately:NO]autorelease];
     
     [connection start];
@@ -81,7 +81,7 @@
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    NSString * xml3 = [[NSString alloc]initWithData:self.responseData encoding:NSUTF8StringEncoding];
+    NSString * xml3 = [[[NSString alloc]initWithData:self.responseData encoding:NSUTF8StringEncoding]autorelease];
     NSDictionary *_xmlDic3 = [xml3 JSONValue];
     // NSLog(@"adsasdas%@",responseString3);
     NSLog(@"%@",_xmlDic3);
@@ -160,6 +160,7 @@
         
         
         [cell.contentView addSubview:label3];
+        [label3 release];
         
     }
     else if (indexPath.section == 1)
@@ -243,7 +244,7 @@
     else
     {
         
-        UILabel *label1 = [[UILabel alloc]initWithFrame:CGRectMake(10.0, 10.0, 280.0, 400.0)];
+        UILabel *label1 = [[[UILabel alloc]initWithFrame:CGRectMake(10.0, 10.0, 280.0, 400.0)]autorelease];
         label1.textAlignment = NSTextAlignmentCenter;
         label1.backgroundColor = [UIColor clearColor];
         label1.font = [UIFont systemFontOfSize:15.0];

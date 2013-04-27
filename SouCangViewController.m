@@ -89,7 +89,7 @@
     {
         BookViewController *bookview = [[BookViewController alloc]init];
         UINavigationController *navigtion = [[UINavigationController alloc]initWithRootViewController:bookview];
-        
+        bookview.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
         navigtion.navigationBar.tintColor = [UIColor grayColor];
         [self presentViewController:navigtion animated:YES completion:nil];
         [navigtion release];

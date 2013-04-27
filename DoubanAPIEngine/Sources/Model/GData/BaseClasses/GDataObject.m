@@ -1742,14 +1742,17 @@ objectDescriptionIfNonNil:(id)obj
 
   if (extensionDecls == nil) {
     extensionDecls = [NSMutableDictionary dictionary];
-    [extensionDeclarationsCache setObject:extensionDecls forKey:currClass];
+    [extensionDeclarationsCache setObject:extensionDecls forKey:(id)currClass];
+      
+      
+      
   }
 
   // get this class's extensions for the specified parent class
   NSMutableArray *array = [extensionDecls objectForKey:parentClass];
   if (array == nil) {
     array = [NSMutableArray array];
-    [extensionDecls setObject:array forKey:parentClass];
+    [extensionDecls setObject:array forKey:(id)parentClass];
   }
 
   GDATA_DEBUG_ASSERT([childClass conformsToProtocol:@protocol(GDataExtension)],
@@ -1865,7 +1868,7 @@ objectDescriptionIfNonNil:(id)obj
                 [theClass extensionElementLocalName]];
       }
 
-      [gQualifiedNameMap setObject:name forKey:theClass];
+      [gQualifiedNameMap setObject:name forKey:(id)theClass];
     }
   }
   return name;
@@ -1899,7 +1902,7 @@ objectDescriptionIfNonNil:(id)obj
     for (GDataObject *obj in objects) {
       [self ensureObject:obj hasXMLNameForExtensionClass:theClass];
     }
-    [extensions_ setObject:objects forKey:theClass];
+    [extensions_ setObject:objects forKey:(id)theClass];
   } else {
     [extensions_ removeObjectForKey:theClass];
   }
@@ -1919,7 +1922,7 @@ objectDescriptionIfNonNil:(id)obj
 
   if (object) {
     [self ensureObject:object hasXMLNameForExtensionClass:theClass];
-    [extensions_ setObject:object forKey:theClass];
+    [extensions_ setObject:object forKey:(id)theClass];
   } else {
     [extensions_ removeObjectForKey:theClass];
   }
@@ -1947,7 +1950,7 @@ objectDescriptionIfNonNil:(id)obj
       // create an array with the previous object and the new object
       NSMutableArray *array = [NSMutableArray arrayWithObjects:
                                previousObjOrArray, newObj, nil];
-      [extensions_ setObject:array forKey:theClass];
+      [extensions_ setObject:array forKey:(id)theClass];
     }
   } else {
 
@@ -2095,10 +2098,10 @@ objectDescriptionIfNonNil:(id)obj
 
     // we keep a strong pointer to the array in the cache since the cache
     // belongs to the feed or the topmost parent, and that may go away
-    attributeDeclarations_ = [[cache objectForKey:currClass] retain];
+    attributeDeclarations_ = [[cache objectForKey:(id)currClass] retain];
     if (attributeDeclarations_ == nil) {
       attributeDeclarations_ = [[NSMutableArray alloc] init];
-      [cache setObject:attributeDeclarations_ forKey:currClass];
+      [cache setObject:attributeDeclarations_ forKey:(id)currClass];
     }
   }
 

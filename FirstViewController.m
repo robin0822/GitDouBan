@@ -87,7 +87,7 @@
 //    //     NSString *responseString1= [[NSString alloc] initWithData:responseData1 encoding:NSUTF8StringEncoding];
 //    //    NSLog(@"%@",responseString1);
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.douban.com/v2/movie/subject/%@?apikey=0dea1ee3719c992829be5caa54d5cb78",str]];
-    NSURLRequest *request = [[NSURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
+    NSURLRequest *request = [[[NSURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10]autorelease];
     NSURLConnection *connection = [[[NSURLConnection alloc]initWithRequest:request delegate:self]autorelease];
     NSLog(@"%@",connection);
     //    NSString * xml1 = [[NSString alloc]initWithData:responseData1 encoding:NSUTF8StringEncoding];
@@ -137,30 +137,38 @@
 //    NSDictionary *_xmlDic2 = [xml2 JSONValue];
 //    NSLog(@"%@",_xmlDic2);
     
-       NSString *appkey = @"Bearer c27b84887ad3381547728d997079a83f";
-    NSURL *url3 = [NSURL URLWithString:@"https://api.douban.com/v2/book/1442720/annotations"];
-    NSMutableURLRequest *request3 = [[NSMutableURLRequest alloc]initWithURL:url3 cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
-    [request3 setHTTPMethod:@"POST"];
-     [request3 setValue:appkey forHTTPHeaderField:@"Authorization"];
+//       NSString *appkey = @"Bearer c27b84887ad3381547728d997079a83f";
+//    NSURL *url3 = [NSURL URLWithString:@"https://api.douban.com/v2/book/1442720/annotations"];
+//    NSMutableURLRequest *request3 = [[NSMutableURLRequest alloc]initWithURL:url3 cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
+//    [request3 setHTTPMethod:@"POST"];
+//     [request3 setValue:appkey forHTTPHeaderField:@"Authorization"];
+////    
+//    //NSString *resttitle = @"这本书写的我热血沸腾啊，感觉自己身在其中啊。";
+////    NSString *restdesc = @"开展各种体育活动健身";
+////    NSString *ssda = @" ";
+//   //resttitle = [resttitle stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//   // NSLog(@"%@",resttitle);
+////restdesc = [restdesc stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+////    
+////    NSLog(@"%@",restdesc);
+//    NSString *str2 = @"content=%E8%BF%99%E6%9C%AC%E4%B9%A6%E5%86%99%E7%9A%84%E6%88%91%E7%83%AD%E8%A1%80%E6%B2%B8%E8%85%BE%E5%95%8A%EF%BC%8C%E6%84%9F%E8%A7%89%E8%87%AA%E5%B7%B1%E8%BA%AB%E5%9C%A8%E5%85%B6%E4%B8%AD%E5%95%8A%E3%80%82&page=110";
+//    NSData *data = [str2 dataUsingEncoding:NSUTF8StringEncoding];
+//    [request3 setHTTPBody:data];
 //    
-    //NSString *resttitle = @"这本书写的我热血沸腾啊，感觉自己身在其中啊。";
-//    NSString *restdesc = @"开展各种体育活动健身";
-//    NSString *ssda = @" ";
-   //resttitle = [resttitle stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-   // NSLog(@"%@",resttitle);
-//restdesc = [restdesc stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 //    
-//    NSLog(@"%@",restdesc);
-    NSString *str2 = @"content=%E8%BF%99%E6%9C%AC%E4%B9%A6%E5%86%99%E7%9A%84%E6%88%91%E7%83%AD%E8%A1%80%E6%B2%B8%E8%85%BE%E5%95%8A%EF%BC%8C%E6%84%9F%E8%A7%89%E8%87%AA%E5%B7%B1%E8%BA%AB%E5%9C%A8%E5%85%B6%E4%B8%AD%E5%95%8A%E3%80%82&page=110";
-    NSData *data = [str2 dataUsingEncoding:NSUTF8StringEncoding];
-    [request3 setHTTPBody:data];
+//    NSData *received = [NSURLConnection sendSynchronousRequest:request3 returningResponse:nil error:nil];
+//    
+//    NSString *str1 = [[NSString alloc]initWithData:received encoding:NSUTF8StringEncoding];
+//    //[str1 release];
+//    NSLog(@"1111%@",str1);
+  
+    
+
     
     
-    NSData *received = [NSURLConnection sendSynchronousRequest:request3 returningResponse:nil error:nil];
     
-    NSString *str1 = [[NSString alloc]initWithData:received encoding:NSUTF8StringEncoding];
-    //[str1 release];
-    NSLog(@"1111%@",str1);
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -438,6 +446,8 @@
         NSString *filepath1 = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject];
         [studentData1 writeToFile:[filepath1 stringByAppendingPathComponent:@"students.bmbbchive"] atomically:YES];
         
+        //self.tabBarController.tabBar.hidden=YES;
+        
     }
     
     
@@ -450,6 +460,7 @@
     
     
     UINavigationController *navigation1 = [[UINavigationController alloc]initWithRootViewController:fristlist];
+    fristlist.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     navigation1.navigationBar.tintColor = [UIColor grayColor];
     fristlist.ID = self.movieID;
     fristlist.Name =self.label.text;
@@ -461,7 +472,8 @@
     
     [self presentViewController:navigation1 animated:YES completion:nil];
    
-    
+    [fristlist release];
+    [navigation1 release];
 }
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
@@ -477,18 +489,18 @@
 {
     
     
-    NSString * xml1 = [[NSString alloc]initWithData:self.responseData encoding:NSUTF8StringEncoding];
+    NSString * xml1 = [[[NSString alloc]initWithData:self.responseData encoding:NSUTF8StringEncoding]autorelease];;
     NSDictionary *_xmlDic1 = [xml1 JSONValue];
    // NSLog(@"111111111%@",_xmlDic1);
     
-    
-    NSString *responseString = [[NSString alloc] initWithData:self.responseData encoding:NSUTF8StringEncoding];
-    NSString* esc1 = [responseString stringByReplacingOccurrencesOfString:@"\\u" withString:@"\\U"];
-    NSString* esc2 = [esc1 stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
-    NSString* quoted = [[@"\"" stringByAppendingString:esc2] stringByAppendingString:@"\""];
-    NSData* data = [quoted dataUsingEncoding:NSUTF8StringEncoding];
-    NSString* unesc = [NSPropertyListSerialization propertyListFromData:data mutabilityOption:NSPropertyListImmutable format:NULL errorDescription:NULL];
-    assert([unesc isKindOfClass:[NSString class]]);
+//    
+//    NSString *responseString = [[NSString alloc] initWithData:self.responseData encoding:NSUTF8StringEncoding];
+//    NSString* esc1 = [responseString stringByReplacingOccurrencesOfString:@"\\u" withString:@"\\U"];
+//    NSString* esc2 = [esc1 stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
+//    NSString* quoted = [[@"\"" stringByAppendingString:esc2] stringByAppendingString:@"\""];
+//    NSData* data = [quoted dataUsingEncoding:NSUTF8StringEncoding];
+//    NSString* unesc = [NSPropertyListSerialization propertyListFromData:data mutabilityOption:NSPropertyListImmutable format:NULL errorDescription:NULL];
+//    assert([unesc isKindOfClass:[NSString class]]);
     
     
     

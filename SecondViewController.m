@@ -47,7 +47,7 @@
     NSString *str = self.ID;
     
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.douban.com/v2/book/%@?apikey=0dea1ee3719c992829be5caa54d5cb78",str]];
-    NSURLRequest *request = [[NSURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
+    NSURLRequest *request = [[[NSURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10]autorelease];
     NSURLConnection *connection = [[[NSURLConnection alloc]initWithRequest:request delegate:self]autorelease];
     NSLog(@"%@",connection);
     
@@ -80,7 +80,7 @@
     secondbook.ID = self.ID;
     secondbook.Name = self.Name;
     
-    
+     secondbook.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     UINavigationController *navigation1 = [[UINavigationController alloc]initWithRootViewController:secondbook];
     navigation1.navigationBar.tintColor = [UIColor grayColor];
     
@@ -106,7 +106,7 @@
 {
 //    
 //    [NSThread detachNewThreadSelector:@selector(loadAndRefresh:) toTarget:self withObject:connection];
-    NSString * xml3 = [[NSString alloc]initWithData:self.responseData1 encoding:NSUTF8StringEncoding];
+    NSString * xml3 = [[[NSString alloc]initWithData:self.responseData1 encoding:NSUTF8StringEncoding]autorelease];;
     NSDictionary *_xmlDic3 = [xml3 JSONValue];
     NSLog(@"%@",_xmlDic3);
     NSMutableArray *books = [NSMutableArray array];
@@ -362,7 +362,7 @@ return cell;
         [alert2 show];
         [alert2 release];
         
-        Kuke *kuke = [[Kuke alloc]init];
+        Kuke *kuke = [[[Kuke alloc]init]autorelease];
         kuke.bookTitle = self.Name;
         kuke.bookPhone = self.bookString;
         NSString *filepath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject];
@@ -437,7 +437,7 @@ return cell;
         
         Book *book = [self.books  objectAtIndex:indexPath.row];
         
-        UILabel *label1 = [[UILabel alloc]initWithFrame:CGRectMake(10.0, 10.0, 280.0, 400.0)];
+        UILabel *label1 = [[[UILabel alloc]initWithFrame:CGRectMake(10.0, 10.0, 280.0, 400.0)]autorelease];
         label1.textAlignment = NSTextAlignmentCenter;
         label1.backgroundColor = [UIColor clearColor];
         label1.font = [UIFont systemFontOfSize:15.0];

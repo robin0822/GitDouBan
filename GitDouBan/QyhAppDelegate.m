@@ -43,6 +43,8 @@
     
     GuanYuViewController *guanyu = [[GuanYuViewController alloc]init];
     UINavigationController *navigation3 = [[UINavigationController alloc]initWithRootViewController:guanyu];
+    
+    navigation3.navigationBar.tintColor = [UIColor grayColor];
     navigation3.tabBarItem.title = @"更多";
     navigation3.tabBarItem.image = [UIImage imageNamed:@"tabbar_more.png"];
     [guanyu release];
@@ -51,6 +53,7 @@
     tab.viewControllers = [NSArray arrayWithObjects:navigation1, navigation2, navigation3, nil];
     
     self.window.rootViewController = tab;
+    [NSThread sleepForTimeInterval:2.0];
     [tab release];
     
     [navigation1 release];

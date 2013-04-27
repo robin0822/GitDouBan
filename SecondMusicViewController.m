@@ -40,7 +40,7 @@
     
     
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.douban.com/music/subject/%@/reviews?alt=json&apikey=0dea1ee3719c992829be5caa54d5cb78",self.ID]];
-    NSURLRequest *request = [[NSURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
+    NSURLRequest *request = [[[NSURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10]autorelease];
     NSURLConnection *connection = [[[NSURLConnection alloc]initWithRequest:request delegate:self startImmediately:NO]autorelease];
     
     [connection start];
@@ -82,7 +82,7 @@
 {
     //
     //    [NSThread detachNewThreadSelector:@selector(loadAndRefresh:) toTarget:self withObject:connection];
-    NSString * xml3 = [[NSString alloc]initWithData:self.responseData1 encoding:NSUTF8StringEncoding];
+    NSString * xml3 = [[[NSString alloc]initWithData:self.responseData1 encoding:NSUTF8StringEncoding]autorelease];
     NSDictionary *_xmlDic3 = [xml3 JSONValue];
     NSLog(@"%@",_xmlDic3);
     
