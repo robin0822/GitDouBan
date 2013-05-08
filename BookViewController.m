@@ -10,6 +10,7 @@
 #import "Student.h"
 #import "Kuke.h"
 #import "QyhCell.h"
+#import "SecondViewController.h"
 
 @interface BookViewController ()
 {
@@ -103,10 +104,10 @@
     static NSString *identifier = @"MovieCell";
     QyhCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     
-    if (!cell)
-    {
-        cell = [[[QyhCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier] autorelease];
-    }
+//    if (!cell)
+//    {
+//        cell = [[[QyhCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier] autorelease];
+//    }
     
     if (!cell)
     {
@@ -153,5 +154,30 @@
 {
     return  80.0;
 }
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+ 
+    
+    SecondViewController *second = [[SecondViewController  alloc]initWithStyle:UITableViewStylePlain];
+    
+    Kuke *kuke = [self.students objectAtIndex:indexPath.row];
+    second.ID = kuke.bookId;
+    second.Name = kuke.bookTitle;
+    second.bookString = kuke.bookPhone;
+    NSData *thumbnailData1 = [NSData dataWithContentsOfURL:[NSURL URLWithString:kuke.bookPhone]];
+    second.bookImage= [UIImage imageWithData:thumbnailData1];
+    
+    [self.navigationController pushViewController:second animated:YES];
+    [second release];
+    
+}
+
+
+
+
+
+
 
 @end

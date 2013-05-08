@@ -123,13 +123,14 @@
     book.pages = [_xmlDic3 objectForKey:@"pages"];
     book.price = [_xmlDic3 objectForKey:@"price"];
     book.bookID = [_xmlDic3 objectForKey:@"id"];
+    book.bookString = [[_xmlDic3 objectForKey:@"images"]objectForKey:@"small"];
     
    // NSLog(@"%@",book.bookID);
    
-//        book.bookString = [_xmlDic3 objectForKey:@"books"];
+        //book.bookString = [_xmlDic3 objectForKey:@"books"];
 //        NSData *thumbnailData1 = [NSData dataWithContentsOfURL:[NSURL URLWithString:book.bookString]];
 //        book.bookImage = [UIImage imageWithData:thumbnailData1];
-    
+    NSLog(@"%@",book.bookString);
     
     self.books = books;
         
@@ -364,7 +365,8 @@ return cell;
         
         Kuke *kuke = [[[Kuke alloc]init]autorelease];
         kuke.bookTitle = self.Name;
-        kuke.bookPhone = self.bookString;
+        kuke.bookPhone = self.bookString ;
+        kuke.bookId = self.ID;
         NSString *filepath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject];
         NSData *studentData = [NSData dataWithContentsOfFile:[filepath stringByAppendingPathComponent:@"students.00bbchive"]];
         NSMutableArray *students = [NSKeyedUnarchiver unarchiveObjectWithData:studentData];

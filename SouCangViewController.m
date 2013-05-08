@@ -43,25 +43,40 @@
     self.navigationItem.title = @"电影收藏";
     
     self.view.backgroundColor = [UIColor whiteColor];
-    _segmentedControlArray = [NSArray arrayWithObjects:@"电影",@"图书", nil];
+    //_segmentedControlArray = [NSArray arrayWithObjects:@"电影",@"图书", nil];
     //创建分区视图
-    UISegmentedControl * _segmentedControl = [[UISegmentedControl alloc]initWithItems:_segmentedControlArray];
-    _segmentedControl.momentary  = NO;
-    _segmentedControl.segmentedControlStyle = UISegmentedControlNoSegment;
-    _segmentedControl.frame = CGRectMake(0, 0, 320, 38);
-    _segmentedControl.tintColor = [UIColor grayColor];
-    [_segmentedControl addTarget:self action:@selector(_loadData:) forControlEvents:UIControlEventValueChanged];
-    
-    
-    _segmentedControl.selectedSegmentIndex=0;
-    // self.segmentControl=_segmentedControl;
-    [self.view addSubview:_segmentedControl];
+//    UISegmentedControl * _segmentedControl = [[UISegmentedControl alloc]initWithItems:_segmentedControlArray];
+//    _segmentedControl.momentary  = NO;
+//    _segmentedControl.segmentedControlStyle = UISegmentedControlNoSegment;
+//    _segmentedControl.frame = CGRectMake(0, 0, 320, 38);
+//    _segmentedControl.tintColor = [UIColor grayColor];
+//    [_segmentedControl addTarget:self action:@selector(_loadData:) forControlEvents:UIControlEventValueChanged];
+//    
+//    
+//    _segmentedControl.selectedSegmentIndex=0;
+//    // self.segmentControl=_segmentedControl;
+//    [self.view addSubview:_segmentedControl];
     tableV = [[UITableView alloc]initWithFrame:CGRectMake(0.0, 40.0, 320.0, 420)];
     
     tableV.tag = 1;
     tableV.delegate = self;
     tableV.dataSource = self;
     [self.view addSubview:tableV];
+    
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.frame = CGRectMake(220.0, 0.0, 90.0, 40.0);
+    [button setTitle:@"图书收藏" forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    button.backgroundColor = [UIColor clearColor];
+    [button addTarget:self action:@selector(add) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
+
+    
+    
+    
+    
+    
     
     NSString *filepath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject];
     NSData *studentData = [NSData dataWithContentsOfFile:[filepath stringByAppendingPathComponent:@"students.bmbbchive"]];
@@ -82,23 +97,39 @@
     
 }
 
--(void)_loadData:(UISegmentedControl*)yy
+
+
+
+-(void)add
 {
-    NSInteger index = yy.selectedSegmentIndex ;
-    if (index == 1)
-    {
-        BookViewController *bookview = [[BookViewController alloc]init];
-        UINavigationController *navigtion = [[UINavigationController alloc]initWithRootViewController:bookview];
-        bookview.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-        navigtion.navigationBar.tintColor = [UIColor grayColor];
-        [self presentViewController:navigtion animated:YES completion:nil];
-        [navigtion release];
-        [bookview release];
-        
-        
-    }
+    
+    
+    BookViewController *bookview = [[BookViewController alloc]init];
+    UINavigationController *navigtion = [[UINavigationController alloc]initWithRootViewController:bookview];
+    bookview.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    navigtion.navigationBar.tintColor = [UIColor grayColor];
+    [self presentViewController:navigtion animated:YES completion:nil];
+    [navigtion release];
+    [bookview release];
     
 }
+//-(void)_loadData:(UISegmentedControl*)yy
+//{
+//    NSInteger index = yy.selectedSegmentIndex ;
+//    if (index == 1)
+//    {
+//        BookViewController *bookview = [[BookViewController alloc]init];
+//        UINavigationController *navigtion = [[UINavigationController alloc]initWithRootViewController:bookview];
+//        bookview.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+//        navigtion.navigationBar.tintColor = [UIColor grayColor];
+//        [self presentViewController:navigtion animated:YES completion:nil];
+//        [navigtion release];
+//        [bookview release];
+//        
+//        
+//    }
+//    
+//}
 
 
 
@@ -189,7 +220,8 @@
     first.movieString = student.bookString;
     //first.kamovie = [self.books objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:first animated:YES];
-    
+    NSData *thumbnailData1 = [NSData dataWithContentsOfURL:[NSURL URLWithString:student.bookString]];
+    first.movieimage = [UIImage imageWithData:thumbnailData1];
     
     [first release];
     

@@ -19,6 +19,8 @@
        
         self.bookTitle = [aDecoder decodeObjectForKey:@"mmname"];
         self.bookPhone = [aDecoder decodeObjectForKey:@"ccname"];
+        self.bookId = [aDecoder decodeObjectForKey:@"aaname"];
+        
     }
     return self;
 }
@@ -28,6 +30,7 @@
     
     [aCoder encodeObject:_bookTitle forKey:@"mmname"];
     [aCoder encodeObject:_bookPhone forKey:@"ccname"];
+    [aCoder encodeObject:_bookId forKey:@"aaname"];
 }
 
 

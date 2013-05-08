@@ -40,6 +40,8 @@
 		0FC7CB2F172A3F1C0026733F /* 222.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0FC7CB2E172A3F1C0026733F /* 222.jpg */; };
 		0FCC13CE1723C14E00FE567B /* QyhOOOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FCC13CD1723C14E00FE567B /* QyhOOOViewController.m */; };
 		0FCC13D11723D81C00FE567B /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FCC13D01723D81C00FE567B /* SecondViewController.m */; };
+		0FCD960E17375EFF00683F22 /* BookSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FCD960D17375EFF00683F22 /* BookSecondViewController.m */; };
+		0FCD961117377F9400683F22 /* BookWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FCD961017377F9400683F22 /* BookWebViewController.m */; };
 		0FDBBD441720C6B200BC16FE /* ActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDBBD431720C6B200BC16FE /* ActionViewController.m */; };
 		0FDBBD481720EE4400BC16FE /* SeconAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDBBD471720EE4400BC16FE /* SeconAddViewController.m */; };
 		0FE2692E171E4C140079D3CC /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE2692D171E4C140079D3CC /* Book.m */; };
@@ -206,6 +208,7 @@
 		0FE6E8681728D887005F0B55 /* Kuke.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE6E8671728D886005F0B55 /* Kuke.m */; };
 		0FE6E86A1728F387005F0B55 /* tabbar_more.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FE6E8691728F387005F0B55 /* tabbar_more.png */; };
 		0FE6E86D1729029E005F0B55 /* SecondMovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE6E86C1729029E005F0B55 /* SecondMovieViewController.m */; };
+		0FE993E2173748D3001E8F36 /* FirstBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE993E1173748D3001E8F36 /* FirstBookViewController.m */; };
 		0FF9ECCD171F97AC00652A0A /* CustomURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9ECCC171F97AC00652A0A /* CustomURLConnection.m */; };
 		0FF9ECD0171FC2E900652A0A /* FirstaddlistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9ECCF171FC2E900652A0A /* FirstaddlistViewController.m */; };
 		0FF9ECD3171FDD9A00652A0A /* QyhCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9ECD2171FDD9A00652A0A /* QyhCell.m */; };
@@ -261,6 +264,10 @@
 		0FCC13CD1723C14E00FE567B /* QyhOOOViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QyhOOOViewController.m; sourceTree = "<group>"; };
 		0FCC13CF1723D81C00FE567B /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		0FCC13D01723D81C00FE567B /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		0FCD960C17375EFF00683F22 /* BookSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookSecondViewController.h; sourceTree = "<group>"; };
+		0FCD960D17375EFF00683F22 /* BookSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookSecondViewController.m; sourceTree = "<group>"; };
+		0FCD960F17377F9400683F22 /* BookWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookWebViewController.h; sourceTree = "<group>"; };
+		0FCD961017377F9400683F22 /* BookWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookWebViewController.m; sourceTree = "<group>"; };
 		0FDBBD421720C6B200BC16FE /* ActionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionViewController.h; sourceTree = "<group>"; };
 		0FDBBD431720C6B200BC16FE /* ActionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionViewController.m; sourceTree = "<group>"; };
 		0FDBBD461720EE4400BC16FE /* SeconAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeconAddViewController.h; sourceTree = "<group>"; };
@@ -598,6 +605,8 @@
 		0FE6E8691728F387005F0B55 /* tabbar_more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_more.png; sourceTree = "<group>"; };
 		0FE6E86B1729029E005F0B55 /* SecondMovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondMovieViewController.h; sourceTree = "<group>"; };
 		0FE6E86C1729029E005F0B55 /* SecondMovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondMovieViewController.m; sourceTree = "<group>"; };
+		0FE993E0173748D3001E8F36 /* FirstBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstBookViewController.h; sourceTree = "<group>"; };
+		0FE993E1173748D3001E8F36 /* FirstBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstBookViewController.m; sourceTree = "<group>"; };
 		0FF9ECCB171F97AC00652A0A /* CustomURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomURLConnection.h; sourceTree = "<group>"; };
 		0FF9ECCC171F97AC00652A0A /* CustomURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomURLConnection.m; sourceTree = "<group>"; };
 		0FF9ECCE171FC2E900652A0A /* FirstaddlistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstaddlistViewController.h; sourceTree = "<group>"; };
@@ -643,28 +652,22 @@
 		0F94E6C2171C08C0007985B5 = {
 			isa = PBXGroup;
 			children = (
+				0FE993DC173747B5001E8F36 /* BOOK */,
 				0FBC726E172AA5F800C08915 /* Default-568h@2x.png */,
 				0FBC726C172AA5F300C08915 /* Default@2x.png */,
 				0FBC726A172AA5A500C08915 /* Default.png */,
-				0FBC725C172A57A900C08915 /* QuartzCore.framework */,
-				0FC7CB1F172A20640026733F /* 图片 */,
-				0FC7CB1B172A002C0026733F /* 关于 */,
+				0FC7CB1F172A20640026733F /* image */,
+				0FC7CB1B172A002C0026733F /* about */,
 				0FE6E66B1727BC49005F0B55 /* SDK */,
-				0FE6E6691727BA63005F0B55 /* MobileCoreServices.framework */,
-				0FE6E6671727BA55005F0B55 /* SystemConfiguration.framework */,
-				0FE6E6651727BA4C005F0B55 /* Security.framework */,
-				0FE6E6631727BA45005F0B55 /* CFNetwork.framework */,
-				0FE6E6611727BA3E005F0B55 /* libz.dylib */,
-				0FE6E65F1727BA1C005F0B55 /* libxml2.dylib */,
 				0FD28D1917265908006B7324 /* New Group */,
-				0FC4CFB817254F6E00D349C5 /* 音乐 */,
-				0FDBBD411720C68700BC16FE /* 活动 */,
-				0FDBBD401720C63C00BC16FE /* 对象 */,
-				0FF9ECC7171F94EF00652A0A /* 图书 */,
-				0FE26933171E86810079D3CC /* 电影 */,
+				0FC4CFB817254F6E00D349C5 /* music */,
+				0FDBBD411720C68700BC16FE /* action */,
+				0FDBBD401720C63C00BC16FE /* duixiang  */,
+				0FF9ECC7171F94EF00652A0A /* book */,
+				0FE26933171E86810079D3CC /* movie */,
 				0F13D140171CDFB600DC8122 /* TaNbar */,
 				0F94E6D7171C08C0007985B5 /* GitDouBan */,
-				0FC7CB1A1729FFAF0026733F /* 收藏 */,
+				0FC7CB1A1729FFAF0026733F /* shoucang */,
 				0F94E6D0171C08C0007985B5 /* Frameworks */,
 				0F94E6CE171C08C0007985B5 /* Products */,
 			);
@@ -681,6 +684,13 @@
 		0F94E6D0171C08C0007985B5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0FBC725C172A57A900C08915 /* QuartzCore.framework */,
+				0FE6E65F1727BA1C005F0B55 /* libxml2.dylib */,
+				0FE6E6611727BA3E005F0B55 /* libz.dylib */,
+				0FE6E6691727BA63005F0B55 /* MobileCoreServices.framework */,
+				0FE6E6671727BA55005F0B55 /* SystemConfiguration.framework */,
+				0FE6E6651727BA4C005F0B55 /* Security.framework */,
+				0FE6E6631727BA45005F0B55 /* CFNetwork.framework */,
 				0F94E6D1171C08C0007985B5 /* UIKit.framework */,
 				0F94E6D3171C08C0007985B5 /* Foundation.framework */,
 				0F94E6D5171C08C0007985B5 /* CoreGraphics.framework */,
@@ -713,7 +723,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		0FC4CFB817254F6E00D349C5 /* 音乐 */ = {
+		0FC4CFB817254F6E00D349C5 /* music */ = {
 			isa = PBXGroup;
 			children = (
 				0FC4CFB917254F8900D349C5 /* MusicViewController.h */,
@@ -721,10 +731,10 @@
 				0FE6E8631728B8FD005F0B55 /* SecondMusicViewController.h */,
 				0FE6E8641728B8FE005F0B55 /* SecondMusicViewController.m */,
 			);
-			name = "音乐";
+			name = music;
 			sourceTree = "<group>";
 		};
-		0FC7CB1A1729FFAF0026733F /* 收藏 */ = {
+		0FC7CB1A1729FFAF0026733F /* shoucang */ = {
 			isa = PBXGroup;
 			children = (
 				0FE6E63517276975005F0B55 /* BookViewController.h */,
@@ -732,10 +742,10 @@
 				0FE6E63B17276E20005F0B55 /* SouCangViewController.h */,
 				0FE6E63C17276E20005F0B55 /* SouCangViewController.m */,
 			);
-			name = "收藏";
+			name = shoucang;
 			sourceTree = "<group>";
 		};
-		0FC7CB1B172A002C0026733F /* 关于 */ = {
+		0FC7CB1B172A002C0026733F /* about */ = {
 			isa = PBXGroup;
 			children = (
 				0F13D15D171D272200DC8122 /* GuanYuViewController.h */,
@@ -745,10 +755,10 @@
 				0FBC7267172A787200C08915 /* AboutViewController.h */,
 				0FBC7268172A787200C08915 /* AboutViewController.m */,
 			);
-			name = "关于";
+			name = about;
 			sourceTree = "<group>";
 		};
-		0FC7CB1F172A20640026733F /* 图片 */ = {
+		0FC7CB1F172A20640026733F /* image */ = {
 			isa = PBXGroup;
 			children = (
 				0FC7CB20172A20D70026733F /* 1.jpg */,
@@ -761,7 +771,7 @@
 				0FBC7260172A6AF500C08915 /* book.jpg */,
 				0FBC7262172A6C0B00C08915 /* music.jpg */,
 			);
-			name = "图片";
+			name = image;
 			sourceTree = "<group>";
 		};
 		0FD28D1917265908006B7324 /* New Group */ = {
@@ -771,7 +781,7 @@
 			name = "New Group";
 			sourceTree = "<group>";
 		};
-		0FDBBD401720C63C00BC16FE /* 对象 */ = {
+		0FDBBD401720C63C00BC16FE /* duixiang  */ = {
 			isa = PBXGroup;
 			children = (
 				0FE2692C171E4C140079D3CC /* Book.h */,
@@ -789,10 +799,10 @@
 				0FE6E8661728D886005F0B55 /* Kuke.h */,
 				0FE6E8671728D886005F0B55 /* Kuke.m */,
 			);
-			name = "对象";
+			name = "duixiang ";
 			sourceTree = "<group>";
 		};
-		0FDBBD411720C68700BC16FE /* 活动 */ = {
+		0FDBBD411720C68700BC16FE /* action */ = {
 			isa = PBXGroup;
 			children = (
 				0FDBBD421720C6B200BC16FE /* ActionViewController.h */,
@@ -800,10 +810,10 @@
 				0FCC13CC1723C14E00FE567B /* QyhOOOViewController.h */,
 				0FCC13CD1723C14E00FE567B /* QyhOOOViewController.m */,
 			);
-			name = "活动";
+			name = action;
 			sourceTree = "<group>";
 		};
-		0FE26933171E86810079D3CC /* 电影 */ = {
+		0FE26933171E86810079D3CC /* movie */ = {
 			isa = PBXGroup;
 			children = (
 				0FF9ECCE171FC2E900652A0A /* FirstaddlistViewController.h */,
@@ -817,7 +827,7 @@
 				0FE6E86B1729029E005F0B55 /* SecondMovieViewController.h */,
 				0FE6E86C1729029E005F0B55 /* SecondMovieViewController.m */,
 			);
-			name = "电影";
+			name = movie;
 			sourceTree = "<group>";
 		};
 		0FE6E66B1727BC49005F0B55 /* SDK */ = {
@@ -1439,7 +1449,20 @@
 			path = OAuth2;
 			sourceTree = "<group>";
 		};
-		0FF9ECC7171F94EF00652A0A /* 图书 */ = {
+		0FE993DC173747B5001E8F36 /* BOOK */ = {
+			isa = PBXGroup;
+			children = (
+				0FE993E0173748D3001E8F36 /* FirstBookViewController.h */,
+				0FE993E1173748D3001E8F36 /* FirstBookViewController.m */,
+				0FCD960C17375EFF00683F22 /* BookSecondViewController.h */,
+				0FCD960D17375EFF00683F22 /* BookSecondViewController.m */,
+				0FCD960F17377F9400683F22 /* BookWebViewController.h */,
+				0FCD961017377F9400683F22 /* BookWebViewController.m */,
+			);
+			name = BOOK;
+			sourceTree = "<group>";
+		};
+		0FF9ECC7171F94EF00652A0A /* book */ = {
 			isa = PBXGroup;
 			children = (
 				0FCC13CF1723D81C00FE567B /* SecondViewController.h */,
@@ -1449,7 +1472,7 @@
 				0FE6E8601727ECA1005F0B55 /* SecondBookViewController.h */,
 				0FE6E8611727ECA1005F0B55 /* SecondBookViewController.m */,
 			);
-			name = "图书";
+			name = book;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1707,6 +1730,9 @@
 				0FE6E86D1729029E005F0B55 /* SecondMovieViewController.m in Sources */,
 				0FC7CB1E172A008A0026733F /* MovieViewController.m in Sources */,
 				0FBC7269172A787200C08915 /* AboutViewController.m in Sources */,
+				0FE993E2173748D3001E8F36 /* FirstBookViewController.m in Sources */,
+				0FCD960E17375EFF00683F22 /* BookSecondViewController.m in Sources */,
+				0FCD961117377F9400683F22 /* BookWebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

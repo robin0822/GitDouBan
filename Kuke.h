@@ -13,5 +13,7 @@
 
 @property(nonatomic,retain)NSString *bookTitle;
 @property(nonatomic,retain)NSString *bookPhone;
+@property(nonatomic,retain)NSString *bookId;
+
 
 @end

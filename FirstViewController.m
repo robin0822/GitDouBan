@@ -126,42 +126,6 @@
     
     
     
-//    NSString *urlString = @"https://api.douban.com/v2/user/~me";
-//    NSString *appkey = @"Bearer 8dd3053775ee31fda9790fa661ca95f7";
-//    NSMutableURLRequest *request2 = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
-//    [request2 setValue:appkey forHTTPHeaderField:@"Authorization"];
-//    NSData *responseData2 = [NSURLConnection sendSynchronousRequest:request2 returningResponse:NULL error:NULL];
-//    
-//    
-//    NSString * xml2 = [[NSString alloc]initWithData:responseData2 encoding:NSUTF8StringEncoding];
-//    NSDictionary *_xmlDic2 = [xml2 JSONValue];
-//    NSLog(@"%@",_xmlDic2);
-    
-//       NSString *appkey = @"Bearer c27b84887ad3381547728d997079a83f";
-//    NSURL *url3 = [NSURL URLWithString:@"https://api.douban.com/v2/book/1442720/annotations"];
-//    NSMutableURLRequest *request3 = [[NSMutableURLRequest alloc]initWithURL:url3 cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
-//    [request3 setHTTPMethod:@"POST"];
-//     [request3 setValue:appkey forHTTPHeaderField:@"Authorization"];
-////    
-//    //NSString *resttitle = @"这本书写的我热血沸腾啊，感觉自己身在其中啊。";
-////    NSString *restdesc = @"开展各种体育活动健身";
-////    NSString *ssda = @" ";
-//   //resttitle = [resttitle stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-//   // NSLog(@"%@",resttitle);
-////restdesc = [restdesc stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-////    
-////    NSLog(@"%@",restdesc);
-//    NSString *str2 = @"content=%E8%BF%99%E6%9C%AC%E4%B9%A6%E5%86%99%E7%9A%84%E6%88%91%E7%83%AD%E8%A1%80%E6%B2%B8%E8%85%BE%E5%95%8A%EF%BC%8C%E6%84%9F%E8%A7%89%E8%87%AA%E5%B7%B1%E8%BA%AB%E5%9C%A8%E5%85%B6%E4%B8%AD%E5%95%8A%E3%80%82&page=110";
-//    NSData *data = [str2 dataUsingEncoding:NSUTF8StringEncoding];
-//    [request3 setHTTPBody:data];
-//    
-//    
-//    NSData *received = [NSURLConnection sendSynchronousRequest:request3 returningResponse:nil error:nil];
-//    
-//    NSString *str1 = [[NSString alloc]initWithData:received encoding:NSUTF8StringEncoding];
-//    //[str1 release];
-//    NSLog(@"1111%@",str1);
-  
     
 
     

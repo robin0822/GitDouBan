@@ -99,7 +99,7 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
     self.view.backgroundColor = [UIColor grayColor];
     self.students = [NSMutableArray array];
     
-       
+       //创建4个TableView
     
     
     tableV = [[UITableView alloc]initWithFrame:CGRectMake(0.0, 40.0, 320.0, 420)];
@@ -132,7 +132,7 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
     self.navigationItem.rightBarButtonItem = saveButton;
     [saveButton release];
 
-   
+   //创建试图分区；
     
     _segmentedControlArray = [NSArray arrayWithObjects:@"电影",@"图书",@"音乐",@"活动", nil];
     //创建分区视图
@@ -164,36 +164,6 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
     
     
     
-//    NSString *searchTxt = @"一个";
-//    
-//
-//    searchTxt = [searchTxt stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-//    
-//    NSURL *url4 = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.douban.com/v2/music/search?q=%@&apikey=0dea1ee3719c992829be5caa54d5cb78",searchTxt]];
-//    NSURLRequest *request5 = [[NSURLRequest alloc]initWithURL:url4 cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
-//    NSURLConnection *connection2 = [[[NSURLConnection alloc]initWithRequest:request5 delegate:self startImmediately:NO]autorelease];
-//    // 连接的名字是活动
-//    connection.name = @"music";
-//    // 开始异步请求
-//    [connection2 start];
-
-    
-
-    
-    
-//    UIImage *img = [UIImage imageNamed:@"douban.jpg"];
-//    
-//    
-//    UIImageView *imgView = [[UIImageView alloc]initWithFrame:CGRectMake(0.0, 0.0, 320, 480)];
-//    imgView.image= img;
-//    self.imgView = imgView;
-//    [self.view addSubview:imgView];
-//    //self.tabBarController.tabBar.hidden = YES;
-//    //self.navigationController.navigationBar.hidden = YES;
-//    
-//    [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(stopimage) userInfo:nil repeats:NO];
-//  
-    
    
    
 
@@ -206,31 +176,6 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
     
 }
 
-//-(void)showImage
-//{
-//    // 以动画效果显示第二张图片
-//    [UIView beginAnimations:@"image" context:NULL];
-//    
-//    [UIView setAnimationDuration:1.5];
-//    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-//    
-//    // 设置transition效果
-//    //[UIView setAnimationTransition:UIViewAnimationTransitionCurlDown forView:self.imageView1 cache:NO];
-//    //[UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.imageView1 cache:NO];
-//    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:tableV cache:NO];
-//    //[UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.imageView1 cache:NO];
-//    
-//    
-//    //[UIView setAnimationTransition:UIViewAnimationTransitionCurlDown forView:self.imageView1 cache:NO];
-//    
-//    // 显示第二张图片
-//    //self.imageView2.alpha = 1.0;
-//    self.imgView.hidden = YES;
-//    tableV.hidden = YES;
-//    
-//    
-//    [UIView commitAnimations];
-//}
 
 
 
@@ -242,19 +187,6 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
 }
 
 
-//-(void) mmccc
-//{
-//    NSString *searchTxt = @"一个";
-//    
-//    
-//    searchTxt = [searchTxt stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-//    
-//    NSURL *url4 = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.douban.com/v2/music/search?q=%@&apikey=0dea1ee3719c992829be5caa54d5cb78",searchTxt]];
-//    NSURLRequest *request5 = [[NSURLRequest alloc]initWithURL:url4 cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
-//    NSURLConnection *connection = [[[NSURLConnection alloc]initWithRequest:request5 delegate:self startImmediately:NO]autorelease];
-//   
-//    [connection start];
-//}
 
 -(void)eat
 {
@@ -270,72 +202,6 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
 }
 
 
-//-(void)didsegmentcontrol
-//{
-//    _segmentedControlArray = [NSArray arrayWithObjects:@"电影",@"图书",@"音乐",@"活动", nil];
-//    //创建分区视图
-//    UISegmentedControl * _segmentedControl = [[UISegmentedControl alloc]initWithItems:_segmentedControlArray];
-//    _segmentedControl.momentary  = NO;
-//    _segmentedControl.segmentedControlStyle = UISegmentedControlNoSegment;
-//    _segmentedControl.frame = CGRectMake(0, 0, 320, 40);
-//    _segmentedControl.tintColor = [UIColor grayColor];
-//   // [_segmentedControl addTarget:self action:@selector(_loadData:) forControlEvents:UIControlEventValueChanged];
-//    
-//    [self performSelectorOnMainThread:@selector(refasegmentcontrol:) withObject:_segmentControl waitUntilDone:NO];
-//    _segmentedControl.selectedSegmentIndex=0;
-//    self.segmentControl=_segmentedControl;
-//    [self.view addSubview:_segmentedControl];
-//}
-//-(void)refasegmentcontrol:(UISegmentedControl *) _segmentedControl
-//{
-//    [_segmentedControl addTarget:self action:@selector(_loadData:) forControlEvents:UIControlEventValueChanged];
-//}
-
-
-//-(void)loadAndRefreshForsegmentedcontrol:(UISegmentedControl *) _segmentedControl
-//{
-//  
-//        [_segmentedControl addTarget:self action:@selector(_loadData:) forControlEvents:UIControlEventValueChanged];
-//    [self performSelectorOnMainThread:@selector(refreshTableViewCellFor_segmentControl) withObject:_segmentControl waitUntilDone:NO];
-//    
-//    
-//}
-//-(void)refreshTableViewCellFor_segmentControl
-//{
-//    
-//    [self _loadData:_segmentControl];
-//    
-//    
-//}
-
-//-(void)segement
-//{
-//    _segmentedControlArray = [NSArray arrayWithObjects:@"电影",@"图书",@"音乐",@"活动", nil];
-//    //创建分区视图
-//    UISegmentedControl * _segmentedControl = [[UISegmentedControl alloc]initWithItems:_segmentedControlArray];
-//    _segmentedControl.momentary  = NO;
-//    _segmentedControl.segmentedControlStyle = UISegmentedControlNoSegment;
-//    _segmentedControl.frame = CGRectMake(0, 0, 320, 40);
-//    _segmentedControl.tintColor = [UIColor grayColor];
-//    [_segmentedControl addTarget:self action:@selector(_loadData:) forControlEvents:UIControlEventValueChanged];
-//    _segmentedControl.selectedSegmentIndex=0;
-//    self.segmentControl=_segmentedControl;
-//    [self.view addSubview:_segmentedControl];
-//}
-
-
-//-(void)loadmovie
-//{
-//    
-//    NSURL *url3 = [NSURL URLWithString:@"https://api.douban.com/v2/movie/top250?apikey=0dea1ee3719c992829be5caa54d5cb78"];
-//    NSURLRequest *request3 = [[NSURLRequest alloc]initWithURL:url3 cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
-//    CustomURLConnection *connection = [[[CustomURLConnection alloc]initWithRequest:request3 delegate:self startImmediately:NO]autorelease];
-//    // 连接的名字是活动
-//    connection.name = @"movie";
-//    // 开始异步请求
-//    [connection start];
-//}
-//
 
 
 
@@ -415,17 +281,7 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
     
      NSLog(@"%@",searchTxt);
     
-//     searchTxt = [searchTxt stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-//   
-//    
-//    
-//    NSURL *url4 = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.douban.com/v2/music/search?q=%@",searchTxt]];
-//   NSURLRequest *request5 = [[NSURLRequest alloc]initWithURL:url4 cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
-//    CustomURLConnection *connection = [[[CustomURLConnection alloc]initWithRequest:request5 delegate:self startImmediately:NO]autorelease];
-//    // 连接的名字是活动
-//    connection.name = @"music";
-//    // 开始异步请求
-//    [connection start];
+
 
     searchTxt = [searchTxt stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
@@ -454,19 +310,6 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
    
     NSLog(@"%@",searchText);
     
-//    searchText = [searchText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-//    
-//    
-//    NSURL *url2 = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.douban.com/v2/book/search/?q=%@",searchText]];
-//    NSURLRequest *request2 = [[NSURLRequest alloc]initWithURL:url2 cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
-//    CustomURLConnection *connection = [[[CustomURLConnection alloc]initWithRequest:request2 delegate:self startImmediately:NO]autorelease];
-//    // 连接的名字是活动
-//    connection.name = @"book";
-//    
-//    
-//    // 开始异步请求
-//    [connection start];
-//    
     
     
     searchText = [searchText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -702,10 +545,6 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
 
 -(void)_loadData:(UISegmentedControl*)yy
 {
-//    [tableV removeFromSuperview];
-//    [tableV1 removeFromSuperview];
-//    [tableV2 removeFromSuperview];
-//    [tableV3 removeFromSuperview];
     
     NSInteger index = yy.selectedSegmentIndex ;
     if (index == 3) {
@@ -723,8 +562,7 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
     }
     if (index == 0) {
      
-        //self.navigationItem.title= @"电影";
-        //[self.headerview removeFromSuperview];
+      
         [tableV1 removeFromSuperview];
         [tableV2 removeFromSuperview];
         [tableV3 removeFromSuperview];
@@ -854,45 +692,6 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
     {
         Book *book = [self.books objectAtIndex:indexPath.row];
         
-        //2013 9 12
-//        NSMutableArray *studentArray = [NSMutableArray array];
-//        Student *student = [[Student alloc]init];
-//        student.bookName = book.bookTitle;
-//        [studentArray addObject:student];
-//        //gui dang
-//        NSData *studentData = [NSKeyedArchiver archivedDataWithRootObject:studentArray];
-//        NSString *filepath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject];
-//        [studentData writeToFile:[filepath stringByAppendingPathComponent:@"students.archive"] atomically:YES];
-        
-        
-//        //jie dang
-//       NSString *filepath2 = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject];
-//       NSData *studentData3 = [NSData dataWithContentsOfFile:[filepath2 stringByAppendingPathComponent:@"students.archive"]];
-//        NSMutableArray *studentsArray = [NSKeyedUnarchiver unarchiveObjectWithData:studentData3];
-//        
-//        Student *student = [studentsArray objectAtIndex:indexPath.row];
-//        cell.nameLabel.text = student.bookName;
-        
-        
-//        if(studentsArray)
-//        {
-//            
-//            for(Student *stuent in studentsArray)
-//            {
-//                cell.nameLabel.text = stuent.bookName;
-//                
-//            }
-//            
-//            
-//                
-//            
-//        }
-//       else
-//       {
-//         self.students= [NSMutableArray array];
-//           
-//       }
-//        
         
         
         
@@ -945,16 +744,7 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
     first.movieName = movie.movieName;
     first.movieimage = movie.thumbnail;
         first.movieString = movie.thumbnailURLString;
-        //first.hidesBottomBarWhenPushed = YES;
-        
-//        CATransition *transition = [CATransition animation];
-//        transition.duration = 1;
-//        transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-//        transition.type = @"cube";
-//        transition.subtype = kCATransitionFromRight;
-//        transition.delegate = self;
-//        [self.navigationController.view.layer addAnimation:transition forKey:nil];
-        //first.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+
         
     first.kamovie = [self.movies objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:first animated:YES];

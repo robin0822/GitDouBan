@@ -11,6 +11,7 @@
 #import "SouCangViewController.h" 
 #import "GuanYuViewController.h"
 #import "TuiJianViewController.h"
+#import "FirstBookViewController.h"
 
 @implementation QyhAppDelegate
 
@@ -41,6 +42,18 @@
     [tuijian release];
     
     
+  
+    
+    FirstBookViewController *firstbook = [[FirstBookViewController alloc]init];
+    
+    UINavigationController  *navigation = [[UINavigationController alloc]initWithRootViewController:firstbook];
+    navigation.navigationBar.tintColor = [UIColor grayColor];
+    navigation.tabBarItem.title = @"图书";
+    navigation.tabBarItem.image = [UIImage imageNamed:@"123.png"];
+    [firstbook release];
+       
+    
+    
     GuanYuViewController *guanyu = [[GuanYuViewController alloc]init];
     UINavigationController *navigation3 = [[UINavigationController alloc]initWithRootViewController:guanyu];
     
@@ -50,12 +63,12 @@
     [guanyu release];
     
     UITabBarController *tab = [[UITabBarController alloc] init];
-    tab.viewControllers = [NSArray arrayWithObjects:navigation1, navigation2, navigation3, nil];
+    tab.viewControllers = [NSArray arrayWithObjects:navigation1,navigation, navigation2, navigation3, nil];
     
     self.window.rootViewController = tab;
     [NSThread sleepForTimeInterval:2.0];
     [tab release];
-    
+    [navigation release];
     [navigation1 release];
     [navigation2 release];
     [navigation3 release];
